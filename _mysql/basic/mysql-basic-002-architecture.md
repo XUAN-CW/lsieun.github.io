@@ -1,0 +1,14 @@
+---
+title: "MySQL 架构"
+sequence: "102"
+---
+
+
+
+{:refdef: style="text-align: center;"}
+![](/assets/images/db/mysql/architecture/mysql-architecture.png)
+{:refdef}
+
+## Reference
+
+- [Overview of MySQL Storage Engine Architecture](https://dev.mysql.com/doc/refman/8.0/en/pluggable-storage-overview.html)
