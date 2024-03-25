@@ -3,6 +3,9 @@ title: "花括号展开（brace expansion）"
 sequence: "105"
 ---
 
+[UP](/bash.html)
+
+
 当使用花括号展开（brace expansion）时，可以生成一系列相似的字符串或命令。
 
 以下是一些常见的花括号展开示例：

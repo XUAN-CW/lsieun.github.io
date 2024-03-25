@@ -3,6 +3,9 @@ title: "join"
 sequence: "104"
 ---
 
+[UP](/java-concurrency.html)
+
+
 ## Join a Thread Means Wait for Its Termination
 
 There are three versions of the thread join methods: `join()`, `join(long millis)`, `join(long millis, int nanos)`.

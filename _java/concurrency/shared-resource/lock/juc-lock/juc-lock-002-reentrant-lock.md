@@ -3,6 +3,9 @@ title: "ReentrantLock - 重入锁"
 sequence: "102"
 ---
 
+[UP](/java-concurrency.html)
+
+
 ## 基本介绍
 
 重入锁，是指任意线程，在获取锁之后，再次获取该锁而不会被锁阻塞。
@@ -790,4 +793,3 @@ class Chopstick extends ReentrantLock {
     }
 }
 ```
-

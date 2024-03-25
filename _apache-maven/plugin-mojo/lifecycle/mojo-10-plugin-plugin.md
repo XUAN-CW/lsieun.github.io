@@ -3,6 +3,7 @@ title: "Maven Plugin Plugin"
 sequence: "110"
 ---
 
+[UP](/maven.html)
 
 
 ## 问题与解决
@@ -22,18 +23,18 @@ sequence: "110"
  Execution default-descriptor of goal org.apache.maven.plugins:maven-plugin-plugin:3.2:descriptor failed: 52264
  ...
 Caused by: java.lang.ArrayIndexOutOfBoundsException: 52264
-    at org.objectweb.asm.ClassReader.readClass (Unknown Source)    // 深层次的原因：可能是ASM当中的ClassReader导致的
+    at org.objectweb.asm.ClassReader.readClass (Unknown Source)    // 深层次的原因：可能是 ASM 当中的 ClassReader 导致的
 ```
 
-可能是Java 8 Lambdas导致的失败：
+可能是 Java 8 Lambdas 导致的失败：
 
 - [Cant write lambdas in maven plugin development](https://issues.apache.org/jira/browse/MPLUGIN-276)
 
-更进一步来说，可能是ASM当中的ClassReader导致的。
+更进一步来说，可能是 ASM 当中的 ClassReader 导致的。
 
 ### 解决办法
 
-在`pom.xml`文件中，使用新版本的`maven-plugin-plugin`插件：
+在 `pom.xml` 文件中，使用新版本的 `maven-plugin-plugin` 插件：
 
 ```xml
 <build>

@@ -3,6 +3,9 @@ title: "for"
 sequence: "104"
 ---
 
+[UP](/bash.html)
+
+
 ## 语法
 
 ### 常规
@@ -224,4 +227,3 @@ do
     fi
 done
 ```
-

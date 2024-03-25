@@ -3,6 +3,9 @@ title: "安装软件"
 sequence: "102"
 ---
 
+[UP](/bash.html)
+
+
 ## 版本一（成功）
 
 ```bash
@@ -13,10 +16,10 @@ HOST="192.168.80.132"
 USERNAME="devops"
 PASSWORD="123456"
 
-# 安装net-tools命令
+# 安装 net-tools 命令
 INSTALL_COMMAND="sudo -S yum -y install net-tools"
 
-# 使用ssh远程执行命令
+# 使用 ssh 远程执行命令
 ssh -T ${USERNAME}@${HOST} "${INSTALL_COMMAND}" <<EOF
 $(echo $PASSWORD)
 EOF
@@ -40,7 +43,7 @@ INSTALL_COMMAND="sudo -S yum -y install $@"
 for host in ${HOSTS[@]}
 do
     echo "=== ${host} ==="
-    # 使用ssh远程执行命令
+    # 使用 ssh 远程执行命令
     ssh -T ${USERNAME}@${host} "${INSTALL_COMMAND}" <<EOF
 $(echo $PASSWORD)
 EOF

@@ -3,6 +3,9 @@ title: "当前用户和所有用户"
 sequence: "101"
 ---
 
+[UP](/linux.html)
+
+
 ## 当前用户
 
 ```text

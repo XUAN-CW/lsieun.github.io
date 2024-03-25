@@ -3,7 +3,10 @@ title: "AbstractMojo"
 sequence: "101"
 ---
 
-在编写示例的时候，我们引入了`maven-plugin-api`依赖：
+[UP](/maven.html)
+
+
+在编写示例的时候，我们引入了 `maven-plugin-api` 依赖：
 
 ```xml
 <dependency>
@@ -67,10 +70,10 @@ package lsieun.mojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.logging.Log;
-import org.apache.maven.plugins.annotations.Mojo; // 第一个Mojo类
+import org.apache.maven.plugins.annotations.Mojo; // 第一个 Mojo 类
 
 @Mojo(name = "simple")
-public class SimpleMojo implements org.apache.maven.plugin.Mojo /* 第二个Mojo类 */ {
+public class SimpleMojo implements org.apache.maven.plugin.Mojo /* 第二个 Mojo 类 */ {
     private Log log;
 
     @Override

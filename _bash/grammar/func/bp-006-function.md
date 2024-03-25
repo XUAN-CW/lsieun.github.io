@@ -3,6 +3,9 @@ title: "Function"
 sequence: "106"
 ---
 
+[UP](/bash.html)
+
+
 ## shell 函数语法
 
 简单的语法：

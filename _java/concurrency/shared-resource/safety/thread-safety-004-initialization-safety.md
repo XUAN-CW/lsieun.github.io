@@ -3,13 +3,16 @@ title: "Initialization Safety: this 逃逸"
 sequence: "104"
 ---
 
-## 什么是this逃逸？
+[UP](/java-concurrency.html)
 
-所谓this逃逸就是说，在类的构造方法还没执行完之前，其他线程就获得了this的引用并且去干一些事情，
-但是这时的对象是不完善的，可能某些字段在this逃逸后才初始化，但是其它线程已经使用这些字段了。
-多线程是发生this逃逸的条件，并且这种错误一旦发生就很危险，因为外界线程会访问到不完善的对象。
 
-避免this逃逸的最好方法就是不要再构造方法中传递出this或者对象的属性。
+## 什么是 this 逃逸？
+
+所谓 this 逃逸就是说，在类的构造方法还没执行完之前，其他线程就获得了 this 的引用并且去干一些事情，
+但是这时的对象是不完善的，可能某些字段在 this 逃逸后才初始化，但是其它线程已经使用这些字段了。
+多线程是发生 this 逃逸的条件，并且这种错误一旦发生就很危险，因为外界线程会访问到不完善的对象。
+
+避免 this 逃逸的最好方法就是不要再构造方法中传递出 this 或者对象的属性。
 
 
 ## Publication and Escape
@@ -133,7 +136,7 @@ public class ThisEscape {
     public class TestDemo implements Runnable {
         @Override
         public void run() {
-            /** * 这里是可以通过ThisEscape.this调用外围类对象的，但是测试外围累对象可能还没有构造完成， * 所以会发生this逃逸现象 */
+            /** * 这里是可以通过 ThisEscape.this 调用外围类对象的，但是测试外围累对象可能还没有构造完成， * 所以会发生 this 逃逸现象 */
             System.out.println("value = " + ThisEscape.this.value);
         }
     }
@@ -152,7 +155,7 @@ public class FixThisEscape {
     private Thread thd;
 
     public FixThisEscape() {
-        /** * 构造函数中可以创建Thread对象，但是不要启动，另外使用start方法启动线程 */
+        /** * 构造函数中可以创建 Thread 对象，但是不要启动，另外使用 start 方法启动线程 */
         thd = new Thread(new TestDemo());
         this.value = "this escape";
     }
@@ -175,20 +178,20 @@ public class FixThisEscape {
 }
 ```
 
-### 实例一：t2打印出来的a为null
+### 实例一：t2 打印出来的 a 为 null
 
 ```java
 /**
- * 解决this逃逸的最好方法就是不要在构造方法中将this传递出去
+ * 解决 this 逃逸的最好方法就是不要在构造方法中将 this 传递出去
  */
 public class ThisEscapeOne {
     final String a;
     static ThisEscapeOne t;
 
-    //这里将语句1写在最后也无效，因为可能会发生重排序，仍会发生逃逸
+    //这里将语句 1 写在最后也无效，因为可能会发生重排序，仍会发生逃逸
     public ThisEscapeOne() {
         t = this;       //1
-        //这里延时200ms，模拟构造方法其他字段的初始化
+        //这里延时 200ms，模拟构造方法其他字段的初始化
         try {
             Thread.sleep(200);
         } catch (InterruptedException e) {
@@ -198,19 +201,19 @@ public class ThisEscapeOne {
     }
 
     public static void main(String[] args) {
-        //t1进行构造对象
+        //t1 进行构造对象
         Thread t1 = new Thread(() -> {
             new ThisEscapeOne();
         });
 
-        //t2观测常量的值
+        //t2 观测常量的值
         Thread t2 = new Thread(() -> {
             System.out.println(ThisEscapeOne.t.a);
         });
 
         t1.start();
 
-        //尽量保证t1先启动
+        //尽量保证 t1 先启动
         try {
             Thread.sleep(10);
         } catch (InterruptedException e) {
@@ -224,14 +227,14 @@ public class ThisEscapeOne {
 
 ```java
 /**
- * 对于相互包含的类，通过构造函数将自己set时可能会发生this逃逸
+ * 对于相互包含的类，通过构造函数将自己 set 时可能会发生 this 逃逸
  */
 public class ThisEscapeTwo {
     protected final String id;
 
     public ThisEscapeTwo(DataSource source) {
         source.setThisEscapeTwo(this);
-        //延时100ms，可能是初始化其它字段，也可能是其他耗时的操作
+        //延时 100ms，可能是初始化其它字段，也可能是其他耗时的操作
         try {
             Thread.sleep(100);
         } catch (InterruptedException e) {

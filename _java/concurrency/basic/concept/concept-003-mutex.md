@@ -3,6 +3,9 @@ title: "mutual exclusion (mutex)"
 sequence: "103"
 ---
 
+[UP](/java-concurrency.html)
+
+
 ## What is a mutual exclusion (mutex)?
 
 In computer programming, a **mutual exclusion** (**mutex**) is a program object
@@ -23,4 +26,3 @@ such as data being read or written incorrectly or the program misbehaving or cra
 ## Reference
 
 - [Mutex vs Semaphore](https://www.geeksforgeeks.org/mutex-vs-semaphore/)
-

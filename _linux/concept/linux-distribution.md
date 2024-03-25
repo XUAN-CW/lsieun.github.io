@@ -3,6 +3,9 @@ title: "Linux Distributions"
 sequence: "linux-distribution"
 ---
 
+[UP](/linux.html)
+
+
 ## Intro
 
 The **GNU/Linux Operating System** is built on the **Linux kernel**.
@@ -12,8 +15,8 @@ This is not a trivial task and can require some sophisticcated computing skills.
 
 这段理解：
 
-- （1） 安装GNU/Linux需要两个过程：第一，安装Linux kernel；第二，安装其他软件
-- （2） 这个过程很复杂  --> Linux Distribution来简化
+- （1） 安装 GNU/Linux 需要两个过程：第一，安装 Linux kernel；第二，安装其他软件
+- （2） 这个过程很复杂  --> Linux Distribution 来简化
 
 However, we benefit greatly from the tremendous contributions many people have made
 to ensure installing `GNU/Linux` is accessible to everyone.
@@ -27,7 +30,7 @@ Other packages are then installed as you need them.
 
 总结：
 
-- （1） Distributions方便了安装GNU/Linux的过程。
+- （1） Distributions 方便了安装 GNU/Linux 的过程。
 - （2） Linux Distribution = Linux Kernel + 应用软件
 
 Up front, our recommendation is to install the `Ubuntu` distribution,

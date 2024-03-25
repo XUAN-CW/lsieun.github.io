@@ -3,6 +3,9 @@ title: "Mojo: Examples"
 sequence: "107"
 ---
 
+[UP](/maven.html)
+
+
 ## pom.xml
 
 ### packaging
@@ -54,7 +57,7 @@ sequence: "107"
 </dependencies>
 ```
 
-### 完整pom.xml
+### 完整 pom.xml
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -160,7 +163,7 @@ public class FileZipMojo extends AbstractMojo {
         }
 
 
-        // 第三步，生成ZIP文件
+        // 第三步，生成 ZIP 文件
         String targetFileName = zipName != null ?
                 zipName + FILE_EXTENSION :
                 project.getName() + "-" + project.getVersion() + FILE_EXTENSION;
@@ -236,7 +239,7 @@ public class FileZipMojo extends AbstractMojo {
 
 ### 测试
 
-#### 执行插件Goal 
+#### 执行插件 Goal 
 
 ```xml
 <build>

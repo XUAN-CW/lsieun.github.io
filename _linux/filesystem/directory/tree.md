@@ -3,6 +3,9 @@ title: "tree"
 sequence: "tree"
 ---
 
+[UP](/linux.html)
+
+
 ## 安装
 
 Ubuntu or Debian:

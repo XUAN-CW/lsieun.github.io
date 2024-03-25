@@ -3,6 +3,9 @@ title: "Monitor（锁）"
 sequence: "104"
 ---
 
+[UP](/java-concurrency.html)
+
+
 ## What Is a Monitor?
 
 A monitor is a synchronization mechanism that allows threads to have:

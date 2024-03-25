@@ -3,6 +3,9 @@ title: "Resource Filtering"
 sequence: "102"
 ---
 
+[UP](/maven.html)
+
+
 Resource filtering 是将 resource 中的 maven properties 替换成真实的值。
 
 **Resource filtering** is disabled by default and

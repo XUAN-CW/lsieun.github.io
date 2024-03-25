@@ -3,6 +3,9 @@ title: "Script Examples"
 sequence: "110"
 ---
 
+[UP](/bash.html)
+
+
 File: `printf_in_action.sh`
 
 ```bash
@@ -48,4 +51,3 @@ echo "var2 = $var2      var3 = $var3"
 
 exit 0
 ```
-

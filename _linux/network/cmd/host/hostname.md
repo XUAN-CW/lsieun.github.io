@@ -3,6 +3,9 @@ title: "hostname"
 sequence: "101"
 ---
 
+[UP](/linux.html)
+
+
 A computer hostname represents a unique name
 that gets assigned to a computer in a network in order to uniquely identify that computer in that specific network.
 
@@ -12,7 +15,7 @@ A computer hostname can be set to any name you like, but you should keep in mind
 
 - hostnames can contain **letters** (from `a` to `z`).
 - hostnames can contain **digits** (from `0` to `9`).
-- hostnames can contain only the **hyphen character** (`–`) as a special character.
+- hostnames can contain only the **hyphen character** (` – `) as a special character.
 - hostnames can contain the **dot special character** (`.`).
 - hostnames can contain a combination of all three rules but must start and end with a letter or a number.
 - hostnames letters are case-insensitive.

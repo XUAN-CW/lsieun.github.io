@@ -3,6 +3,9 @@ title: "Dining Philosophers"
 sequence: "101"
 ---
 
+[UP](/java-concurrency.html)
+
+
 ## 问题描述
 
 {:refdef: style="text-align: center;"}
@@ -42,8 +45,8 @@ while(true) {
 As the above pseudo code describes, each philosopher is initially thinking.
 **After a certain amount of time, the philosopher gets hungry and wishes to eat.**
 
-At this point, **he reaches for the forks on his either side and once he’s got both of them, proceeds to eat.**
-Once the eating is done, the philosopher then puts the forks down, so that they’re available for his neighbor.
+At this point, **he reaches for the forks on his either side and once he ’ s got both of them, proceeds to eat.**
+Once the eating is done, the philosopher then puts the forks down, so that they ’ re available for his neighbor.
 
 ## synchronized
 

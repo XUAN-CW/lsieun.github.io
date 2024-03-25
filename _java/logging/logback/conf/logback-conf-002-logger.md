@@ -3,6 +3,9 @@ title: "配置 Logger"
 sequence: "102"
 ---
 
+[UP](/java-logging.html)
+
+
 ## Modifying Loggers
 
 We can set the level for any logger:
@@ -24,5 +27,3 @@ We can set the level for any logger:
     </root>
 </configuration>
 ```
-
-

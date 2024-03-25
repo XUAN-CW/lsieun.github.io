@@ -3,6 +3,9 @@ title: "调试信息"
 sequence: "101"
 ---
 
+[UP](/java-logging.html)
+
+
 Logback configuration files can get complicated, so there are several built-in mechanisms for troubleshooting.
 
 ## 第一种方式

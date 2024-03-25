@@ -3,6 +3,9 @@ title: "Best practices"
 sequence: "102"
 ---
 
+[UP](/maven.html)
+
+
 how to refactor POMs of multimodule projects
 in order to avoid errors and dependency conflicts.
 
@@ -165,5 +168,3 @@ For example, we can introduce the following element in a parent POM:
   </plugins>
   </pluginManagement>
 ```
-
-

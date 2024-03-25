@@ -3,6 +3,8 @@ title: "免密登录"
 sequence: "101"
 ---
 
+[UP](/linux.html)
+
 
 ## 配置 hosts
 

@@ -3,6 +3,9 @@ title: "CAS"
 sequence: "104"
 ---
 
+[UP](/java-concurrency.html)
+
+
 Compare and Swap
 
 ## CAS 原理
@@ -35,5 +38,3 @@ CAS 全称是 compare and swap(比较并且交换)，是一种用于在多线程
 
 - 如果需要对多个共享变量进行操作，可以使用加锁方式(悲观锁)保证原子性，
 - 可以把多个共享变量合并成一个共享变量进行 CAS 操作。
-
-

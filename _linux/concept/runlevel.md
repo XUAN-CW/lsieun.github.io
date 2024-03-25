@@ -3,6 +3,9 @@ title: "runlevel"
 sequence: "runlevel"
 ---
 
+[UP](/linux.html)
+
+
 Linux 是通过**运行级别**来确定系统启动时到底启动哪些服务的。
 
 Linux 默认有 7 个运行级别（runlevel），具体如下：
@@ -22,15 +25,15 @@ $ runlevel
 N 3
 ```
 
-使用init切换不同运行级别，只需使用 init 命令（注意这不是 init 进程）即可，命令如下：
+使用 init 切换不同运行级别，只需使用 init 命令（注意这不是 init 进程）即可，命令如下：
 
 ```text
 [root@localhost ~]# init 5
-#进入图形界面，当然要已经安装了图形界面才可以
+# 进入图形界面，当然要已经安装了图形界面才可以
 [root@localhost ~]# init 0
-#关机
+# 关机
 [root@localhost ~]# init 6
-#重新启动
+# 重新启动
 ```
 
 使用 `init` 命令关机和重启并不是太安全，容易造成数据丟失。所以推荐大家使用 `shutdown` 命令进行关机和重启。

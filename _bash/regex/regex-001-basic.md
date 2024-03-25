@@ -3,6 +3,9 @@ title: "Regular Expressions"
 sequence: "101"
 ---
 
+[UP](/bash.html)
+
+
 ## What Are Regular Expressions?
 
 Simply put, regular expressions are symbolic notations used to identify patterns in text.

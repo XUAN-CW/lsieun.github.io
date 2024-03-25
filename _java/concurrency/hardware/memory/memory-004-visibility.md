@@ -3,6 +3,9 @@ title: "可见性"
 sequence: "104"
 ---
 
+[UP](/java-concurrency.html)
+
+
 ## 退不出的循环
 
 ```java

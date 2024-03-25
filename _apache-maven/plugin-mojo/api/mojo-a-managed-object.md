@@ -1,7 +1,10 @@
 ---
-title: "Mojo与IOC容器"
+title: "Mojo 与 IOC 容器"
 sequence: "106"
 ---
+
+[UP](/maven.html)
+
 
 ## A Managed Object
 
@@ -14,7 +17,7 @@ mojo = a managed object.
 Specifically, it's managed by [dependency injection (DI) for Java (JSR 330)](https://jcp.org/en/jsr/detail?id=330)
 and its compatible modular container called [Eclipse Sisu](https://eclipse.org/sisu), which started life in March 2012.
 
-Eclipse Sisu是一个IOC容器，用来管理Maven 插件的Mojo。
+Eclipse Sisu 是一个 IOC 容器，用来管理 Maven 插件的 Mojo。
 
 ```text
 mojo <--- Eclipse Sisu
@@ -23,7 +26,7 @@ mojo <--- Eclipse Sisu
 To dig deeper, Sisu itself builds on the well-known lightweight implementation of JSR 330 called [Guice](https://github.com/google/guice),
 a DI container by [Bob Lee](https://twitter.com/crazybob), who was among the initial DI pioneers in Java.
 
-Eclipse Sisu建立在Google Guice的基础上。
+Eclipse Sisu 建立在 Google Guice 的基础上。
 
 ```text
 mojo <--- Eclipse Sisu <--- Google Guice
@@ -33,7 +36,7 @@ mojo <--- Eclipse Sisu <--- Google Guice
 making it a little bit more similar to context and dependency injection (CDI),
 where those things also happen **automatically**.
 
-从功能的角度来说，Eclipse Sisu与Google Guice有什么区别呢？
+从功能的角度来说，Eclipse Sisu 与 Google Guice 有什么区别呢？
 
 ```text
 Sisu = Guice + classpath scanning + autobinding + autowiring
@@ -43,7 +46,7 @@ Contrast Sisu's CDI (context and dependency injection) to plain Guice,
 where binding (that is, matching the preferred implementation for injection to an interface)
 must be done **programmatically**.
 
-从使用的角度来说，Eclipse Sisu与Google Guice有什么区别呢？
+从使用的角度来说，Eclipse Sisu 与 Google Guice 有什么区别呢？
 
 ```text
 Sicu = automatically

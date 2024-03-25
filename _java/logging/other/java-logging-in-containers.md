@@ -3,6 +3,9 @@ title: "Java Logging in Containers"
 sequence: "101"
 ---
 
+[UP](/java-logging.html)
+
+
 Think about the environment your application is going to be running in.
 There is a difference in logging configuration
 

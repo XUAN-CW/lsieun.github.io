@@ -3,6 +3,9 @@ title: "Working With Conditions"
 sequence: "105"
 ---
 
+[UP](/java-concurrency.html)
+
+
 The `Condition` class provides the ability for a thread to wait for some condition to occur
 while executing the critical section.
 

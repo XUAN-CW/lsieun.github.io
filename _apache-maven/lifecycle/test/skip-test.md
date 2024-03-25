@@ -3,6 +3,9 @@ title: "Skip Test"
 sequence: "101"
 ---
 
+[UP](/maven.html)
+
+
 ```text
 mvn clean install -DskipTests
 ```

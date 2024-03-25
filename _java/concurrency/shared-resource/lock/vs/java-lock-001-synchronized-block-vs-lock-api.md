@@ -3,6 +3,9 @@ title: "synchronized 代码块与 Lock API 对比"
 sequence: "101"
 ---
 
+[UP](/java-concurrency.html)
+
+
 ## Lock API 与 Synchronized Block 对比
 
 There are a few differences between the use of synchronized block and using Lock APIs:

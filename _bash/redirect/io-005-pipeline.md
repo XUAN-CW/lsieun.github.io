@@ -3,6 +3,9 @@ title: "Pipelines"
 sequence: "105"
 ---
 
+[UP](/bash.html)
+
+
 The capability of commands to read data from standard input and send to standard output is utilized by a shell feature called **pipelines**.
 
 Using the pipe operator `|`, the standard output of one command can be piped into the standard input of another.

@@ -3,6 +3,9 @@ title: "Maven Intro"
 sequence: "101"
 ---
 
+[UP](/maven.html)
+
+
 Maven is a build tool.
 
 Maven is a project management tool
@@ -20,4 +23,3 @@ that accepting conventions resulting from a set of past experiences leads to adv
 such as saving time, reuse, and maintenance simplification.
 Maven pursues this philosophy through the use of defaults,
 which means that unnecessary configurations should be avoided; a project should just work.
-

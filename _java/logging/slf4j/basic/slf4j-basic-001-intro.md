@@ -3,6 +3,9 @@ title: "SLF4J 介绍"
 sequence: "101"
 ---
 
+[UP](/java-logging.html)
+
+
 ## Java Logging
 
 ### 什么是 Logging？
@@ -90,4 +93,4 @@ It is no longer actively developed.
 ## Reference
 
 - [Simple Logging Facade for Java (SLF4J)](https://slf4j.org/)
-- [JAVA日志框架体系教程（一）](https://zhuanlan.zhihu.com/p/598799105)
+- [JAVA 日志框架体系教程（一）](https://zhuanlan.zhihu.com/p/598799105)

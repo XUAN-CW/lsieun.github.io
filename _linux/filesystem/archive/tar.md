@@ -3,16 +3,19 @@ title: "tar"
 sequence: "tar"
 ---
 
+[UP](/linux.html)
+
+
 According to Wikipedia, a **tarball** is a computer file format
 that can combine multiple files into a single file called "tarball", usually compressed.
 
-> 注：tar的目的，将一组文件聚合成一个文件
+> 注：tar 的目的，将一组文件聚合成一个文件
 
 In the past, tar files were created for storing data to tapes and the term **tar** stands for **tape archive**.
 Whilst it can still be used for this purpose,
 the concept of a tar file is simply a way to group lots of files together in one archive.
 
-> 注：在过去，名字的由来；重申一次tar的目的，将一组文件聚合成一个文件
+> 注：在过去，名字的由来；重申一次 tar 的目的，将一组文件聚合成一个文件
 
 ## 1. Quick Start
 
@@ -95,4 +98,3 @@ You can, however, decompress the gzip file and extract the files from the tar fi
 ```bash
 tar -xvzf images.tar.gz
 ```
-

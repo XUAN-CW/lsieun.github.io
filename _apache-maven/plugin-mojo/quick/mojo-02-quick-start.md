@@ -3,11 +3,14 @@ title: "Mojo: Quick Start"
 sequence: "102"
 ---
 
+[UP](/maven.html)
+
+
 ## pom.xml
 
 ### packaging
 
-注意：`packaging`设置为`maven-plugin`
+注意：`packaging` 设置为 `maven-plugin`
 
 ```text
 <groupId>lsieun</groupId>
@@ -71,7 +74,7 @@ I use two dependencies here:
   (and several related types such as exceptions, an abstract implementation, and the `Log` type),
   as well as **Sisu**, which in turn brings in the **JSR 330** (and **JSR 250**) annotations.
 
-### 完整的pom.xml
+### 完整的 pom.xml
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -193,18 +196,18 @@ mvn clean compile
 
 ## 总结
 
-本文的主要目的是演示一下如何编写一个简单的Maven Plugin，让我们有一个直观的印象，并不需要记忆一些细节内容。
+本文的主要目的是演示一下如何编写一个简单的 Maven Plugin，让我们有一个直观的印象，并不需要记忆一些细节内容。
 大家只要根据我们的步骤，能够进行操作就足够了，后续我们会详细介绍。
 
 本文内容总结如下：
 
-- 第一点，在开发Maven插件时，要注意`packaging`的值为`maven-plugin`。
+- 第一点，在开发 Maven 插件时，要注意 `packaging` 的值为 `maven-plugin`。
 
 ```xml
 <packaging>maven-plugin</packaging>
 ```
 
-- 第二点，项目依赖。其中，`AbstractMojo`来自于`maven-plugin-api`类库，而`@Mojo`来自于`maven-plugin-annotations`类库。
+- 第二点，项目依赖。其中，`AbstractMojo` 来自于 `maven-plugin-api` 类库，而 `@Mojo` 来自于 `maven-plugin-annotations` 类库。
 
 ```java
 @Mojo(name = "sayhi")
@@ -213,7 +216,7 @@ public class GreetingMojo extends AbstractMojo {
 }
 ```
 
-- 第三点，编写代码。我们编写的Mojo类，要继承自`AbstractMojo`类，重点是实现其`execute()`方法。
+- 第三点，编写代码。我们编写的 Mojo 类，要继承自 `AbstractMojo` 类，重点是实现其 `execute()` 方法。
 
 ```java
 @Mojo(name = "sayhi")

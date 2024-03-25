@@ -3,6 +3,9 @@ title: "查看进程的方法"
 sequence: "104"
 ---
 
+[UP](/java-concurrency.html)
+
+
 ## Windows
 
 ### GUI
@@ -26,17 +29,17 @@ netstat -ano
 netstat -ano | findstr "端口号"
 ```
 
-根据进程PID查询进程名称：
+根据进程 PID 查询进程名称：
 
 ```text
-tasklist | findstr "进程PID号"
+tasklist | findstr "进程 PID 号"
 ```
 
-根据PID结束进程：
+根据 PID 结束进程：
 
 ```text
-taskkill /F /PID "进程PID号"
-taskkill -f -pid "进程PID号"
+taskkill /F /PID "进程 PID 号"
+taskkill -f -pid "进程 PID 号"
 ```
 
 根据进程名称结束进程：
@@ -73,7 +76,7 @@ nohub java -jar springboot.jar > server.log 2>&1 &
 ps -ef | grep "java -jar"
 ```
 
-根据PID结束进程：
+根据 PID 结束进程：
 
 ```text
 kill -9 <pid>
@@ -151,5 +154,3 @@ HelloWorld
 复制 jmxremote.password 文件
 修改 jmxremote.password 和 jmxremote.access 文件的权限为 600 即文件所有者可读写
 连接时填入 controlRole （用户名）， R&D （密码）
-
-

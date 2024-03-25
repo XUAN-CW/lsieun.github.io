@@ -3,13 +3,16 @@ title: "Distro"
 sequence: "102"
 ---
 
-查看Linux是Redhat 还是centos，及版本信息。命令如下：
+[UP](/linux.html)
+
+
+查看 Linux 是 Redhat 还是 centos，及版本信息。命令如下：
 
 ```text
 more /etc/issue
 ```
 
-## 查看Linux内核版本命令
+## 查看 Linux 内核版本命令
 
 第一方法：
 
@@ -26,7 +29,7 @@ Linux version 3.10.0-1160.el7.x86_64 (mockbuild@kbuilder.bsys.centos.org)
 Linux 13fa91a6d858 3.10.0-1160.el7.x86_64 #1 SMP Mon Oct 19 16:18:59 UTC 2020 x86_64 GNU/Linux
 ```
 
-## 查看Linux系统版本的命令
+## 查看 Linux 系统版本的命令
 
 第一种方式：
 
@@ -34,7 +37,7 @@ Linux 13fa91a6d858 3.10.0-1160.el7.x86_64 #1 SMP Mon Oct 19 16:18:59 UTC 2020 x8
 lsb_release -a
 ```
 
-第二种方式：这种方法只适合Redhat系的Linux
+第二种方式：这种方法只适合 Redhat 系的 Linux
 
 CentOS:
 

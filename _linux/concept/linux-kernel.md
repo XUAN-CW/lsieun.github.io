@@ -3,15 +3,18 @@ title: "Linux Kernel"
 sequence: "linux-kernel"
 ---
 
+[UP](/linux.html)
+
+
 Unix was popular because, originally, the source code was widely available.
 For various reasons the Unix license began to forbid the Universities from using the source code in their teaching.
 This lead Andy Tannenbaum to write MINIX which then inspired Linus Torvalds to write the Linux kernel for his Intel 386.
 
 这段理解三个意思：
 
-- （1） Unix。刚开始的时候，Unix由于源代码开放，很受欢迎；后来，由于一些原因，Unix license禁止大学使用其source code。
-- （2） MINIX。由于不能继续使用Unix的source code，大学教授Andy Tannenbaum出于教学目的，编写了MINIX。
-- （3） Linux。是Linus Torvalds是受到MINIX启发后写的。
+- （1） Unix。刚开始的时候，Unix 由于源代码开放，很受欢迎；后来，由于一些原因，Unix license 禁止大学使用其 source code。
+- （2） MINIX。由于不能继续使用 Unix 的 source code，大学教授 Andy Tannenbaum 出于教学目的，编写了 MINIX。
+- （3） Linux。是 Linus Torvalds 是受到 MINIX 启发后写的。
 
 ## Kernel and Beyond
 
@@ -32,8 +35,8 @@ and (3)managing the use of memory,
 
 接着上一段：
 
-- （3）Linux是operating system的核心(kernel)。换句话说，operating system是个更大的概念，Linux是个较小的概念。
-- （4）更进一步的说，Linux就是协调hardware(CPU/memory)来为application进行服务。
+- （3）Linux 是 operating system 的核心(kernel)。换句话说，operating system 是个更大的概念，Linux 是个较小的概念。
+- （4）更进一步的说，Linux 就是协调 hardware(CPU/memory)来为 application 进行服务。
 
 While the **kernel** is crucial,
 it is **the larger suite of software** that sits on top of the **kernel**
@@ -49,9 +52,9 @@ using the **GNU software** with the **HURD kernel** being developed by the GNU P
 这段要理解的四个意思：
 
 - （1） Linux kernel + other software = operating system
-- （2） "other software"主要是来自于GNU Project，其实也就是GNU software。
-- （3） 为了表示对GNU的认可，operating systems可以写成`GNU/Linux`。换句话说，`GNU/Linux` = Linux Kernel + GNU software
-- （4）为了更进一步的理解`GNU/Linux`，又提出了另一个操作系统`GNU/HURD`
+- （2） "other software"主要是来自于 GNU Project，其实也就是 GNU software。
+- （3） 为了表示对 GNU 的认可，operating systems 可以写成 `GNU/Linux`。换句话说，`GNU/Linux` = Linux Kernel + GNU software
+- （4）为了更进一步的理解 `GNU/Linux`，又提出了另一个操作系统 `GNU/HURD`
 
 Sitting on top of this command-line level of the operating system is
 what we might refer to as the end user level of the operating system.
@@ -62,8 +65,8 @@ For `GNU/Linux` this is the **X Window System**.
 
 这段要理解两点：
 
-- （1） 无论是command-line，还是GUI，都是属于operating system的概念范围之内。只不过GUI更容易被non-technical user所接受。
-- （2） 对于`GNU/Linux`来说，它的GUI就是X Window System。
+- （1） 无论是 command-line，还是 GUI，都是属于 operating system 的概念范围之内。只不过 GUI 更容易被 non-technical user 所接受。
+- （2） 对于 `GNU/Linux` 来说，它的 GUI 就是 X Window System。
 
 ```txt
 the end user level of the operating system(GUI) 普通用户
@@ -80,7 +83,6 @@ I will try to include information about it whenever I can.
 
 这段要理解三个意思：
 
-- （1） Window System是一个platform，在这个platform之上可以运行各种GUI-based applications
-- （2） Gnome，是一种platform
-- （3） KDE，是一种platform
-
+- （1） Window System 是一个 platform，在这个 platform 之上可以运行各种 GUI-based applications
+- （2） Gnome，是一种 platform
+- （3） KDE，是一种 platform

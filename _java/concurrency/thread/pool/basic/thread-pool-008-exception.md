@@ -3,6 +3,9 @@ title: "正确处理线程池的异常"
 sequence: "108"
 ---
 
+[UP](/java-concurrency.html)
+
+
 正确处理线程池的异常，有两种方式：
 
 - 第一种，在任务当中，使用 `try...catch` 来处理异常

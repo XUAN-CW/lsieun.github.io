@@ -3,6 +3,9 @@ title: "局部变量"
 sequence: "102"
 ---
 
+[UP](/bash.html)
+
+
 ## 普通字符串变量定义
 
 ```bash

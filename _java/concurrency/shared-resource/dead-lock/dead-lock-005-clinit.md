@@ -3,6 +3,9 @@ title: "Dead Lock: clinit"
 sequence: "105"
 ---
 
+[UP](/java-concurrency.html)
+
+
 ```java
 package sample;
 

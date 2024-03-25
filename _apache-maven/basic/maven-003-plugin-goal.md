@@ -3,6 +3,9 @@ title: "Maven Goals"
 sequence: "103"
 ---
 
+[UP](/maven.html)
+
+
 A **goal** is a **task** contained in a **Maven plugin**.
 It can be invoked by directly running the following command:
 

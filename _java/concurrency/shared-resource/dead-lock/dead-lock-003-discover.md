@@ -3,6 +3,9 @@ title: "如何发现死锁"
 sequence: "103"
 ---
 
+[UP](/java-concurrency.html)
+
+
 ## 查看线程 ID
 
 ```text

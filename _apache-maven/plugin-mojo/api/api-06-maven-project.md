@@ -3,6 +3,9 @@ title: "Mojo: Maven Project"
 sequence: "106"
 ---
 
+[UP](/maven.html)
+
+
 ## pom.xml
 
 ### packaging
@@ -54,7 +57,7 @@ sequence: "106"
 </dependencies>
 ```
 
-### 完整pom.xml
+### 完整 pom.xml
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -108,7 +111,7 @@ sequence: "106"
 
 ## MavenProject
 
-在`maven-core-3.8.5.jar`中有一个`org.apache.maven.project.MavenProject`类
+在 `maven-core-3.8.5.jar` 中有一个 `org.apache.maven.project.MavenProject` 类
 
 ```java
 package lsieun.mojo;
@@ -211,7 +214,7 @@ public class ProjectMojo extends AbstractMojo {
 
 ## Settings
 
-在`maven-settings-3.8.5.jar`中有一个`org.apache.maven.settings.Settings`类
+在 `maven-settings-3.8.5.jar` 中有一个 `org.apache.maven.settings.Settings` 类
 
 ```java
 package lsieun.mojo;

@@ -3,6 +3,9 @@ title: "配置 Appender"
 sequence: "103"
 ---
 
+[UP](/java-logging.html)
+
+
 Loggers pass `LoggingEvent`s to `Appender`s.
 `Appender`s do the actual work of logging.
 We usually think of logging as something that goes to a file or the console,

@@ -3,6 +3,9 @@ title: "Maven Properties"
 sequence: "101"
 ---
 
+[UP](/maven.html)
+
+
 ## 分类
 
 There are **six types of properties** that you can use within a Maven application POM file:
@@ -134,4 +137,3 @@ we can define our arbitrary **user-defined properties** in the `<properties>` el
     </dependencies>
 </project>
 ```
-

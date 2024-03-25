@@ -3,6 +3,9 @@ title: "Maven JVM: Configuring the heap size"
 sequence: "104"
 ---
 
+[UP](/maven.html)
+
+
 Once you have Maven installed in your system, the very next step is to fine-tune it for an optimal performance.
 By default, the maximum heap allocation is 512 MB, which starts from 256 MB (`-Xms256m` to `-Xmx512m`).
 This default limit is not good enough to build a large, complex Java project,
@@ -41,7 +44,3 @@ The `-Xmx` JVM flag sets the maximum heap size.
 PermGen is an area of memory managed by JVM,
 which stores the internal representations of Java classes.
 The maximum size of PermGen can be set by the `-XX:MaxPermSize` JVM flag.
-
-
-
-

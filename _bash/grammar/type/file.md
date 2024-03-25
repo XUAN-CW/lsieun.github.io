@@ -3,6 +3,9 @@ title: "File"
 sequence: "102"
 ---
 
+[UP](/bash.html)
+
+
 ## filename and dirname
 
 ### just file name

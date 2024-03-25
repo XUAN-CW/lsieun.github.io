@@ -3,6 +3,9 @@ title: "Plugin Descriptor"
 sequence: "106"
 ---
 
+[UP](/maven.html)
+
+
 ## What is a Plugin?
 
 A Maven Plugin is a Maven artifact which contains a **plugin descriptor** and one or more **Mojos**.
@@ -23,7 +26,7 @@ plugin descriptor = META-INF/maven/plugin.xml
 When Maven loads a plugin, it reads this XML file,
 instantiates and configures plugin objects to make the Mojos contained in a plugin available to Maven.
 
-> 当加载plugin的时候，会读取META-INF/maven/plugin.xml文件
+> 当加载 plugin 的时候，会读取 META-INF/maven/plugin.xml 文件
 
 When you are writing custom Maven plugins,
 you will almost never need to think about writing a **plugin descriptor**.
@@ -31,7 +34,7 @@ The lifecycle goals bound to the `maven-plugin` packaging type show that
 the `plugin:descriptor` goal is bound to the `process-classes` phase.
 This goal generates a plugin descriptor off of the annotations present in a plugin's source code.
 
-> 当编写plugin的时候，不需要手动编写plugin.xml，而是由plugin:descriptor来生成
+> 当编写 plugin 的时候，不需要手动编写 plugin.xml，而是由 plugin:descriptor 来生成
 
 ```xml
 <!--

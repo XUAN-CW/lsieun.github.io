@@ -3,6 +3,9 @@ title: "Logback Intro"
 sequence: "101"
 ---
 
+[UP](/java-logging.html)
+
+
 The Logback project is organized in main 3 modules:
 
 - `logback-core` – contains the basic logging functionality

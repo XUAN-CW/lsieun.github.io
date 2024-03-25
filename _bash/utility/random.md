@@ -3,6 +3,9 @@ title: "随机数"
 sequence: "102"
 ---
 
+[UP](/bash.html)
+
+
 方法 1：通过系统环境变量（`$RANDOM`）
 
 ```bash

@@ -11,8 +11,8 @@ ChannelHandler 用来处理 Channel 上的各种事件，分为入站、出站�
 - 入站处理器通常是 ChannelInboundHandlerAdapter 的子类，主要用来读取客户端数据，写回结果
 - 出站处理器通常是 ChannelOutboundHandlerAdapter 的子类，主要对写回结果进行加工
 
-打个比喻，每个 Channel 是一个产品的加工车间，Pipeline 是车间中的流水线，ChannelHandler 就是流水线上的各道工序，
-而后面要讲的 ByteBuf 是原材料，经过很多工序的加工：先经过一道道入站工序，再经过一道道出站工序最终变成产品
+打个比喻，每个 `Channel` 是一个产品的加工车间，`Pipeline` 是车间中的流水线，`ChannelHandler` 就是流水线上的各道工序，
+而后面要讲的 `ByteBuf` 是原材料，经过很多工序的加工：先经过一道道入站工序，再经过一道道出站工序最终变成产品
 
 ## 代码
 

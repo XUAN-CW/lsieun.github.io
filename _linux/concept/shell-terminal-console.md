@@ -3,6 +3,9 @@ title: "Shell Vs Terminal Vs Console"
 sequence: "shell-terminal-console"
 ---
 
+[UP](/linux.html)
+
+
 URL:
 
 - https://code.tutsplus.com/tutorials/the-command-line-is-your-best-friend--net-30362
@@ -42,8 +45,8 @@ and a user can combine **multiple commands** into **a single script**.
 Modern shells have a scripting language of their own, providing the ability to perform complex decisions.
 
 > 这段理解两个意思：  
-> （1）script是command的集合；  
-> （2）command和script都是shell处理的对象。
+> （1）script 是 command 的集合；  
+> （2）command 和 script 都是 shell 处理的对象。
 
 Most modern Linux distributions, as well as Mac OSX, use a shell, called `BASH`.
 Solaris and OpenIndiana use `KornShell` by default, which is another variant of `BASH`.

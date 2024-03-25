@@ -3,6 +3,9 @@ title: "stat"
 sequence: "stat"
 ---
 
+[UP](/linux.html)
+
+
 `stat` is a command-line utility that displays detailed information about given files or file systems.
 
 ## Using the stat Command

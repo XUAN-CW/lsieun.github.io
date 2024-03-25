@@ -3,6 +3,9 @@ title: "Java 对象头"
 sequence: "103"
 ---
 
+[UP](/java-concurrency.html)
+
+
 ## Java 对象头
 
 源码地址：[jdk8/hotspot/file/vm/oops/markOop.hpp][markOop]
@@ -20,8 +23,8 @@ PromotedObject*:61 --------------------->| promo_bits:3 ----->| (CMS promoted ob
 size:64 ----------------------------------------------------->| (CMS free block)
 ```
 
-Java对象的对象头在对象的不同状态下会有不同的表现形式，主要有三种状态：**无锁状态**、**加锁状态**、**GC标记状态**。
-那么，我可以理解Java当中的取锁其实可以理解是给对象上锁，也就是改变对象头的状态，
+Java 对象的对象头在对象的不同状态下会有不同的表现形式，主要有三种状态：**无锁状态**、**加锁状态**、**GC 标记状态**。
+那么，我可以理解 Java 当中的取锁其实可以理解是给对象上锁，也就是改变对象头的状态，
 如果上锁成功，则进入同步代码块。
 
 - Java 对象状态
@@ -32,8 +35,8 @@ Java对象的对象头在对象的不同状态下会有不同的表现形式，�
         - 重量级锁
     - GC 标记状态
 
-但是Java当中的锁有分为很多种，从上图可以看出大体分为**偏向锁**、**轻量锁**、**重量锁**三种锁状态。
-这三种锁的效率完全不同，我们只有合理的设计代码，才能合理的利用锁、那么这三种锁的原理是什么?所以我们需要先研究这个对象头。
+但是 Java 当中的锁有分为很多种，从上图可以看出大体分为**偏向锁**、**轻量锁**、**重量锁**三种锁状态。
+这三种锁的效率完全不同，我们只有合理的设计代码，才能合理的利用锁、那么这三种锁的原理是什么 ? 所以我们需要先研究这个对象头。
 
 ### 32-bit 虚拟机
 
@@ -93,7 +96,7 @@ enum {
     locked_value             = 0, // 0 00 轻量级锁
     unlocked_value           = 1, // 0 01 无锁
     monitor_value            = 2, // 0 10 重量级锁
-    marked_value             = 3, // 0 11 GC标志
+    marked_value             = 3, // 0 11 GC 标志
     biased_lock_pattern      = 5  // 1 01 偏向锁
 };
 ```
@@ -180,7 +183,7 @@ enum {
     locked_value             = 0, // 0 00 轻量级锁
     unlocked_value           = 1, // 0 01 无锁
     monitor_value            = 2, // 0 10 重量级锁
-    marked_value             = 3, // 0 11 GC标志
+    marked_value             = 3, // 0 11 GC 标志
     biased_lock_pattern      = 5  // 1 01 偏向锁
 };
 ```
@@ -209,7 +212,7 @@ enum {
 -XX:BiasedLockingStartupDelay=0
 ```
 
-#### 偏向锁-延时生效
+#### 偏向锁 - 延时生效
 
 ```java
 import org.openjdk.jol.info.ClassLayout;
@@ -271,12 +274,12 @@ enum {
     locked_value             = 0, // 0 00 轻量级锁
     unlocked_value           = 1, // 0 01 无锁
     monitor_value            = 2, // 0 10 重量级锁
-    marked_value             = 3, // 0 11 GC标志
+    marked_value             = 3, // 0 11 GC 标志
     biased_lock_pattern      = 5  // 1 01 偏向锁
 };
 ```
 
-#### 偏向锁-立即生效
+#### 偏向锁 - 立即生效
 
 代码不发生变化，添加如下 VM 参数：
 
@@ -312,7 +315,7 @@ Instance size: 16 bytes
 Space losses: 0 bytes internal + 4 bytes external = 4 bytes total
 ```
 
-#### 偏向锁-记录线程ID
+#### 偏向锁 - 记录线程 ID
 
 ```java
 import org.openjdk.jol.info.ClassLayout;
@@ -366,11 +369,11 @@ Space losses: 0 bytes internal + 4 bytes external = 4 bytes total
 00000000 00000000 00000000 00000000 00000000 01001101 10001000 00000101
 ```
 
-注意：这里的线程ID，是操作系统层面的线程ID，而不是 Java 层面的，因此使用 `Thread.getId()` 方法是不正确的。
+注意：这里的线程 ID，是操作系统层面的线程 ID，而不是 Java 层面的，因此使用 `Thread.getId()` 方法是不正确的。
 
-- [java获取真实线程id](https://www.jianshu.com/p/8ca8f1e3d37e)
+- [java 获取真实线程 id](https://www.jianshu.com/p/8ca8f1e3d37e)
 
-#### 偏向锁-禁用
+#### 偏向锁 - 禁用
 
 在单线程的情况下，进入 `synchronized` 代码块，使用偏向锁的效率是非常高的；
 但是，在多线程情况下，多线程要进行竞争，这个时候偏向锁就不合适了。
@@ -443,7 +446,7 @@ Space losses: 0 bytes internal + 4 bytes external = 4 bytes total
 
 问题：为什么调用了 `hashCode()` 方法，会将对象从偏向锁状态（Biased Lock）转向无锁状态（Unlocked）呢？
 
-回答：因为在偏向锁状态（Biased Lock）下，记录线程ID 需要 54 bit 空间，
+回答：因为在偏向锁状态（Biased Lock）下，记录线程 ID 需要 54 bit 空间，
 而调用 `hashCode()` 方法后需要记录 hashcode，占用 31 bit，只剩下 25 bit unused 空间了，不能装下 54 bit 的线程 ID 了。
 
 ```text
@@ -500,7 +503,7 @@ Instance size: 16 bytes
 Space losses: 0 bytes internal + 4 bytes external = 4 bytes total
 MarkWord(HEX): 0x00000074a1448201 
 MarkWord(BIN): 00000000 00000000 00000000 01110100 10100001 01000100 10000010 00000001
-Reference    : 000-轻量级锁, 001-无锁, 010-重量级锁, 011-GC标志, 101-偏向锁
+Reference    : 000- 轻量级锁, 001- 无锁, 010- 重量级锁, 011-GC 标志, 101- 偏向锁
 
 java.lang.Object object internals:
 OFF  SZ   TYPE DESCRIPTION               VALUE
@@ -511,7 +514,7 @@ Instance size: 16 bytes
 Space losses: 0 bytes internal + 4 bytes external = 4 bytes total
 MarkWord(HEX): 0x00000000021ef7e0 
 MarkWord(BIN): 00000000 00000000 00000000 00000000 00000010 00011110 11110111 11100000
-Reference    : 000-轻量级锁, 001-无锁, 010-重量级锁, 011-GC标志, 101-偏向锁
+Reference    : 000- 轻量级锁, 001- 无锁, 010- 重量级锁, 011-GC 标志, 101- 偏向锁
 
 java.lang.Object object internals:
 OFF  SZ   TYPE DESCRIPTION               VALUE
@@ -522,7 +525,7 @@ Instance size: 16 bytes
 Space losses: 0 bytes internal + 4 bytes external = 4 bytes total
 MarkWord(HEX): 0x00000074a1448201 
 MarkWord(BIN): 00000000 00000000 00000000 01110100 10100001 01000100 10000010 00000001
-Reference    : 000-轻量级锁, 001-无锁, 010-重量级锁, 011-GC标志, 101-偏向锁
+Reference    : 000- 轻量级锁, 001- 无锁, 010- 重量级锁, 011-GC 标志, 101- 偏向锁
 ```
 
 ```java
@@ -565,13 +568,13 @@ public class MarkWordUtils {
 
         fm.format("MarkWord(HEX): %s%n", markWordHex);
         fm.format("MarkWord(BIN): %s%n", binaryStr);
-        fm.format("Reference    : 000-轻量级锁, 001-无锁, 010-重量级锁, 011-GC标志, 101-偏向锁%n");
+        fm.format("Reference    : 000- 轻量级锁, 001- 无锁, 010- 重量级锁, 011-GC 标志, 101- 偏向锁 %n");
         System.out.println(sb);
     }
 }
 ```
 
-#### 偏向锁-升级为轻量级锁
+#### 偏向锁 - 升级为轻量级锁
 
 ```java
 import lsieun.utils.LockDetails;
@@ -641,7 +644,7 @@ public class SynchronizedMarkWord {
 [t2] MarkWord(BIN): 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001 - UNLOCKED
 ```
 
-#### 偏向锁-调用wait/notify-升级为重量级锁
+#### 偏向锁 - 调用 wait/notify- 升级为重量级锁
 
 #### 批量重偏向
 
@@ -971,13 +974,13 @@ Space losses: 0 bytes internal + 4 bytes external = 4 bytes total
 ```
 
 分析结果：
-整个对象一共 16 Byte，其中对象头（Object header）12 Byte，还有 4 Byte 是对齐的字节（因为在64位虚拟机上对象的大小必须是8的倍数）,
-由于这个对象里面没有任何字段，故而对象的实例数据为0B。两个问题：
+整个对象一共 16 Byte，其中对象头（Object header）12 Byte，还有 4 Byte 是对齐的字节（因为在 64 位虚拟机上对象的大小必须是 8 的倍数）,
+由于这个对象里面没有任何字段，故而对象的实例数据为 0B。两个问题：
 
 1、什么叫做对象的实例数据呢？
 2、那么对象头里面的 12 Byte 到底存的是什么呢？
 
-首先要明白什么对象的实例数据很简单，我们可以在Person当中添加一个 boolean 的字段，大家都知道 boolean 字段占 1B，然后再看结果：
+首先要明白什么对象的实例数据很简单，我们可以在 Person 当中添加一个 boolean 的字段，大家都知道 boolean 字段占 1B，然后再看结果：
 
 ```java
 public class Person {
@@ -1062,39 +1065,37 @@ Instance size: 16 bytes
 Space losses: 0 bytes internal + 3 bytes external = 3 bytes total
 ```
 
-其中的是否可偏向标识在无锁情况下会根据是否计算hashcode而变化；因为如果计算了hashcode之后对象便变得不可偏向，为什么？
+其中的是否可偏向标识在无锁情况下会根据是否计算 hashcode 而变化；因为如果计算了 hashcode 之后对象便变得不可偏向，为什么？
 
 关于对象状态一共分为五种状态，分别是**无锁(偏向锁但是不可偏向)**、**偏向锁(偏向锁并且可以偏向)**、**轻量锁**、**重量锁**、*
-*GC标记**，
-那么2bit，如何能表示五种状态（2bit最多只能表示4中状态分别是：00,01,10,11），jvm做的比较好的是把是否可偏向表示为一个状态，
+*GC 标记**，
+那么 2bit，如何能表示五种状态（2bit 最多只能表示 4 中状态分别是：00,01,10,11），jvm 做的比较好的是把是否可偏向表示为一个状态，
 然后根据图中偏向锁的标识再去标识是可偏向的还是不可偏向的。
-这里需要注意的一点是：如果没有计算hashcode，对象没加synchronized，此时对象也处于偏向锁状态
+这里需要注意的一点是：如果没有计算 hashcode，对象没加 synchronized，此时对象也处于偏向锁状态
 
 ```text
-00:轻量锁，01:偏向锁，10:重量锁，11:GC标记
+00:轻量锁，01:偏向锁，10:重量锁，11:GC 标记
 ```
 
 ## Reference
 
-- [synchronized原理之对象头](https://blog.csdn.net/weixin_45775746/article/details/122639630)
-- [synchronized原理(一) -- Java对象头及Monitor](https://blog.csdn.net/q_coder/article/details/123843145)
-- [synchronized原理分析（中）](https://www.bmabk.com/index.php/post/131215.html)
+- [synchronized 原理之对象头](https://blog.csdn.net/weixin_45775746/article/details/122639630)
+- [synchronized 原理(一) -- Java 对象头及 Monitor](https://blog.csdn.net/q_coder/article/details/123843145)
+- [synchronized 原理分析（中）](https://www.bmabk.com/index.php/post/131215.html)
 - [码农会锁，synchronized 对象头结构(mark-word、Klass Pointer)、指针压缩、锁竞争，源码解毒！](https://segmentfault.com/a/1190000037645482)
-- [彻底搞懂Java中的synchronized关键字](https://juejin.cn/post/6973571891915128846)
-- [JAVA对象布局--对象头(Object Header)](https://juejin.cn/post/6934615532188631048)
+- [彻底搞懂 Java 中的 synchronized 关键字](https://juejin.cn/post/6973571891915128846)
+- [JAVA 对象布局 -- 对象头(Object Header)](https://juejin.cn/post/6934615532188631048)
 - [Guide to the Synchronized Keyword in Java](https://www.baeldung.com/java-synchronized)
-- [JAVA 对象头分析及Synchronized锁](https://www.cnblogs.com/hongdada/p/14087177.html)
-- [synchronized的理解4-对象头](https://blog.csdn.net/LWYYYYYY/article/details/116035319)
+- [JAVA 对象头分析及 Synchronized 锁](https://www.cnblogs.com/hongdada/p/14087177.html)
+- [synchronized 的理解 4- 对象头](https://blog.csdn.net/LWYYYYYY/article/details/116035319)
 - [Memory Layout of Objects in Java](https://www.baeldung.com/java-memory-layout)
 - [Pros and Cons of Lock (java.util.concurrent.locks) over synchronized methods and statements](https://www.devinline.com/2015/10/Lock-Vs-synchronized-in-java.html)
 - [Java – Explicit Locks vs Implicit Locks](https://itecnote.com/tecnote/java-explicit-locks-vs-implicit-locks/)
 - [Intrinsic Locks and Synchronization](https://docs.oracle.com/javase/tutorial/essential/concurrency/locksync.html)
 - [Guide to java.util.concurrent.Locks](https://www.baeldung.com/java-concurrent-locks)
-- [Java利用JOL工具分析对象分布](http://lihuaxi.xjx100.cn/news/1185064.html)
-- [java锁头变化本质](https://blog.csdn.net/hero_is_me/article/details/122032035)
-- [对象头源码讲解，原来，指向objectMonitor的指针在这里](https://www.cnblogs.com/grey-wolf/p/13385295.html)
+- [Java 利用 JOL 工具分析对象分布](http://lihuaxi.xjx100.cn/news/1185064.html)
+- [java 锁头变化本质](https://blog.csdn.net/hero_is_me/article/details/122032035)
+- [对象头源码讲解，原来，指向 objectMonitor 的指针在这里](https://www.cnblogs.com/grey-wolf/p/13385295.html)
 - []()
 
 [markOop]: https://hg.openjdk.org/jdk8/jdk8/hotspot/file/87ee5ee27509/src/share/vm/oops/markOop.hpp
-
-

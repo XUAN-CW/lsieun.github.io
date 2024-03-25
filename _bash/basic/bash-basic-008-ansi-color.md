@@ -3,6 +3,9 @@ title: "ANSI Color"
 sequence: "108"
 ---
 
+[UP](/bash.html)
+
+
 The below table shows a summary of 3/4 bit version of ANSI-color
 
 | mode       | octal      | hex       | bash    | description      |

@@ -3,6 +3,9 @@ title: "Mojo Intro"
 sequence: "101"
 ---
 
+[UP](/maven.html)
+
+
 **What is a Mojo**? A mojo is a **Maven plain Old Java Object**.
 
 Each mojo is an executable goal in Maven,
@@ -48,8 +51,3 @@ public void setPluginContext(Map pluginContext)
 
 We can get the plugin context map using getPluginContext, add some parameters,
 and set the new map with setPluginContext.
-
-
-
-
-

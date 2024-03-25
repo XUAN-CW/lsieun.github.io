@@ -3,6 +3,9 @@ title: "调用命令"
 sequence: "103"
 ---
 
+[UP](/bash.html)
+
+
 ## 普通用户
 
 ```bash
@@ -34,7 +37,7 @@ COMMAND="sudo -S $@"
 for host in ${HOSTS[@]}
 do
     echo "================== ${host}: sudo ${@} =================="
-    # 使用ssh远程执行命令
+    # 使用 ssh 远程执行命令
     ssh -T ${USERNAME}@${host} "${COMMAND}" <<EOF
 $(echo $PASSWORD)
 EOF

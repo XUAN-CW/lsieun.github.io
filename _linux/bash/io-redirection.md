@@ -3,6 +3,9 @@ title: "IO Redirection"
 sequence: "io-redirection"
 ---
 
+[UP](/linux.html)
+
+
 URL:
 
 - https://stackoverflow.com/questions/24793069/what-does-do-in-bash
@@ -54,13 +57,13 @@ Here is one way to remember this construct (although it is not entirely accurate
 
 ## stderr redirect
 
-错误输出的重定向，需要借助于“shell文件的描述符”。
+错误输出的重定向，需要借助于“shell 文件的描述符”。
 
-shell文件的描述符：
+shell 文件的描述符：
 
-	0 代表stdin
-	1 代表stdout
-	2 代表stderr
+	0 代表 stdin
+	1 代表 stdout
+	2 代表 stderr
 
 示例：
 
@@ -68,7 +71,7 @@ shell文件的描述符：
 ls /usr/local/non-existfolder 2> ls-output.txt
 ```
 
-注意： `2> ls-output.txt`中的`2`和`>`之间似乎不能有空格，否则输出成功不了。
+注意： `2> ls-output.txt` 中的 `2` 和 `>` 之间似乎不能有空格，否则输出成功不了。
 
 ## stdout+stderr redirect
 
@@ -81,7 +84,7 @@ ls -l ./ /usr/local/non-existfolder > ls-ouput.txt 2>&1
 ls -l ./ /usr/local/non-existfolder &> ls-ouput.txt
 ```
 
-> 如果信息是输出到`/dev/null`，信息就会都被忽略掉
+> 如果信息是输出到 `/dev/null`，信息就会都被忽略掉
 
 
 ## redirect stdin

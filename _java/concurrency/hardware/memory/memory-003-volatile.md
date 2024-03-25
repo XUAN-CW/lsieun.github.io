@@ -1,7 +1,10 @@
 ---
-title: "volatile介绍"
+title: "volatile 介绍"
 sequence: "103"
 ---
+
+[UP](/java-concurrency.html)
+
 
 - MESI 缓存一致性协议
 - volatile 与内存屏障
@@ -28,7 +31,7 @@ sequence: "103"
 在 Java 语言中，使用了 volatile，汇编指令里添加了 lock 指令：
 
 - 第 1 步，将当前处理器缓存行数据**立刻写回主内存**
-- 第 2 步，这个写操作，会触发**总线嗅探机制**（MESI协议）
+- 第 2 步，这个写操作，会触发**总线嗅探机制**（MESI 协议）
 
 ```text
 线程栈内存（工作内存）
@@ -54,11 +57,11 @@ sequence: "103"
 
 
 ```text
-高级语言  ： 虚拟机器M3
-汇编语言  ： 虚拟机器M2
+高级语言  ： 虚拟机器 M3
+汇编语言  ： 虚拟机器 M2
 操作系统  ： 虚拟机器
-机器语言  ： 实际机器M1
-微指令系统： 微程序机器M0
+机器语言  ： 实际机器 M1
+微指令系统： 微程序机器 M0
 ```
 
 HSDIS 插件（反汇编插件）
@@ -111,7 +114,7 @@ public class JMMTest {
 
 ## Reference
 
-- [Java反汇编：HSDIS、JITWatch](https://zhuanlan.zhihu.com/p/158168592)
+- [Java 反汇编：HSDIS、JITWatch](https://zhuanlan.zhihu.com/p/158168592)
 - [JVM 执行篇：使用 HSDIS 插件分析 JVM 代码执行细节](https://www.infoq.cn/article/zzm-java-hsdis-jvm)
-- [idea安装hsdis](https://blog.csdn.net/qq_41571459/article/details/115118997)
+- [idea 安装 hsdis](https://blog.csdn.net/qq_41571459/article/details/115118997)
 - [Guide to the Volatile Keyword in Java](https://www.baeldung.com/java-volatile)

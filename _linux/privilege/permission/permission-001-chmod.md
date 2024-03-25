@@ -3,6 +3,9 @@ title: "chmod"
 sequence: "101"
 ---
 
+[UP](/linux.html)
+
+
 chmod 命令可以用来修改用户对某个文件和文件夹的权限。
 
 ## 查看权限

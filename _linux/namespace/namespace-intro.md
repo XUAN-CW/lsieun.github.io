@@ -3,6 +3,9 @@ title: "Namespace"
 sequence: "101"
 ---
 
+[UP](/linux.html)
+
+
 ## Intro
 
 Initially, all the system resources available in a Linux OS,
@@ -46,4 +49,3 @@ each container sees its own set of network interfaces.
 ### UTS namespace
 
 Using the UTS namespace to give a process a dedicated hostname
-

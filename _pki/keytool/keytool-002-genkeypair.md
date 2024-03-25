@@ -3,6 +3,9 @@ title: "keytool -genkeypair"
 sequence: "102"
 ---
 
+[UP](/pki.html)
+
+
 ## 查看帮助
 
 ```text

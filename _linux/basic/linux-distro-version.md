@@ -3,6 +3,9 @@ title: "Distro Version"
 sequence: "103"
 ---
 
+[UP](/linux.html)
+
+
 ## Debian
 
 - 12: bookworm

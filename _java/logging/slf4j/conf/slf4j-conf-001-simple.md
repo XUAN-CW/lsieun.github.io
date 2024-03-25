@@ -3,6 +3,9 @@ title: "slf4j-simple"
 sequence: "101"
 ---
 
+[UP](/java-logging.html)
+
+
 ## pom.xml
 
 只要添加 `sfl4j-simple` 即可，它会自动引入 `slf4j-api` 依赖：
@@ -168,4 +171,4 @@ public class SimpleLogger extends LegacyAbstractLogger {
 ## Reference
 
 - [Class SimpleLogger](https://www.slf4j.org/api/org/slf4j/simple/SimpleLogger.html)
-- [JAVA日志框架体系教程（一）](https://zhuanlan.zhihu.com/p/598799105)
+- [JAVA 日志框架体系教程（一）](https://zhuanlan.zhihu.com/p/598799105)

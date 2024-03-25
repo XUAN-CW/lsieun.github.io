@@ -3,6 +3,9 @@ title: "原子引用"
 sequence: "101"
 ---
 
+[UP](/java-concurrency.html)
+
+
 为什么需要原子引用类型？
 因为保护的数据，并不都是基本类型的（`int`、`long`）。
 
@@ -304,4 +307,3 @@ public class CasABAMark {
     }
 }
 ```
-

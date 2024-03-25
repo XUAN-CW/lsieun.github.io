@@ -3,6 +3,9 @@ title: "Intro"
 sequence: "101"
 ---
 
+[UP](/java-concurrency.html)
+
+
 The "**thread-safety**" programming methodology means that
 **different threads can access the same resources
 without exposing erroneous behavior or producing unpredictable results.**

@@ -3,6 +3,9 @@ title: "zip"
 sequence: "zip"
 ---
 
+[UP](/linux.html)
+
+
 ```text
 $ sudo yum -y install unzip zip
 ```

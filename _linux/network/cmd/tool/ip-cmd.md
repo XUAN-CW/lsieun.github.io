@@ -3,6 +3,9 @@ title: "ip command"
 sequence: "101"
 ---
 
+[UP](/linux.html)
+
+
 ## 查看所有 IP 地址
 
 ```text
@@ -50,4 +53,3 @@ $ ip address show ens32
     inet6 fe80::20c:29ff:fe7a:3092/64 scope link 
        valid_lft forever preferred_lft forever
 ```
-

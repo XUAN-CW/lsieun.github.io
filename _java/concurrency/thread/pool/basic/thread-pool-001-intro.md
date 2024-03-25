@@ -3,6 +3,9 @@ title: "线程池介绍"
 sequence: "101"
 ---
 
+[UP](/java-concurrency.html)
+
+
 ## 为什么使用线程池
 
 如果我们使用线程的时候就去创建一个线程，虽然简单，但是存在很大的问题。
@@ -11,7 +14,7 @@ sequence: "101"
 
 ## 线程池的底层工作原理
 
-线程池内部是通过 `队列 + 线程` 实现的：
+线程池内部是通过 ` 队列 + 线程 ` 实现的：
 
 ```text
 线程池 = 队列 + 线程
@@ -22,4 +25,3 @@ sequence: "101"
 ## Reference
 
 - [线程池在项目中怎么使用？](https://www.bilibili.com/video/BV1EP4y1L7XC/)
-

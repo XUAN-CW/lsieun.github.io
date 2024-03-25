@@ -3,6 +3,9 @@ title: "Threading Models in Java"
 sequence: "104"
 ---
 
+[UP](/java-concurrency.html)
+
+
 ## Native Threads
 
 **The standard way of implementing multi-tasking in Java is to use threads.**

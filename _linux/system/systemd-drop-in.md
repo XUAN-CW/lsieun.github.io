@@ -3,6 +3,9 @@ title: "systemd Drop-In"
 sequence: "systemd-drop-in"
 ---
 
+[UP](/linux.html)
+
+
 Drop-In 是 `systemd` 配置文件的一种方式，可以在不修改原始配置文件的情况下，通过增量方式来覆盖或扩展配置。
 可以将 Drop-In 文件视为覆盖原始配置的"补丁"。
 
@@ -21,18 +24,18 @@ Drop-In 文件同样放在这些目录中，只是它们被放在了一个子目
 ● httpd.service - The Apache HTTP Server
    Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
   Drop-In: /etc/systemd/system/httpd.service.d
-           └─custom.conf
+           └─ custom.conf
    Active: active (running) since Tue 2021-12-14 10:16:51 CST; 4h 53min ago
  Main PID: 10561 (httpd)
     Tasks: 213 (limit: 23511)
    Memory: 17.2M
    CGroup: /system.slice/httpd.service
-           ├─10561 /usr/sbin/httpd -DFOREGROUND
-           ├─10563 /usr/sbin/httpd -DFOREGROUND
-           ├─10564 /usr/sbin/httpd -DFOREGROUND
-           ├─10565 /usr/sbin/httpd -DFOREGROUND
-           ├─10566 /usr/sbin/httpd -DFOREGROUND
-           └─10567 /usr/sbin/httpd -DFOREGROUND
+           ├─ 10561 /usr/sbin/httpd -DFOREGROUND
+           ├─ 10563 /usr/sbin/httpd -DFOREGROUND
+           ├─ 10564 /usr/sbin/httpd -DFOREGROUND
+           ├─ 10565 /usr/sbin/httpd -DFOREGROUND
+           ├─ 10566 /usr/sbin/httpd -DFOREGROUND
+           └─ 10567 /usr/sbin/httpd -DFOREGROUND
 ```
 
 可以看到，在 `httpd.service` 服务状态输出中有 "Drop-In" 项，下面显示了有一个名为 "custom.conf" 的 Drop-In 文件被应用。

@@ -3,6 +3,9 @@ title: "Computer"
 sequence: "computer"
 ---
 
+[UP](/linux.html)
+
+
 ## Inner Workings of a Computer: the Different Layers Involved
 
 A computer is often considered as something rather abstract,
@@ -25,7 +28,7 @@ Does the Linux kernel see it?
 Are the network parameters properly configured?
 All these questions isolate **an appropriate layer** and focus on a potential source of the problem.
 
-> 这段理解：使用layers的视角来理解计算机，是有助于发现问题的原因。
+> 这段理解：使用 layers 的视角来理解计算机，是有助于发现问题的原因。
 
 ### The Deepest Layer: the Hardware
 
@@ -48,7 +51,7 @@ Some main boards are pre-built with these features, and don't need option boards
 
 - 第一， computer = a set of hardware elements = main board + processor + RAM + **device controller** + extension slots for **option boards**
 - 第二，接下来又强调了 device controller 和 option board
-- 第三，device controller 举了两种类型的例子，一种是 storage devices「硬盘」，另一种是可插拔的 USB 设备「摄像头、键盘」
+- 第三，device controller 举了两种类型的例子，一种是 storage devices 「硬盘」，另一种是可插拔的 USB 设备「摄像头、键盘」
 - 第四，借助于 device controller，形象的解释了一下 bus 的概念
 - 第五，option board 包括 graphics cards/sound cards/network interface cards
 
@@ -126,7 +129,7 @@ Eventually, a kernel is found, loaded into memory, and executed.
 
 这段理解：
 
-- 1、BIOS或UEFI是位于main board上的，而boot sector或EFI partition是位于disk上的
+- 1、BIOS 或 UEFI 是位于 main board 上的，而 boot sector 或 EFI partition 是位于 disk 上的
 - 2、boot sector/EFI partition(disk) --> bootloader(disk) --> operating system(disk)
 
 The `BIOS/UEFI` is also in charge of **detecting and initializing a number of devices**.
@@ -138,7 +141,7 @@ At worst, the device is faulty.
 At best, it is merely incompatible with the current version of the BIOS or main board.
 PCI specifications evolve, and old main boards are not guaranteed to handle newer PCI devices.
 
-PCI(Peripheral Component Interconnect)是一种由英特尔（Intel）公司1991年推出的用于定义局部总线的标准。此标准允许在计算机内安装多达10个遵从PCI标准的扩展卡。
+PCI(Peripheral Component Interconnect)是一种由英特尔（Intel）公司 1991 年推出的用于定义局部总线的标准。此标准允许在计算机内安装多达 10 个遵从 PCI 标准的扩展卡。
 
 #### Setup, the BIOS/UEFI configuration tool
 
@@ -177,9 +180,9 @@ The **kernel** provides a common base to all other **programs** on the system.
 
 这段理解：
 
-- 1、BIOS/UEFI和bootloader的运行只有几秒钟，第一个开始长时间运行的软件就是operating system kernel
-- 2、kernel的作用：**driving hardware**, **managing processes**, **users and permissions**, the **filesystem**, and so on
-- 3、kernel为program提供了一个共同的基础
+- 1、BIOS/UEFI 和 bootloader 的运行只有几秒钟，第一个开始长时间运行的软件就是 operating system kernel
+- 2、kernel 的作用：**driving hardware**, **managing processes**, **users and permissions**, the **filesystem**, and so on
+- 3、kernel 为 program 提供了一个共同的基础
 
 ### The User Space (brief)
 
@@ -358,7 +361,7 @@ and the original process whose pid doesn't change, is called the **parent proces
 
 这段理解：
 
-- 1、process可以克隆自己，这种操作称之为“fork”。 kernel会分配一块新的、大小相同的内存空间。
+- 1、process 可以克隆自己，这种操作称之为“fork”。 kernel 会分配一块新的、大小相同的内存空间。
 - 2、第一种情况：child process 和 parent process 运行相同的 program 和使用相同的 data，唯一的不同就是 pid。
 
 Sometimes, the child process continues to lead its own life independently from its parent,
@@ -372,10 +375,10 @@ At some point, one process among `init`'s offspring starts a **graphical interfa
 
 这段理解：
 
-- 1、第二种情况，child process复制了parent process的data，但却运行了其它的program
-- 2、第三种情况，child process从data和program两方面都与parent process不同
-- 3、kernel启动的第1个`init` process的工作方式就是第三个情况，就是`init` process可以启动别的service
-- 4、一个例子就是，`init` process会启动GUI的程序，让用户实现登录
+- 1、第二种情况，child process 复制了 parent process 的 data，但却运行了其它的 program
+- 2、第三种情况，child process 从 data 和 program 两方面都与 parent process 不同
+- 3、kernel 启动的第 1 个 `init` process 的工作方式就是第三个情况，就是 `init` process 可以启动别的 service
+- 4、一个例子就是，`init` process 会启动 GUI 的程序，让用户实现登录
 
 When a process finishes the task for which it was started, it terminates.
 The kernel then recovers the memory assigned to this process, and stops giving it slices of running time.
@@ -433,14 +436,14 @@ The generic term referring to this is **inter-process communication**, or `IPC` 
 
 这段理解：
 
-- 1、一个孤立的process，能够做的事情是很有限的，因此需要不同的process进行合作才能做更大的事情
+- 1、一个孤立的 process，能够做的事情是很有限的，因此需要不同的 process 进行合作才能做更大的事情
 - 2、IPC = Inter-Process Communications
 
 The simplest `IPC` system is to use **files**.
 The process that wishes to send data writes it into a file (with a name known in advance),
 while the recipient only has to open the file and read its contents.
 
-> 最简单的IPC形式就是使用文件。
+> 最简单的 IPC 形式就是使用文件。
 
 In the case where you do not wish to store data on disk, you can use a **pipe**,
 which is simply an object with **two ends**;
@@ -454,7 +457,7 @@ In cases where the communicating processes are related (for instance, a parent a
 the parent process can also create an **anonymous pipe** before forking, and the child inherits it.
 Both processes will then be able to exchange data through the pipe without needing the filesystem.
 
-> 另一种IPC的形式是使用pipe。
+> 另一种 IPC 的形式是使用 pipe。
 
 Not all inter-process communications are used to move **data** around, though.
 In many situations, the only information that needs to be transmitted are **control messages**
@@ -464,7 +467,7 @@ through which a process can simply send a specific signal
 (chosen from a predefined list of signals) to another process.
 The only requirement is to know the `pid` of the target.
 
-> IPC，除了传递data，也可以传递signal。我的理解，signal就是一种特殊的数据。
+> IPC，除了传递 data，也可以传递 signal。我的理解，signal 就是一种特殊的数据。
 
 For more complex communications,
 there are also mechanisms
@@ -551,4 +554,3 @@ Another implementation of this philosophy can be seen in code libraries:
 the `libpng` library allows reading and writing PNG images,
 with different options and in different ways, but it does only that;
 no question of including functions that display or edit images.
-

@@ -3,6 +3,9 @@ title: "Quick Start"
 sequence: "102"
 ---
 
+[UP](/java-logging.html)
+
+
 ## Basic Setup
 
 To start using the Logback, you first need to

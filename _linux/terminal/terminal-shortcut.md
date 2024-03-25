@@ -1,6 +1,9 @@
 ---
-title: "Terminal快捷键"
+title: "Terminal 快捷键"
 ---
+
+[UP](/linux.html)
+
 
 ## 移动
 

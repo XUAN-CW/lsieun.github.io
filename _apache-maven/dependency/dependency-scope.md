@@ -3,6 +3,9 @@ title: "Dependency Scopes"
 sequence: "103"
 ---
 
+[UP](/maven.html)
+
+
 When we declare a dependency, we can specify a **dependency scope**.
 The scope indicates the classpaths in which the dependency will be included.
 There are five dependency scopes, and they are summarized in the following table:

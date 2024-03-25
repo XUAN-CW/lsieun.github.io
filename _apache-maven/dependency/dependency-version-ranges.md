@@ -3,6 +3,9 @@ title: "Dependency version ranges"
 sequence: "104"
 ---
 
+[UP](/maven.html)
+
+
 Instead of specifying a certain version number for a dependency, we can also specify a range of versions.
 
 The syntax to be used is the following:
@@ -36,6 +39,3 @@ Maven will use this kind of information to resolve conflicts with
 other declarations of the same dependency within the same build process.
 This can happen because of the **transitive dependency mechanism** or the **dependency inheritance**.
 When two or more conflicting ranges are specified for the same dependency, the build process exits with an error.
-
-
-

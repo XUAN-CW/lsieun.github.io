@@ -3,6 +3,9 @@ title: "Parameterized Logging"
 sequence: "102"
 ---
 
+[UP](/java-logging.html)
+
+
 The SLF4J API is well-designed and allows not only for **simple messages**.
 **The typical usage pattern will require parameterized log messages.**
 

@@ -3,6 +3,9 @@ title: "jps"
 sequence: "101"
 ---
 
+[UP](/bash.html)
+
+
 ```bash
 #!/bin/bash
 USAGE="使用方法：sh jps-cluster.sh"
@@ -13,5 +16,5 @@ do
     ssh $NODE "/opt/module/jdk/bin/jps"
 done
 echo "------------------------------------------"
-echo "--------jps-cluster.sh脚本执行完成!--------"
+echo "--------jps-cluster.sh 脚本执行完成 !--------"
 ```

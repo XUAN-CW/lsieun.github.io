@@ -3,6 +3,9 @@ title: "线程池的常见陷阱"
 sequence: "109"
 ---
 
+[UP](/java-concurrency.html)
+
+
 ## 不关闭线程池
 
 Keeping an unused `ExecutorService` alive.

@@ -3,6 +3,9 @@ title: "Maven Settings"
 sequence: "104"
 ---
 
+[UP](/maven.html)
+
+
 Open the `settings.xml` file in the `.m2` subfolder of your `HOME` folder, if it exists:
 
 ```text

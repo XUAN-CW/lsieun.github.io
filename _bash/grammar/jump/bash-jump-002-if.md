@@ -3,6 +3,9 @@ title: "if"
 sequence: "102"
 ---
 
+[UP](/bash.html)
+
+
 ## 单分支结构
 
 ```bash

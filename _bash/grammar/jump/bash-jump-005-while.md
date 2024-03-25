@@ -3,6 +3,9 @@ title: "while"
 sequence: "105"
 ---
 
+[UP](/bash.html)
+
+
 ## While 条件句
 
 ```bash

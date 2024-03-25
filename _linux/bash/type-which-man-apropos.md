@@ -3,6 +3,9 @@ title: "查看命令的命令"
 sequence: "type-which-man-apropos"
 ---
 
+[UP](/linux.html)
+
+
 在 Linux 中，`command` 命令通常具有以下几种形式：
 
 1. 内置命令（Built-in Command）：这些命令是由 shell 程序自带的命令，例如 `cd`、`echo` 等。它们不需要调用外部程序，而是由 shell 直接执行。
@@ -35,7 +38,7 @@ type       说明怎样解析一个命令名
 which      显示会执行哪个可执行程序
 man        显示命令手册
 apropos    显示一系列适合的命令
-info       显示命令info
+info       显示命令 info
 whatis     显示一个命令的简洁描述
 alias      创建命令别名
 ```
@@ -43,14 +46,14 @@ alias      创建命令别名
 
 ## type
 
-command的4种形式：
+command 的 4 种形式：
 
 1. execute binary
 2. buildin bash
 3. shell function
 4. alias
 
-可以使用type命令来进行区分
+可以使用 type 命令来进行区分
 
 ```text
 #type command
@@ -72,7 +75,7 @@ which dir
 
 ## man
 
-type/cd/alias是buildin命令；对于buildin命令，可以通过`help`命令来查看帮助文档：
+type/cd/alias 是 buildin 命令；对于 buildin 命令，可以通过 `help` 命令来查看帮助文档：
 
 ```text
 #help command
@@ -80,33 +83,33 @@ help cd
 ```
 
 
-对于非buildin命令，可以使用`--help`选项来查看帮助文档：
+对于非 buildin 命令，可以使用 `--help` 选项来查看帮助文档：
 
 ```text
 #command --help
 dir --help
 ```
 
-`man`（manual手册）是可以查看相对比较完整的命令手册，可以通过`yum -y install man`来进行安装。使用方法如下：
+`man`（manual 手册）是可以查看相对比较完整的命令手册，可以通过 `yum -y install man` 来进行安装。使用方法如下：
 
 ```text
 #man command
-man type   #type是buildin命令
-man dir    #dir是非buildin命令
+man type   #type 是 buildin 命令
+man dir    #dir 是非 buildin 命令
 ```
 
 ## apropos
 
-如果完成某个特定任务，不知道用哪个命令，可以通过apropos来搜索关键字，apropos会搜索man手册的关键信息。
+如果完成某个特定任务，不知道用哪个命令，可以通过 apropos 来搜索关键字，apropos 会搜索 man 手册的关键信息。
 
 ```text
 #apropos <keyword>
-#等价于 man -k <keyword>
+# 等价于 man -k <keyword>
 ```
 
 ## whatis
 
-用来显示一个命令的简洁说明，因为有时候会觉得使用`man`命令显示了太多信息。
+用来显示一个命令的简洁说明，因为有时候会觉得使用 `man` 命令显示了太多信息。
 
 ```text
 whatis type
@@ -118,7 +121,7 @@ whatis apropos
 
 ```text
 #info <keyword>
-#键盘快捷键
+# 键盘快捷键
 #n: next node
 #p: previous node
 #q: quit
@@ -129,18 +132,17 @@ whatis apropos
 ## 7. alias ##
 
 ```text
-#多个命令可以一起拼写，用分号(;)分隔
+# 多个命令可以一起拼写，用分号(;)分隔
 cd /usr; ls; cd 
 
-#也可以通过alias来建立别名
+# 也可以通过 alias 来建立别名
 #alias name='command string'
 alias mytest='cd /usr; ls; cd'
 
-#查看所有alias
+# 查看所有 alias
 alias
 
-#删除别名
+# 删除别名
 #unalias name
 unalias mytest
 ```
-

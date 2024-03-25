@@ -3,6 +3,9 @@ title: "调试"
 sequence: "103"
 ---
 
+[UP](/bash.html)
+
+
 ## 选项参数
 
 ```bash

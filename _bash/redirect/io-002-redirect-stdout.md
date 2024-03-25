@@ -3,6 +3,9 @@ title: "Redirecting Standard Output"
 sequence: "102"
 ---
 
+[UP](/bash.html)
+
+
 ```bash
 ls -l /usr/bin > ls-output.txt
 ```

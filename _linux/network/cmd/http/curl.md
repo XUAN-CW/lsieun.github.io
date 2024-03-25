@@ -3,6 +3,9 @@ title: "curl"
 sequence: "109"
 ---
 
+[UP](/linux.html)
+
+
 ## Header
 
 ```text

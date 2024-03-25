@@ -3,6 +3,9 @@ title: "Maven Dependency Plugin"
 sequence: "302"
 ---
 
+[UP](/maven.html)
+
+
 ```xml
 
 <plugin>

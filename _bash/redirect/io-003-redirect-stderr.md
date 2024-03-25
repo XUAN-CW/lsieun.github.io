@@ -3,6 +3,9 @@ title: "Redirecting Standard Error"
 sequence: "103"
 ---
 
+[UP](/bash.html)
+
+
 ## Redirecting Standard Output to One File
 
 To redirect standard error, we must refer to its **file descriptor**. A program can produce output on any of several numbered file streams. While we have referred to **the first three of these file streams** as **standard input, output, and error**, the shell references them internally as file descriptors `0`, `1`, and `2`, respectively. The shell provides a notation for redirecting files using the file descriptor number. Because **standard error** is the same as file descriptor number `2`, we can redirect standard error with this notation:

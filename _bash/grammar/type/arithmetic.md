@@ -3,6 +3,9 @@ title: "Arithmetic"
 sequence: "102"
 ---
 
+[UP](/bash.html)
+
+
 变量的数值计算常见的命令有如下几个：
 
 ```txt

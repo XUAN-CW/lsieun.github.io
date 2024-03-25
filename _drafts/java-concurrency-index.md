@@ -550,13 +550,13 @@ sort: "sequence"
 
 ## 线程协作
 
+### 顺序控制
+
 <table>
     <thead>
     <tr>
         <th>Basic</th>
-        <th>Object</th>
         <th>JUC</th>
-        <th>Pattern</th>
     </tr>
     </thead>
     <tbody>
@@ -564,7 +564,7 @@ sort: "sequence"
         <td>
 {%
 assign filtered_posts = site.java |
-where_exp: "item", "item.url contains '/java/concurrency/coordinate/basic/'" |
+where_exp: "item", "item.url contains '/java/concurrency/cooperate/basic/'" |
 sort: "sequence"
 %}
 <ol>
@@ -579,37 +579,7 @@ sort: "sequence"
         <td>
 {%
 assign filtered_posts = site.java |
-where_exp: "item", "item.url contains '/java/concurrency/coordinate/obj/'" |
-sort: "sequence"
-%}
-<ol>
-    {% for post in filtered_posts %}
-    {% assign num = post.sequence | abs %}
-    <li>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
-    {% endfor %}
-</ol>
-        </td>
-        <td>
-{%
-assign filtered_posts = site.java |
-where_exp: "item", "item.url contains '/java/concurrency/coordinate/juc/'" |
-sort: "sequence"
-%}
-<ol>
-    {% for post in filtered_posts %}
-    {% assign num = post.sequence | abs %}
-    <li>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
-    {% endfor %}
-</ol>
-        </td>
-        <td>
-{%
-assign filtered_posts = site.java |
-where_exp: "item", "item.url contains '/java/concurrency/coordinate/pattern/'" |
+where_exp: "item", "item.url contains '/java/concurrency/cooperate/juc/'" |
 sort: "sequence"
 %}
 <ol>
@@ -625,6 +595,79 @@ sort: "sequence"
     </tbody>
 </table>
 
+### 数据交换
+
+<table>
+    <thead>
+    <tr>
+        <th>JUC</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+{%
+assign filtered_posts = site.java |
+where_exp: "item", "item.url contains '/java/concurrency/cooperate/data/'" |
+sort: "sequence"
+%}
+<ol>
+    {% for post in filtered_posts %}
+    {% assign num = post.sequence | abs %}
+    <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+</ol>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+### 模式
+
+<table>
+    <thead>
+    <tr>
+        <th>执行顺序</th>
+        <th>交换数据</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+{%
+assign filtered_posts = site.java |
+where_exp: "item", "item.url contains '/java/concurrency/cooperate/pattern/execution-order/'" |
+sort: "sequence"
+%}
+<ol>
+    {% for post in filtered_posts %}
+    {% assign num = post.sequence | abs %}
+    <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+</ol>
+        </td>
+        <td>
+{%
+assign filtered_posts = site.java |
+where_exp: "item", "item.url contains '/java/concurrency/cooperate/pattern/data-exchange/'" |
+sort: "sequence"
+%}
+<ol>
+    {% for post in filtered_posts %}
+    {% assign num = post.sequence | abs %}
+    <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+</ol>
+        </td>
+    </tr>
+    </tbody>
+</table>
 
 ## Reference
 

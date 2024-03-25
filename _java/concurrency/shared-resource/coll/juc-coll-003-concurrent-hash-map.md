@@ -3,6 +3,9 @@ title: "ConcurrentHashMap"
 sequence: "103"
 ---
 
+[UP](/java-concurrency.html)
+
+
 ## 错误的示例
 
 ```java
@@ -99,7 +102,7 @@ Hashtable 为了保证线程安全，所有的 kv 要进行同步，所以 t1、
 那效率自然就低了。
 
 在 ConcurrentHashMap 中，它将原始数据切分成了一个一个小的区域来分别处理，每一个小区域叫做 segment；
-segment 的长度都是 2^n，可以是2、4、8、16等等；
+segment 的长度都是 2^n，可以是 2、4、8、16 等等；
 不同的线程，访问不同的 segment，每个 segment 有一把锁，彼此不互相影响；
 只有在同一个 segment 里的多个 thread 才会进行排队等待。
 
@@ -272,7 +275,7 @@ public class WordCountRun {
                 (map, words) -> {
                     for (String word : words) {
                         // 注意不能使用 putIfAbsent，此方法返回的是上一次的 value，首次调用返回 null
-                        // 即使这里“设置key-value”和“value自增”不是原子性操作，LongAdder的CAS会获取到最新的值再进行加一的，这一点可以放心
+                        // 即使这里“设置 key-value”和“value 自增”不是原子性操作，LongAdder 的 CAS 会获取到最新的值再进行加一的，这一点可以放心
                         // 这里 ConcurrentHashMap 只调用了 computeIfAbsent 方法，它本身是“原子性”的
                         LongAdder value = map.computeIfAbsent(word, (key) -> new LongAdder());
                         value.increment();
@@ -308,4 +311,3 @@ public class WordCountRun {
     }
 }
 ```
-

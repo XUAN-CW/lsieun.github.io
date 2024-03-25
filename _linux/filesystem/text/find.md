@@ -3,6 +3,9 @@ title: "find"
 sequence: "find"
 ---
 
+[UP](/linux.html)
+
+
 The beauty of `find` is that it can be used to **identify files that meet specific criteria**.
 It does this through the (slightly strange) application of **options**, **tests**, and **actions**.
 
@@ -30,7 +33,7 @@ The metacharacters (`*`, `?`, and `[]`) match a `.` at the start of the base nam
 cd /usr
 find /bin -name bash      # 查找特定的文件名
 find /bin -name bash*     # 在当前目录查找
-find /tmp -name a*        # 在/tmp目录查找
+find /tmp -name a*        # 在/tmp 目录查找
 
 $ find /bin -name "[a-z]ash"
 /bin/bash
@@ -72,11 +75,11 @@ To search for more than one type at once, you can supply the combined list of ty
 find /home -empty         # 查找空文件或文件夹
 find /home ! -empty       # 查找不空的文件或文件夹
 
-find /home -size -512k    # 查找小于512k的文件
-find /home -size +512k    # 查找大于512k的文件夹
+find /home -size -512k    # 查找小于 512k 的文件
+find /home -size +512k    # 查找大于 512k 的文件夹
 ```
 
-关于`-size`选项：
+关于 `-size` 选项：
 
 ```txt
 -size [+-]n[cwbkMG]
@@ -106,21 +109,21 @@ find /home -size -25k ! -empty -type f
 
 ### file time
 
-Hi, Hi, Hi!!!`find`命令可以根据三种访问时间来查找
+Hi, Hi, Hi!!!`find` 命令可以根据三种访问时间来查找
 
 | 命令选项       | 时间类型   | 时间单位     | 命令说明                      |
 |------------|--------|----------|---------------------------|
-| `-amin n`  | Access | `n`分钟    | 查找系统中最后`n`分钟访问的文件         |
-| `-atime n` | Access | `n*24`小时 | 查找系统中最后`n*24`小时访问的文件      |
-| `-mmin n`  | Modify | `n`分钟    | 查找系统中最后`n`分钟被改变文件数据的文件    |
-| `-mtime n` | Modify | `n*24`小时 | 查找系统中最后`n*24`小时被改变文件数据的文件 |
-| `-cmin n`  | Change | `n`分钟    | 查找系统中最后`n`分钟被改变文件状态的文件    |
-| `-ctime n` | Change | `n*24`小时 | 查找系统中最后`n*24`小时被改变文件状态的文件 |
+| `-amin n`  | Access | `n` 分钟    | 查找系统中最后 `n` 分钟访问的文件         |
+| `-atime n` | Access | `n*24` 小时 | 查找系统中最后 `n*24` 小时访问的文件      |
+| `-mmin n`  | Modify | `n` 分钟    | 查找系统中最后 `n` 分钟被改变文件数据的文件    |
+| `-mtime n` | Modify | `n*24` 小时 | 查找系统中最后 `n*24` 小时被改变文件数据的文件 |
+| `-cmin n`  | Change | `n` 分钟    | 查找系统中最后 `n` 分钟被改变文件状态的文件    |
+| `-ctime n` | Change | `n*24` 小时 | 查找系统中最后 `n*24` 小时被改变文件状态的文件 |
 
-同时要注意：`+n`和`-n`的区别。例如
+同时要注意：`+n` 和 `-n` 的区别。例如
 
-- 使用 `-amin +5`表示5分钟之前访问的文件
-- 使用 `-amin -5` 表示5分钟以内访问的文件
+- 使用 `-amin +5` 表示 5 分钟之前访问的文件
+- 使用 `-amin -5` 表示 5 分钟以内访问的文件
 
 与别的文件进行对比：
 
@@ -140,20 +143,20 @@ find /home -group tomcat   # 根据属组进行查询
 
 #### uid and gid
 
-查询用户ID：
+查询用户 ID：
 
 ```bash
-$ id    # 查询当前用户ID
+$ id    # 查询当前用户 ID
 uid=1000(liusen) gid=1000(liusen) groups=1000(liusen),10(wheel),977(vboxusers)
 
-$ id liusen    # 查询指定用户名的ID
+$ id liusen    # 查询指定用户名的 ID
 uid=1000(liusen) gid=1000(liusen) groups=1000(liusen),10(wheel),977(vboxusers)
 
 $ id root
 uid=0(root) gid=0(root) groups=0(root)
 ```
 
-根据用户ID和用户组ID查询：
+根据用户 ID 和用户组 ID 查询：
 
 ```bash
 find ./ -uid 1000
@@ -168,11 +171,11 @@ find ./ -gid 1000
 - `-perm -g=w`, which matches any file with **group write** permission.
 
 ```bash
-$ find . -type f -perm 0755 # <=== 注意：由于是八进制，所以以0开头
+$ find . -type f -perm 0755 # <=== 注意：由于是八进制，所以以 0 开头
 ./function_demo
 ./sys_info_page
 
-$ find . -type f -perm -u+x # <=== 注意：-u+x中的"-"不能缺少
+$ find . -type f -perm -u+x # <=== 注意：-u+x 中的"-"不能缺少
 ./function_demo
 ./local-vars
 ./sys_info_page
@@ -200,7 +203,7 @@ $ find . -type f -executable
 
 Fortunately, `find` provides a way to combine tests using **logical operators** to create more complex logical relationships.
 
-We would look for all the files with permissions that are not `0600` and the directories with permissions that are not `0700`.(注：因为是八进制，所以以`0`开头)
+We would look for all the files with permissions that are not `0600` and the directories with permissions that are not `0700`.(注：因为是八进制，所以以 `0` 开头)
 
 ```bash
 find ~ \( -type f -not -perm 0600 \) -or \( -type d -not -perm 0700 \)
@@ -216,15 +219,15 @@ Logical Operators
 使用逻辑“或”、“非”
 
 ```bash
-find /tmp -name "a*" -o -name "b*"     # 查找以a开头或b开头的文件或目录（逻辑“或”）
-find /tmp -name "a*" ! -type f         # 查找以a开头的非文件（逻辑“非”）
+find /tmp -name "a*" -o -name "b*"     # 查找以 a 开头或 b 开头的文件或目录（逻辑“或”）
+find /tmp -name "a*" ! -type f         # 查找以 a 开头的非文件（逻辑“非”）
 ```
 
 注意，默认情况下就是“且”，例如：
 
 ```bash
-find /tmp -name "a*" -type f           # 查找以a开头的文件（注意：类型是文件）
-find /tmp -name "a*" -type s           # 查找以a开头的套接字
+find /tmp -name "a*" -type f           # 查找以 a 开头的文件（注意：类型是文件）
+find /tmp -name "a*" -type s           # 查找以 a 开头的套接字
 ```
 
 ## Actions
@@ -492,4 +495,3 @@ find . -type f -size +1M -size -2M -exec cp {} ~/my_files/ \;
 ```
 
 Here `{}` contains the results of the `find`. The last `;` is also required and **has to be escaped**.
-

@@ -3,6 +3,9 @@ title: "隐式锁、显示锁、互斥锁"
 sequence: "102"
 ---
 
+[UP](/java-concurrency.html)
+
+
 ## 隐式锁 和 显式锁
 
 `synchronized` 可以放在哪些地方？

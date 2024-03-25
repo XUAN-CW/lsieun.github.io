@@ -3,6 +3,9 @@ title: "Here Document"
 sequence: "107"
 ---
 
+[UP](/bash.html)
+
+
 A **here document** is an additional form of I/O redirection
 in which we embed a body of text into our script and feed it into the standard input of a command.
 

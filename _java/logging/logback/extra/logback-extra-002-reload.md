@@ -3,6 +3,9 @@ title: "自动重新加载配置"
 sequence: "102"
 ---
 
+[UP](/java-logging.html)
+
+
 ## Reloading Configuration Automatically
 
 Reloading logging configuration while an application is running is a powerful troubleshooting tool.

@@ -3,6 +3,9 @@ title: "Linux Mirror"
 sequence: "105"
 ---
 
+[UP](/linux.html)
+
+
 - [阿里云](https://developer.aliyun.com/mirror/)
 - [华为云](https://mirrors.huaweicloud.com)
 - [中国科学技术大学开源软件镜像](https://mirrors.ustc.edu.cn/)

@@ -3,6 +3,9 @@ title: "GNU"
 sequence: "gnu"
 ---
 
+[UP](/linux.html)
+
+
 从“概念”的角度来说，
 
 ```txt
@@ -11,8 +14,8 @@ operating system = Linux kernel + other software
 
 从“时间线”上来说，
 
-- 1984年，Richard Stallman 发起了 GNU Project
-- 1991年，Linus Torvalds 发布 Linux kernel
+- 1984 年，Richard Stallman 发起了 GNU Project
+- 1991 年，Linus Torvalds 发布 Linux kernel
 
 ## What is “Linux”?
 
@@ -62,7 +65,7 @@ Many users installed the **GNU tools** on many different computers as replacemen
 This provided these users with **a consistency** across the **many different platforms** they used.
 The tools even eventually appeared under MS/Windows, providing a Unix-like environment on a very different operating system.
 
-> GNU tools 开始流行起来，是因为它们在many different platforms提供了consistency。
+> GNU tools 开始流行起来，是因为它们在 many different platforms 提供了 consistency。
 
 The tools developed by the **GNU project** include such essential utilities as
 the **GNU file management utilities** and the **GNU text file processing utilities**.
@@ -77,7 +80,7 @@ The **GNU text file processing commands** include
 `sort` (to sort the contents of a file),
 and `wc` (to count the number of lines, words, and bytes in a file).
 
-GNU Project的tools，这里举了两种类型的例子：
+GNU Project 的 tools，这里举了两种类型的例子：
 
 - （1） 文件管理：ls/mkdir/mv/rm
 - （2） 文件内容：cat/head/sort/wc

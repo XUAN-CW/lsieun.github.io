@@ -3,6 +3,9 @@ title: "base64"
 sequence: "base64"
 ---
 
+[UP](/linux.html)
+
+
 ```text
 $ base64 --help
 Usage: base64 [OPTION]... [FILE]

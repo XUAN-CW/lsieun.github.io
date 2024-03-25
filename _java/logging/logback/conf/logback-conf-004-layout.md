@@ -3,6 +3,9 @@ title: "配置 Layout"
 sequence: "104"
 ---
 
+[UP](/java-logging.html)
+
+
 Layouts format log messages.
 Like the rest of Logback, Layouts are extensible, and we can create [our own](https://logback.qos.ch/manual/layouts.html#writingYourOwnLayout).
 However, the default PatternLayout offers what most applications need and then some.

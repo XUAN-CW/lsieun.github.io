@@ -3,6 +3,9 @@ title: "systemd"
 sequence: "systemd"
 ---
 
+[UP](/linux.html)
+
+
 查看帮助：
 
 ```text
@@ -15,43 +18,43 @@ $ sudo yum -y install psmisc
 
 ```text
 $ pstree
-systemd─┬─NetworkManager───2*[{NetworkManager}]
-        ├─agetty
-        ├─auditd───{auditd}
-        ├─containerd───7*[{containerd}]
-        ├─crond
-        ├─dbus-daemon───{dbus-daemon}
-        ├─dockerd───8*[{dockerd}]
-        ├─irqbalance
-        ├─lvmetad
-        ├─master─┬─pickup
-        │        └─qmgr
-        ├─polkitd───6*[{polkitd}]
-        ├─rsyslogd───2*[{rsyslogd}]
-        ├─sshd───sshd───sshd───bash───pstree
-        ├─systemd-journal
-        ├─systemd-logind
-        ├─systemd-udevd
-        └─tuned───4*[{tuned}]
+systemd ─┬─ NetworkManager ─── 2*[{NetworkManager}]
+        ├─ agetty
+        ├─ auditd ───{auditd}
+        ├─ containerd ─── 7*[{containerd}]
+        ├─ crond
+        ├─ dbus-daemon ───{dbus-daemon}
+        ├─ dockerd ─── 8*[{dockerd}]
+        ├─ irqbalance
+        ├─ lvmetad
+        ├─ master ─┬─ pickup
+        │        └─ qmgr
+        ├─ polkitd ─── 6*[{polkitd}]
+        ├─ rsyslogd ─── 2*[{rsyslogd}]
+        ├─ sshd ─── sshd ─── sshd ─── bash ─── pstree
+        ├─ systemd-journal
+        ├─ systemd-logind
+        ├─ systemd-udevd
+        └─ tuned ─── 4*[{tuned}]
 ```
 
 ```text
 $ pstree -p
-systemd(1)─┬─NetworkManager(772)─┬─{NetworkManager}(785)
+systemd(1)─┬─ NetworkManager(772)─┬─{NetworkManager}(785)
            │                     └─{NetworkManager}(787)
-           ├─agetty(781)
-           ├─anacron(1528)
-           ├─auditd(737)───{auditd}(738)
-           ├─containerd(1743)─┬─{containerd}(1745)
+           ├─ agetty(781)
+           ├─ anacron(1528)
+           ├─ auditd(737)───{auditd}(738)
+           ├─ containerd(1743)─┬─{containerd}(1745)
            │                  ├─{containerd}(1746)
            │                  ├─{containerd}(1747)
            │                  ├─{containerd}(1748)
            │                  ├─{containerd}(1749)
            │                  ├─{containerd}(1750)
            │                  └─{containerd}(1752)
-           ├─crond(777)
-           ├─dbus-daemon(767)───{dbus-daemon}(771)
-           ├─dockerd(1587)─┬─{dockerd}(1588)
+           ├─ crond(777)
+           ├─ dbus-daemon(767)───{dbus-daemon}(771)
+           ├─ dockerd(1587)─┬─{dockerd}(1588)
            │               ├─{dockerd}(1589)
            │               ├─{dockerd}(1590)
            │               ├─{dockerd}(1591)
@@ -59,23 +62,23 @@ systemd(1)─┬─NetworkManager(772)─┬─{NetworkManager}(785)
            │               ├─{dockerd}(1593)
            │               ├─{dockerd}(1594)
            │               └─{dockerd}(1598)
-           ├─irqbalance(762)
-           ├─lvmetad(594)
-           ├─master(1127)─┬─pickup(1132)
-           │              └─qmgr(1133)
-           ├─polkitd(761)─┬─{polkitd}(773)
+           ├─ irqbalance(762)
+           ├─ lvmetad(594)
+           ├─ master(1127)─┬─ pickup(1132)
+           │              └─ qmgr(1133)
+           ├─ polkitd(761)─┬─{polkitd}(773)
            │              ├─{polkitd}(774)
            │              ├─{polkitd}(778)
            │              ├─{polkitd}(783)
            │              ├─{polkitd}(784)
            │              └─{polkitd}(789)
-           ├─rsyslogd(992)─┬─{rsyslogd}(1002)
+           ├─ rsyslogd(992)─┬─{rsyslogd}(1002)
            │               └─{rsyslogd}(1003)
-           ├─sshd(994)───sshd(1411)───sshd(1415)───bash(1416)───pstree(1776)
-           ├─systemd-journal(563)
-           ├─systemd-logind(766)
-           ├─systemd-udevd(607)
-           └─tuned(991)─┬─{tuned}(1265)
+           ├─ sshd(994)─── sshd(1411)─── sshd(1415)─── bash(1416)─── pstree(1776)
+           ├─ systemd-journal(563)
+           ├─ systemd-logind(766)
+           ├─ systemd-udevd(607)
+           └─ tuned(991)─┬─{tuned}(1265)
                         ├─{tuned}(1266)
                         ├─{tuned}(1269)
                         └─{tuned}(1270)
@@ -106,7 +109,7 @@ UNIT LOAD PATH
 
 Table 1.  Load path when running in system mode (--system).
 ┌────────────────────────┬─────────────────────────────┐
-│Path                    │ Description                 │
+│ Path                    │ Description                 │
 ├────────────────────────┼─────────────────────────────┤
 │/etc/systemd/system     │ Local configuration         │
 ├────────────────────────┼─────────────────────────────┤
@@ -124,7 +127,7 @@ NOTE: the table above from a Debian/Ubuntu system is slightly different.
 ```text
 Table 1.  Load path when running in system mode (--system).
 ┌────────────────────┬─────────────────────────────┐
-│Path                │ Description                 │
+│ Path                │ Description                 │
 ├────────────────────┼─────────────────────────────┤
 │/etc/systemd/system │ Local configuration         │
 ├────────────────────┼─────────────────────────────┤
@@ -197,5 +200,3 @@ $ systemctl list-timers
 $ man 5 systemd.service
 $ man 5 systemd.timer
 ```
-
-

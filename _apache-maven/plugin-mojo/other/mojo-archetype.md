@@ -3,6 +3,9 @@ title: "Mojo Archetype"
 sequence: "102"
 ---
 
+[UP](/maven.html)
+
+
 To create a new plugin project, you could using the Mojo archetype with the following command line:
 
 ```text
@@ -22,4 +25,3 @@ mvn archetype:generate \
   -DarchetypeArtifactId=maven-archetype-mojo \
   -DinteractiveMode=false
 ```
-

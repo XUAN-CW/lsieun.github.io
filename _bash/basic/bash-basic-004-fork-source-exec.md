@@ -3,6 +3,9 @@ title: "fork/source/exec"
 sequence: "104"
 ---
 
+[UP](/bash.html)
+
+
 ## fork、source、exec
 
 通常我们执行 Script 时，默认为 `fork` 方式。

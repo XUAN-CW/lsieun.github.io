@@ -3,6 +3,9 @@ title: "sleep 与 yield"
 sequence: "101"
 ---
 
+[UP](/java-concurrency.html)
+
+
 Both the `sleep()` method and the `yield()` method express their willingness of not using the processor.
 However, `sleep()` is the more sincere one
 since it truly ceases execution for the specified amount of time, freeing the processor.
@@ -56,4 +59,3 @@ The actual time that the current thread sleeps depends on the thread scheduler t
   but for a busy system, it will be a little bit longer.
 - `Thread.sleep()` doesn't lose any monitors or lock the current thread it has acquired.
 - Any other thread can interrupt the current thread in sleep, and in such cases `InterruptedException` is thrown.
-

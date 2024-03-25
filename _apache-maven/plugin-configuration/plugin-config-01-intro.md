@@ -3,6 +3,9 @@ title: "Configuring Plug-ins"
 sequence: "101"
 ---
 
+[UP](/maven.html)
+
+
 In Maven, there are two kinds of plugins, **build** and **reporting**:
 
 - **Build plugins** are executed during the build and configured in the `<build/>` element.
@@ -75,4 +78,3 @@ to allow configuration of each default mojo execution independently.
 
 - [Guide to Configuring Plug-ins](https://maven.apache.org/guides/mini/guide-configuring-plugins.html)
 - [Guide to Configuring Default Mojo Executions](https://maven.apache.org/guides/mini/guide-default-execution-ids.html)
-

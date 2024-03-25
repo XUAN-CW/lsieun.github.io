@@ -3,6 +3,9 @@ title: "wget"
 sequence: "102"
 ---
 
+[UP](/linux.html)
+
+
 ```text
 sudo yum -y install wget
 ```

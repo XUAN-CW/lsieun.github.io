@@ -3,6 +3,9 @@ title: "示例"
 sequence: "105"
 ---
 
+[UP](/bash.html)
+
+
 ```bash
 #!/bin/bash
 

@@ -3,6 +3,9 @@ title: "/etc/sysctl.d"
 sequence: "etc-sysctl-d"
 ---
 
+[UP](/linux.html)
+
+
 `/etc/sysctl.d` 目录下的配置文件是 Linux 操作系统中一个重要的系统配置目录。
 这个目录下的配置文件包括各种系统参数的设置，可以用来优化系统的性能和安全。
 

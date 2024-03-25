@@ -3,6 +3,9 @@ title: "Difference Between a Java Keystore and a Truststore"
 sequence: "104"
 ---
 
+[UP](/pki.html)
+
+
 ## Concepts
 
 In most cases, we use a **keystore** and a **truststore** when our application needs to communicate over SSL/TLS.

@@ -3,6 +3,9 @@ title: "BOM"
 sequence: "104"
 ---
 
+[UP](/maven.html)
+
+
 ## Spring Data
 
 ```xml

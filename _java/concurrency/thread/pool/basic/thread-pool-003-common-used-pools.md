@@ -3,6 +3,9 @@ title: "常用的线程池"
 sequence: "103"
 ---
 
+[UP](/java-concurrency.html)
+
+
 在 `java.util.concurrent` 中，提供了工具类 `Executors` （调度器）对象来创建线程池。
 可创建的线程池有四种：
 
@@ -53,7 +56,7 @@ public class Executors {
     public static ExecutorService newCachedThreadPool() {
         return new ThreadPoolExecutor(
                 0, Integer.MAX_VALUE,    // 核心线程数是 0，最大线程数是 Integer.MAX_VALUE
-                60L, TimeUnit.SECONDS,   // 救急线程的空间生存时间是 60 秒。--> 这意味着，全是救急线程（60秒后回收），可以无限创建
+                60L, TimeUnit.SECONDS,   // 救急线程的空间生存时间是 60 秒。--> 这意味着，全是救急线程（60 秒后回收），可以无限创建
                 new SynchronousQueue<Runnable>()); // 队列采用了 SynchronousQueue 实现特点是，它没有容量，没有线程来取是放不进去的
     }
 }
@@ -337,4 +340,3 @@ public class Executors {
 {:refdef: style="text-align: center;"}
 ![](/assets/images/java/concurrency/pool/alibaba-forbid-executors-thread-pool.png)
 {:refdef}
-

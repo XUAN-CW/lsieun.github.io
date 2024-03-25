@@ -3,6 +3,9 @@ title: "内存屏障"
 sequence: "102"
 ---
 
+[UP](/java-concurrency.html)
+
+
 ```text
 The Java Language Specification (JLS) doesn't refer to barriers explicitly,
 as it considers them to be implementation details

@@ -3,6 +3,9 @@ title: "Mojo: Plugin Prefix"
 sequence: "105"
 ---
 
+[UP](/maven.html)
+
+
 ```text
 mvn groupId:artifactId:version:goal
 ```
@@ -178,7 +181,7 @@ the `plugin:descriptor` goal will extract the prefix from your plugin's `artifac
 - `${prefix}-maven-plugin`
 - `maven-${prefix}-plugin`
 
-## 自定义prefix
+## 自定义 prefix
 
 If you would like to set an explicit plugin prefix, you'll need to configure the **Maven Plugin Plugin**.
 The Maven Plugin Plugin is a plugin that is responsible for building the Plugin descriptor and
@@ -246,7 +249,7 @@ add the following build element to the `first-maven-plugin` project's `pom.xml`.
 Goal prefix is specified as: 'good'. Maven currently expects it to be 'hello'.
 ```
 
-在`maven-plugin-plugin`插件当中，`
+在 `maven-plugin-plugin` 插件当中，`
 
 ```java
 public abstract class AbstractGeneratorMojo extends AbstractMojo {
@@ -283,8 +286,8 @@ public abstract class AbstractGeneratorMojo extends AbstractMojo {
 
 
 
-在`maven-plugin-api-3.8.5.jar`包当中，`org.apache.maven.plugin.descriptor.PluginDescriptor`类
-有`getGoalPrefixFromArtifactId()`方法的定义：
+在 `maven-plugin-api-3.8.5.jar` 包当中，`org.apache.maven.plugin.descriptor.PluginDescriptor` 类
+有 `getGoalPrefixFromArtifactId()` 方法的定义：
 
 ```java
 public class PluginDescriptor extends ComponentSetDescriptor implements Cloneable {

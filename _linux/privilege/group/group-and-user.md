@@ -3,6 +3,9 @@ title: "Group + User"
 sequence: "102"
 ---
 
+[UP](/linux.html)
+
+
 ## Add
 
 add your current user to the Docker group:
@@ -60,4 +63,3 @@ sudo:x:27:journaldev,test
 $ getent group sudo | cut -d: -f4
 journaldev,test
 ```
-

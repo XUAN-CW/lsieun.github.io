@@ -3,6 +3,9 @@ title: "Deploy Intro"
 sequence: "101"
 ---
 
+[UP](/maven.html)
+
+
 ## 权限
 
 ### Nexus 3
@@ -125,13 +128,13 @@ mvn clean deploy -DskipTests
 
 ### deploy
 
-如果使用`cmd`命令，使用：
+如果使用 `cmd` 命令，使用：
 
 ```text
 mvn clean deploy -Dmaven.test.skip=true
 ```
 
-如果使用`PowerShell`，则需要带引号：
+如果使用 `PowerShell`，则需要带引号：
 
 ```text
 mvn clean deploy '-Dmaven.test.skip=true'
@@ -139,7 +142,7 @@ mvn clean deploy '-Dmaven.test.skip=true'
 mvn clean deploy "-Dmaven.test.skip=true"
 ```
 
-不管是使用`cmd`，还是使用`PowerShell`，都可以使用如下命令：
+不管是使用 `cmd`，还是使用 `PowerShell`，都可以使用如下命令：
 
 ```text
 mvn clean deploy -DskipTests

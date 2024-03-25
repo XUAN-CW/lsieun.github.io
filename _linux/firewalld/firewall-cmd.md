@@ -3,6 +3,9 @@ title: "firewall-cmd"
 sequence: "firewall-cmd"
 ---
 
+[UP](/linux.html)
+
+
 ## 防火墙开启和关闭
 
 ### 查看防火墙状态
@@ -48,7 +51,7 @@ $ sudo firewall-cmd --reload
 
 ### 端口列表
 
-查看目前开放的端口号-检查是否开启成功
+查看目前开放的端口号 - 检查是否开启成功
 
 ```text
 $ sudo firewall-cmd --list-ports

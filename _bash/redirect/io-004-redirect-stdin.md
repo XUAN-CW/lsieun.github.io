@@ -3,6 +3,9 @@ title: "Redirecting Standard Input"
 sequence: "104"
 ---
 
+[UP](/bash.html)
+
+
 ```bash
 $ cat < lazy_dog.txt
 The quick brown fox jumped over the lazy dog.

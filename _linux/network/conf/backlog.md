@@ -3,6 +3,9 @@ title: "backlog"
 sequence: "109"
 ---
 
+[UP](/linux.html)
+
+
 ## 什么是 backlog
 
 在 Linux 中，backlog 是用于管理 socket 连接的一个参数，它主要用于限制新连接进入队列的最大长度。

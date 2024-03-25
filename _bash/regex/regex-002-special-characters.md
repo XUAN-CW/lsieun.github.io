@@ -3,6 +3,9 @@ title: "Special Characters"
 sequence: "102"
 ---
 
+[UP](/bash.html)
+
+
 ## The period or dot (`.`)
 
 This matches every single character in the searched string, except for a new line. It is one of the most commonly used special characters in regex, because of its specific ability to match (almost) anything.

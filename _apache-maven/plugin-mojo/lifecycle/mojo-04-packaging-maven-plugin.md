@@ -3,6 +3,9 @@ title: "Mojo: <packaging>maven-plugin</packaging>"
 sequence: "104"
 ---
 
+[UP](/maven.html)
+
+
 What the `maven-plugin` packaging primarily brings to the table is that the `maven-plugin-plugin`
 (that repetition is intentional; it's not a typo) is added to the lifecycle,
 which in turn generates a `META-INF/maven/plugin.xml` file.
@@ -34,9 +37,9 @@ mvn help:effective-pom
 </plugin>
 ```
 
-Jar Plugin和Maven Plugin两者的生命周期是比较相似的。
+Jar Plugin 和 Maven Plugin 两者的生命周期是比较相似的。
 
-与Jar Plugin的生命周期相比，Maven Plugin的差异主要体现在：
+与 Jar Plugin 的生命周期相比，Maven Plugin 的差异主要体现在：
 
 - process-classes: `plugin-plugin:descriptor`
 - package: `plugin:addPluginArtifactMetadata`

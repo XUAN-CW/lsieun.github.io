@@ -3,13 +3,16 @@ title: "Maven Lifecycle"
 sequence: "102"
 ---
 
+[UP](/maven.html)
+
+
 {:refdef: style="text-align: center;"}
 ![](/assets/images/apache-maven/thinking-in-maven.png)
 {:refdef}
 
 
 
-## 为什么要学习Maven project lifecycle
+## 为什么要学习 Maven project lifecycle
 
 As we start using Maven, we need to understand the Maven project lifecycle.
 **Maven is implemented based around the concept of a build lifecycle.**
@@ -214,4 +217,3 @@ Here is a table of **phases**, **plugins**, and **goals**:
     </configuration>
 </component>
 ```
-

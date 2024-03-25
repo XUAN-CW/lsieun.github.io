@@ -3,6 +3,9 @@ title: "Mojo Parameters：不同的数据类型（输入）"
 sequence: "104"
 ---
 
+[UP](/maven.html)
+
+
 It is unlikely that a mojo will be very useful without parameters.
 
 Parameters provide a few very important functions:
@@ -513,5 +516,3 @@ public class MyQueryMojo
 Note the specification of the `property` name for each parameter
 which tells Maven what setter and getter to use
 when **the field's name** does not match the intended name of the parameter in the plugin configuration.
-
-

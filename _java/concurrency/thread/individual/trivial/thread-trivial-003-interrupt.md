@@ -3,11 +3,14 @@ title: "interrupt"
 sequence: "103"
 ---
 
-## interrupt停止标记法
+[UP](/java-concurrency.html)
 
-### interrupt中断方法介绍
 
-熟悉这种方法前必须先了解一组API
+## interrupt 停止标记法
+
+### interrupt 中断方法介绍
+
+熟悉这种方法前必须先了解一组 API
 
 - public void interrupt() 中断线程
 - public static boolean interrupted() 测试当前线程是否中断
@@ -51,7 +54,7 @@ public class ThreadInterruption_B_Flag {
 
 ### 中断程序如何实现
 
-其实interrupt中断方法和标志位法原理相似，但标识变量不需要自己定义
+其实 interrupt 中断方法和标志位法原理相似，但标识变量不需要自己定义
 
 ```java
 public class StopThread4 {
@@ -82,7 +85,7 @@ class InterruptThread {
 }
 ```
 
-### interrupt中断方法的特性
+### interrupt 中断方法的特性
 
 通过 `interrupt` 方法的文档可知，如果在线程阻塞时调用中断方法会抛出异常，同时清理中断状态
 
@@ -115,7 +118,7 @@ class InterruptThread1 {
                     System.out.println("doSomething");
                     TimeUnit.MICROSECONDS.sleep(1);
                 } catch (InterruptedException e) {
-                    // 重置中断标志位为true
+                    // 重置中断标志位为 true
                     // thread.interrupt();
                     e.printStackTrace();
                     System.out.println("抛出中断异常，中断程序");
@@ -131,13 +134,13 @@ class InterruptThread1 {
 }
 ```
 
-注意：从jdk文档可知，如果interrupt中断的是阻塞的线程，那么就会导致抛出异常InterruptedException，
+注意：从 jdk 文档可知，如果 interrupt 中断的是阻塞的线程，那么就会导致抛出异常 InterruptedException，
 并且会清理中断标志位，所以如上代码是一个死循环，如何解决呢？
-就是要重置标识位 `thread.interrupt();`，catch异常后要重置标识位即可解决问题
+就是要重置标识位 `thread.interrupt();`，catch 异常后要重置标识位即可解决问题
 
 ### 思考
 
-现在可以了解到如果是线程阻塞然后中断就会抛出异常，那么假设线程先interrupt中断后再去阻塞会怎么样呢？
+现在可以了解到如果是线程阻塞然后中断就会抛出异常，那么假设线程先 interrupt 中断后再去阻塞会怎么样呢？
 
 ```java
 public class StopThread6 {
@@ -152,7 +155,7 @@ public class StopThread6 {
                 Thread.sleep(200);
                 System.out.println("阻塞完毕");
             } catch (InterruptedException e) {
-                System.out.println("中断报错·······");
+                System.out.println("中断报错 ·······");
                 e.printStackTrace();
             }
         });

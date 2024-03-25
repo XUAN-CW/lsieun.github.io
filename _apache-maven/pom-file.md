@@ -3,6 +3,9 @@ title: "Pom file"
 sequence: "103"
 ---
 
+[UP](/maven.html)
+
+
 Every Maven project has **a pom file** that defines **what the project is all about** and **how it should be built**.
 
 **Pom** is an acronym for **project object model**.

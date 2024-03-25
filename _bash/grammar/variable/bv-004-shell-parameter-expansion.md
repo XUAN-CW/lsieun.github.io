@@ -3,6 +3,9 @@ title: "${parameter:-word}"
 sequence: "104"
 ---
 
+[UP](/bash.html)
+
+
 - `${parameter:-word}`
 
 If `parameter` is unset or null, the expansion of `word` is substituted.

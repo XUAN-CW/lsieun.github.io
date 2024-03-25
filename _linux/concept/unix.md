@@ -3,6 +3,9 @@ title: "Unix"
 sequence: "unix"
 ---
 
+[UP](/linux.html)
+
+
 `GNU/Linux` is fashioned on **Unix**.
 Unix dates from 1969 when Ken Thompson at Bell Telephone Laboratories initiated work on this new operating system.
 The name Unix is a pun on an alternative operating system of the time called `MULTICS`
@@ -12,8 +15,8 @@ MULTICS was developed by The Massachusetts Institute of Technology, General Elec
 
 这段两个理解：
 
-- （1） `GNU/Linux`是模仿的Unix
-- （2）第一版Unix是1969年，第一版Linux是1991年，中间间隔22年
+- （1） `GNU/Linux` 是模仿的 Unix
+- （2）第一版 Unix 是 1969 年，第一版 Linux 是 1991 年，中间间隔 22 年
 
 **Some of the basic ideas** introduced by `Multics` and then `Unix` were the **tree structured file system**,
 a program for command interpretation (called the **shell**),
@@ -26,8 +29,8 @@ and **to write programs that communicated with each other using text from one pr
 
 这段理解三个意思：
 
-- （1） 从`Multics`到`Unix`，再到`GNU/Linux`，传承下来一些 ideas 和 philosophy
-- （2） 这些ideas包括：tree structured file system/shell/text files/IO
+- （1） 从 `Multics` 到 `Unix`，再到 `GNU/Linux`，传承下来一些 ideas 和 philosophy
+- （2） 这些 ideas 包括：tree structured file system/shell/text files/IO
 - （3） 这些 philosophy 包括： one task and to do it well/work together/communicate using text
 
 **The advantages of Unix** were quickly identified by many and
@@ -43,17 +46,17 @@ it was not always an easy task.
 **The diversity of Unix implementations** (more so than the proprietary nature of most of them)
 made it difficult for `Unix` to become **a commodity operating system**.
 
-> Unix的优点，很快获得到认可。之后，分化成许多不同的Unix具体实现，这也就让不同的Unix之间的兼容性问题。
+> Unix 的优点，很快获得到认可。之后，分化成许多不同的 Unix 具体实现，这也就让不同的 Unix 之间的兼容性问题。
 
 The **GNU project** worked hard to free software development from nuances of each of the different Unix versions
 through providing **a common programming language environment** (`GNU C`) and
 **a sophisticated packaging tool** (`autoconf` and `automake`) to carefully hide the differences.
 
-> 这个时候，GNU project站出来解决这个问题。
+> 这个时候，GNU project 站出来解决这个问题。
 
 `GNU/Linux` has now become **the most popular Unix variant** and all the major Unix players support GNU/Linux in some way.
 
-> 到现在，`GNU/Linux`成为最受欢迎的Unix variant。
+> 到现在，`GNU/Linux` 成为最受欢迎的 Unix variant。
 
 ## Unix Tools
 
@@ -161,4 +164,3 @@ Also, many of its basic commands have the same name and serve the same purpose, 
 
 However, **the Linux operating system is not directly descended from any of UNIX's code**.
 Additionally, it does not comply with the official single UNIX specification technical standard as defined by the Open Group.
-

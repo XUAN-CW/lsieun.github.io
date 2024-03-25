@@ -3,6 +3,9 @@ title: "如何编写 Shell Script"
 sequence: "101"
 ---
 
+[UP](/bash.html)
+
+
 一般经过三步：
 
 - 第 1 步，编写 script
@@ -102,5 +105,3 @@ we must have the shell reread the `.bashrc` file. This can be done by “sourcin
 ```text
 $ . .bashrc
 ```
-
-

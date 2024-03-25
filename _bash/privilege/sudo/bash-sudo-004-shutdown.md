@@ -3,6 +3,9 @@ title: "集群：关机"
 sequence: "104"
 ---
 
+[UP](/bash.html)
+
+
 ```bash
 #!/bin/bash
 
@@ -21,7 +24,7 @@ for ((i=$length-1; i>=0; i--))
 do
     host="${HOSTS[i]}"
     echo "================== ${host}: shutdown =================="
-    # 使用ssh远程执行命令
+    # 使用 ssh 远程执行命令
     ssh -T ${USERNAME}@${host} "${COMMAND}" <<EOF
 $(echo $PASSWORD)
 EOF

@@ -3,6 +3,9 @@ title: "/opt"
 sequence: "opt"
 ---
 
+[UP](/linux.html)
+
+
 The FHS defines `/opt` as "**reserved for the installation of add-on application software packages.**"
 In this context, "add-on" means software that is not part of the system; for example,
 any external or third-party software.

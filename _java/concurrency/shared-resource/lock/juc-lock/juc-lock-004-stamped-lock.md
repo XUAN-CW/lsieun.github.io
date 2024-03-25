@@ -3,6 +3,9 @@ title: "StampedLock"
 sequence: "104"
 ---
 
+[UP](/java-concurrency.html)
+
+
 ## 介绍
 
 `StampedLock` also supports both read and write locks.
@@ -197,7 +200,7 @@ class DataContainerStamped {
 }
 ```
 
-测试 读-读 可以优化：
+测试 读 - 读 可以优化：
 
 ```java
 public class Test {
@@ -223,7 +226,7 @@ public class Test {
 45.08.096 [t1] DEBUG read finish...256, data:1
 ```
 
-测试 读-写 时优化读补加读锁
+测试 读 - 写 时优化读补加读锁
 
 ```java
 public class Test {

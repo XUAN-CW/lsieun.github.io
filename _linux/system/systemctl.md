@@ -3,6 +3,9 @@ title: "systemctl"
 sequence: "systemctl"
 ---
 
+[UP](/linux.html)
+
+
 `systemctl` may be used to introspect and control the state of the "systemd" system and service manager.
 
 查看帮助：

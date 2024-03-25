@@ -3,6 +3,9 @@ title: "Mojo: Integration Test"
 sequence: "110"
 ---
 
+[UP](/maven.html)
+
+
 ## Integration/Functional testing
 
 ```text

@@ -3,6 +3,9 @@ title: "Mojo Parameters：不同的输入方式（输入）"
 sequence: "103"
 ---
 
+[UP](/maven.html)
+
+
 Each Mojo specifies the parameters that it expects in order to work.
 These parameters are the Mojo's link to the outside world,
 and will be satisfied through a combination of **POM/project values**,

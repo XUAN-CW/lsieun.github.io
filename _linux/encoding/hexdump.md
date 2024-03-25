@@ -3,6 +3,9 @@ title: "hexdump"
 sequence: "hexdump"
 ---
 
+[UP](/linux.html)
+
+
 `hexdump` - display file contents in hexadecimal, decimal, octal, or ascii
 
 
@@ -137,4 +140,3 @@ $ hexdump -n 5 -C dummy.txt
 00000000  54 68 65 20 71                                    |The q|
 00000005
 ```
-

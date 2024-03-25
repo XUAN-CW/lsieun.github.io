@@ -3,6 +3,9 @@ title: "hosts"
 sequence: "101"
 ---
 
+[UP](/linux.html)
+
+
 ```text
 $ sudo vi /etc/hosts
 ```

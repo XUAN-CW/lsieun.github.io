@@ -3,6 +3,9 @@ title: "Intro"
 sequence: "101"
 ---
 
+[UP](/java-concurrency.html)
+
+
 The Java Concurrency API includes different synchronization mechanisms that allow you to:
 
 - Define a **critical section** to access a **shared resource**
@@ -26,5 +29,3 @@ The following mechanisms are the most important synchronization mechanisms:
 - The `Phaser` class: A class that allows you to control the execution of tasks
   divided into phases. None of the tasks advance to the next phase until all of
   the tasks have finished the current phase.
-
-

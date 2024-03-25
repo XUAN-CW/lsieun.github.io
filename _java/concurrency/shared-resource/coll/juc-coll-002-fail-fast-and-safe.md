@@ -3,6 +3,8 @@ title: "fail-safe 与 fail-fast"
 sequence: "102"
 ---
 
+[UP](/java-concurrency.html)
+
 
 fail-safe 和 fail-fast，是多线程并发操作集合时的一种**失败处理机制**。
 

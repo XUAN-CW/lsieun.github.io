@@ -3,6 +3,9 @@ title: "集群分发脚本"
 sequence: "102"
 ---
 
+[UP](/linux.html)
+
+
 ## scp
 
 scp = secure copy 安全拷贝
@@ -13,7 +16,7 @@ scp 可以实现服务器与服务器之间的数据拷贝。（from server1 to 
 
 ```text
 scp   -r       $pdir/$fname           $user@$host:$pidr/$fname
-命令   递归      要拷贝的文件路径/名称     目的地用户@主机：目的地路径/名称
+命令   递归      要拷贝的文件路径/名称     目的地用户 @ 主机：目的地路径/名称
 ```
 
 ### 示例操作

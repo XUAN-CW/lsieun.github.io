@@ -3,6 +3,9 @@ title: "用户 CRUD"
 sequence: "102"
 ---
 
+[UP](/linux.html)
+
+
 ## Add User
 
 ### Step 1: Login as Administrator

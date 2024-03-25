@@ -3,6 +3,9 @@ title: "rar"
 sequence: "rar"
 ---
 
+[UP](/linux.html)
+
+
 URL:
 
 - https://superuser.com/questions/1072342/how-to-open-rar-file-in-fedora-23
@@ -43,7 +46,7 @@ $ sudo apt install unrar rar
 $ rar a myfile hello.txt
 ```
 
-> 注意：myfile不需要添加`.rar`的后缀
+> 注意：myfile 不需要添加 `.rar` 的后缀
 
 ## Extract
 

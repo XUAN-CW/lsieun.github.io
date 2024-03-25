@@ -3,6 +3,9 @@ title: "KeyStore: JKS + PKCS12"
 sequence: "103"
 ---
 
+[UP](/pki.html)
+
+
 A **Java KeyStore** is a container of security certificates that we can use when writing Java code.
 
 Java KeyStores hold one or more certificates with their matching private keys and
@@ -43,4 +46,3 @@ $ keytool -list -keystore cacerts
 Warning: use -cacerts option to access cacerts keystore
 Enter keystore password: changeit
 ```
-

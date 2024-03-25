@@ -3,6 +3,9 @@ title: "SELinux"
 sequence: "selinux"
 ---
 
+[UP](/linux.html)
+
+
 ## 要查看 SELinux 的状态：
 
 ```text
@@ -31,7 +34,3 @@ $ sudo sed -i 's/^SELINUX=.*/SELINUX=permissive/g' /etc/selinux/config
 ```text
 $ sudo sed -ri 's/^SELINUX=.*/SELINUX=disabled/g' /etc/selinux/config
 ```
-
-
-
-

@@ -125,6 +125,16 @@ sort: "sequence"
 - [Java IO vs NIO](https://www.baeldung.com/java-io-vs-nio)
 - [Introduction to Java NIO with Examples](https://www.geeksforgeeks.org/introduction-to-java-nio-with-examples/)
 
+- [NIO-EPollSelectorIpml 源码分析](https://www.cnblogs.com/Jack-Blog/p/12394487.html)
+- [万字长文浅析：Epoll与Java Nio的那些事儿](https://zhuanlan.zhihu.com/p/159346800)
+
+视频
+
+- [深入搞定Netty底层源码](https://www.bilibili.com/video/BV1Pq4y1a7Yz/)
+- [socket到底是什么？](https://www.bilibili.com/video/BV12A411X7gY/)
+- [Java网络编程与NIO详解](https://www.bilibili.com/video/BV1NL4y1P7sF/)
+- [Netty教程：十二个实例带你掌握Netty](https://edu.51cto.com/course/23586.html)
+
 - IPMSG
     - [IP Messenger](https://ipmsg.org/)
     - [mcxiao/ipmsg4j](https://github.com/mcxiao/ipmsg4j)

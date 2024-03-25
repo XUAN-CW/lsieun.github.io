@@ -3,17 +3,20 @@ title: "lrzsz"
 sequence: "102"
 ---
 
+[UP](/linux.html)
+
+
 ## 介绍
 
-Lrzsz是一组用于在Unix、Linux系统中实现Kermit协议的工具，包括了rz、sz、lrz和lzs四个命令。
-这些命令可以在Unix、Linux系统中方便地进行文件的上传和下载。
+Lrzsz 是一组用于在 Unix、Linux 系统中实现 Kermit 协议的工具，包括了 rz、sz、lrz 和 lzs 四个命令。
+这些命令可以在 Unix、Linux 系统中方便地进行文件的上传和下载。
 其中，`rz` 和 `sz` 命令是接收和发送文件的命令，而 `lrz` 和 `lzs` 命令则是支持长文件名和大文件的 `rz` 和 `sz` 命令。
 
 "lrzsz" 取名的含义：在 UNIX 系统中，（RZ）是“Receive Z-modem”协议的意思，表示接收方；
 （SZ）是“Send Z-modem”协议的意思，表示发送方。而“L”则是它们的大写字母，表示支持长文件名和大文件。
 
-使用 `lrzsz` 可以方便地进行远程文件传输，避免了使用FTP等文件传输协议的麻烦和复杂性。
-在Linux、Unix系统中，很多用户都使用这个命令来进行文件传输，特别是在与远程Linux服务器之间进行文件传输时尤其方便。
+使用 `lrzsz` 可以方便地进行远程文件传输，避免了使用 FTP 等文件传输协议的麻烦和复杂性。
+在 Linux、Unix 系统中，很多用户都使用这个命令来进行文件传输，特别是在与远程 Linux 服务器之间进行文件传输时尤其方便。
 
 ## 安装
 

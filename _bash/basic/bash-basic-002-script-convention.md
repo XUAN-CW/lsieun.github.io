@@ -3,6 +3,9 @@ title: "Shell 脚本开发基本规范及习惯"
 sequence: "102"
 ---
 
+[UP](/bash.html)
+
+
 ## 目录和文件
 
 ### 脚本目录
@@ -105,4 +108,3 @@ if [ -f "$file" ]; then echo 1; else echo 0; fi
 ```
 
 变量 `$file` 加了双引号，这是编程的好习惯，可以防止很多意外的错误发生。
-

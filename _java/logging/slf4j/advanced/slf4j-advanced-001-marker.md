@@ -3,6 +3,9 @@ title: "SLF4J Markers"
 sequence: "103"
 ---
 
+[UP](/java-logging.html)
+
+
 Markers are named objects
 that are used to enrich the data inside the single log event context.
 You can imagine marking a log event with the `IMPORTANT` marker,

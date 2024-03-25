@@ -3,6 +3,9 @@ title: "Group"
 sequence: "101"
 ---
 
+[UP](/linux.html)
+
+
 Two ways to List All Groups in Linux
 
 - `/etc/group` file
@@ -107,5 +110,3 @@ $ cat /etc/group | grep -c ""
 $ getent group | grep -c ""
 43
 ```
-
-

@@ -3,6 +3,9 @@ title: "Mvn Debug"
 sequence: "113"
 ---
 
+[UP](/maven.html)
+
+
 - run maven goal with `mvnDebug` instead of `mvn`. E.g. `mvnDebug clean`
 - 添加断点。Open the source of the maven plugin you want to debug in intelliJ and set a breakPoint
 - In IDEA, add a **Remote JVM Debug** Configuration.

@@ -3,6 +3,9 @@ title: "Arch: x86 VS. x64"
 sequence: "101"
 ---
 
+[UP](/linux.html)
+
+
 There is no such thing as `x32`. However, `x86` and `x64` refer to the instruction set architecture of the `CPU`.
 
 ## Instruction Set

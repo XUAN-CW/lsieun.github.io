@@ -3,6 +3,9 @@ title: "dns"
 sequence: "dns"
 ---
 
+[UP](/linux.html)
+
+
 阿里云 DNS：
 
 ```text
@@ -21,4 +24,3 @@ sequence: "dns"
 ```text
 119.29.29.29
 ```
-

@@ -3,6 +3,9 @@ title: "cut"
 sequence: "cut"
 ---
 
+[UP](/linux.html)
+
+
 `cut` is a command-line utility that allows you
 to cut parts of lines from specified files or piped data and
 print the result to standard output.
@@ -143,5 +146,3 @@ $ cut test.txt -f 1,3 --complement
 M:4540	01:10:1980
 M:3476	11:04:1978
 ```
-
-

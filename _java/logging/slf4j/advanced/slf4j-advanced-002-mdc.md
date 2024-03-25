@@ -3,6 +3,9 @@ title: "Mapped Diagnostic Context"
 sequence: "104"
 ---
 
+[UP](/java-logging.html)
+
+
 SLF4J supports the **Mapped Diagnostic Context**
 which is a map where the application code provides key-value pairs
 which can be inserted by the logging framework in the log messages.

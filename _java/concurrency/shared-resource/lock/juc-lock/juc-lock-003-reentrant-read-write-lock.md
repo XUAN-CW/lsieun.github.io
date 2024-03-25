@@ -3,6 +3,9 @@ title: "ReentrantReadWriteLock"
 sequence: "103"
 ---
 
+[UP](/java-concurrency.html)
+
+
 ## 使用场景
 
 当 Read 操作远远高于 Write 操作时，这时候使用 `ReadWriteLock` 让 “Read-Read” 可以并发，提高性能。
@@ -72,9 +75,9 @@ class DataContainer {
 }
 ```
 
-#### 测试：读-读
+#### 测试：读 - 读
 
-测试 “读锁-读锁” 可以并发：
+测试 “读锁 - 读锁” 可以并发：
 
 ```text
 public static void main(String[] args) {
@@ -102,9 +105,9 @@ public static void main(String[] args) {
 38.23.231 [t2] DEBUG 释放读锁...
 ```
 
-#### 测试：读-写
+#### 测试：读 - 写
 
-测试 “读锁-写锁” 相互阻塞：
+测试 “读锁 - 写锁” 相互阻塞：
 
 ```text
 public static void main(String[] args) {
@@ -363,7 +366,7 @@ class CachedData {
 
         // 拿到读锁，自己用完数据，释放读锁（防止自己读的时候别人写）
         // ①数据没失效，拿到读锁，可以直接读
-        // ②数据失效后，那就重新计算data，然后释放写锁前拿到读锁，继续读
+        // ②数据失效后，那就重新计算 data，然后释放写锁前拿到读锁，继续读
         try {
             use(data);
         } finally {

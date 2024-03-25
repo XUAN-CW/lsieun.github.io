@@ -3,6 +3,8 @@ title: "停止线程：不推荐使用 stop 方法"
 sequence: "103"
 ---
 
+[UP](/java-concurrency.html)
+
 
 ## ThreadDeath
 
@@ -123,9 +125,7 @@ public class ThreadStopUnlockMonitor {
 ## 总结
 
 从执行代码结果的层面来看，如果直接调用 `stop` 方法会即刻在线程的 `run()` 方法内抛出 `ThreadDeath` 异常，
-而且抛出的位置不确定，还有可能在catch或finally语句中。
+而且抛出的位置不确定，还有可能在 catch 或 finally 语句中。
 
 直接使用 `stop` 停止线程是非常不明智的，
 如果突然释放锁，会导致本来加锁的对象，被其他线程抢到锁从而修改属性值，导致数据不一致的情况产生。
-
-

@@ -3,6 +3,9 @@ title: "journalctl"
 sequence: "journalctl"
 ---
 
+[UP](/linux.html)
+
+
 `journalctl` 是 Linux 操作系统中与日志相关的命令，它可以查看和管理 systemd journald 服务管理的系统日志。
 
 在较早的版本中，Linux 通常使用 `syslogd` 或 `rsyslogd` 管理系统日志。而在更近的版本中，基于 `systemd` 的日志管理系统变得越来越普遍。
@@ -35,5 +38,3 @@ journalctl -xeu kubelet
 - `-u` 选项用于指定要查看的服务名。
 
 因此，执行 `journalctl -xeu kubelet` 命令会显示 `kubelet` 服务的日志信息，并在最后一行显示出命令挂起的信息，以便等待新的日志信息产生。
-
-

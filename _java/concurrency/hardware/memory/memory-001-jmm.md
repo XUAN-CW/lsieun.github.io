@@ -3,6 +3,7 @@ title: "Java 内存模型"
 sequence: "101"
 ---
 
+[UP](/java-concurrency.html)
 
 
 JMM 即 Java Memory Model，它定义了**主存**、**工作内存**抽象概念，

@@ -3,6 +3,9 @@ title: "firewall"
 sequence: "102"
 ---
 
+[UP](/linux.html)
+
+
 Firewalls are tools that can protect an OS.
 Linux has **iptables** and **firewalld**,
 which contain firewall rules and can manage firewall rules in Linux.
@@ -35,14 +38,14 @@ It can be also  found in `/sbin/iptables`,
 but since iptables is more like a service rather than an “essential binary”,
 the preferred location remains in `/usr/sbin` directory.
 
-我的CentOS是`CentOS Linux release 7.9.2009`版本：
+我的 CentOS 是 `CentOS Linux release 7.9.2009` 版本：
 
 ```text
 $ cat /etc/redhat-release
 CentOS Linux release 7.9.2009 (Core)
 ```
 
-文件`/usr/sbin/iptables`是存在的：
+文件 `/usr/sbin/iptables` 是存在的：
 
 ```text
 $ ls -l /usr/sbin/iptables
@@ -52,7 +55,7 @@ $ ls -l /usr/sbin/xtables-multi
 -rwxr-xr-x. 1 root root 93712 Oct  1  2020 /usr/sbin/xtables-multi
 ```
 
-文件`/sbin/iptables`是存在的：
+文件 `/sbin/iptables` 是存在的：
 
 ```text
 $ ls -l /sbin/iptables

@@ -3,6 +3,9 @@ title: "Logback 配置"
 sequence: "101"
 ---
 
+[UP](/java-logging.html)
+
+
 ## 没有配置的情况
 
 The Logback's default behavior:

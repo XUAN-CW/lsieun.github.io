@@ -3,9 +3,12 @@ title: "The differences between System V and BSD Unix"
 sequence: "101"
 ---
 
+[UP](/linux.html)
+
+
 ## Intro: standard syntax and BSD syntax
 
-查看`ps`命令的帮助：
+查看 `ps` 命令的帮助：
 
 ```bash
 man ps
@@ -59,10 +62,10 @@ and was developed during the 80s at the University of California Berkeley.
 
 简单总结：
 
-- （1） 在70～80年，这十年，Unix在发展
-- （2） 在80～90年，这十年，Unix分成两个主要分支：System V（侧重商业）和BSD（侧重大学、科研）
-- （3） 在90～2000年，这十年，Linux出现，分成两个分支：Debian（社区运营）和Red Hat（公司运营）
-- （4） 在2000～2010年，这十年，从Debian和Red Hat又产生了更多的分支
+- （1） 在 70 ～ 80 年，这十年，Unix 在发展
+- （2） 在 80 ～ 90 年，这十年，Unix 分成两个主要分支：System V（侧重商业）和 BSD（侧重大学、科研）
+- （3） 在 90 ～ 2000 年，这十年，Linux 出现，分成两个分支：Debian（社区运营）和 Red Hat（公司运营）
+- （4） 在 2000 ～ 2010 年，这十年，从 Debian 和 Red Hat 又产生了更多的分支
 
 {:refdef: style="text-align: center;"}
 ![](/assets/images/linux/concept/linux-distribution-timeline.svg)
@@ -209,5 +212,3 @@ The following table gives the (Europeanized) Roman numerals for the first few po
 ## Reference
 
 - [What is the difference between standard syntax and BSD syntax?](https://askubuntu.com/questions/484982/what-is-the-difference-between-standard-syntax-and-bsd-syntax)
-
-

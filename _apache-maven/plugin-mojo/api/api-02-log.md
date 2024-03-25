@@ -3,6 +3,9 @@ title: "Log（输出）"
 sequence: "102"
 ---
 
+[UP](/maven.html)
+
+
 ## Logging
 
 Maven takes care of connecting your Mojo to a logging provider
@@ -195,4 +198,3 @@ This default logger will however use a different message format for its output a
 also outputs debug messages even if Maven's debug mode was not enabled.
 **For this reason, developers must not try to cache the logger during construction time.**
 **The method `getLog()` is fast enough and can simply be called whenever one needs it.**
-

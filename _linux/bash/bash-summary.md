@@ -1,7 +1,10 @@
 ---
-title: "bash命令总结"
+title: "bash 命令总结"
 sequence: "bash-summary"
 ---
+
+[UP](/linux.html)
+
 
 - 目录管理：
     - pwd

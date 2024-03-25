@@ -3,6 +3,9 @@ title: "创建线程的三种方式"
 sequence: "102"
 ---
 
+[UP](/java-concurrency.html)
+
+
 Java 中创建线程的三种方式：
 
 - 继承 `Thread` 类创建线程

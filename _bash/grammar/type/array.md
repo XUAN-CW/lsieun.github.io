@@ -3,6 +3,9 @@ title: "array"
 sequence: "102"
 ---
 
+[UP](/bash.html)
+
+
 ## 定义数组
 
 在 Bash 脚本中，你可以通过多种方式来定义字符串数组。

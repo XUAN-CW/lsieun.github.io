@@ -3,6 +3,9 @@ title: "变量替换"
 sequence: "103"
 ---
 
+[UP](/java-logging.html)
+
+
 ## Variable Substitution
 
 Logback configuration files support variables.
@@ -40,4 +43,3 @@ $ java -DLOG_DIR=/var/log/application com.baeldung.logback.LogbackTests
 We specify the value of the property with `${propertyname}`.
 Logback implements variables as text replacement.
 Variable substitution can occur at any point in a configuration file where a value can be specified.
-

@@ -3,6 +3,9 @@ title: "happens-before"
 sequence: "106"
 ---
 
+[UP](/java-concurrency.html)
+
+
 Happens-before is a concept, a phenomenon, or simply a set of rules
 that define **the basis for reordering of instructions by a compiler or CPU.**
 Happens-before is not any keyword or object in the Java language,
@@ -62,7 +65,7 @@ When working with multiple threads, this procedure of storage and retrieval may 
 
 ```text
 Race Condition 是解决两个 thread “谁先执行，谁后执行” 的问题
-Update Visibility 是解决 “先执行的thread的运行结果，让后运行的thread 看到结果值”的问题
+Update Visibility 是解决 “先执行的 thread 的运行结果，让后运行的 thread 看到结果值”的问题
 ```
 
 These problems are solved by the use of **`synchronized` block** and **`volatile` variables**.
@@ -296,4 +299,4 @@ Some more rules laid out regarding synchronization state that are as follows:
 ## Reference
 
 - [Happens-Before Relationship in Java](https://www.geeksforgeeks.org/happens-before-relationship-in-java/)（写得很好）
-- [JMM最最最核心的概念-Happens-before原则](https://www.cswiki.top/pages/7214c6/)
+- [JMM 最最最核心的概念 -Happens-before 原则](https://www.cswiki.top/pages/7214c6/)

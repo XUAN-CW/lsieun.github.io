@@ -3,6 +3,9 @@ title: "时间跨度：Period and Duration"
 sequence: "103"
 ---
 
+[UP](/java-time.html)
+
+
 - `Period`：较大时间单位的时间跨度，例如，年、月、日。
 - `Duration`：较小时间单位的时间跨度，例如，秒、纳秒
 

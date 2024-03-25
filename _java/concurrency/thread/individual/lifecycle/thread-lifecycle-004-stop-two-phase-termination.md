@@ -3,6 +3,9 @@ title: "停止线程：推荐使用两阶段终止"
 sequence: "104"
 ---
 
+[UP](/java-concurrency.html)
+
+
 The typical `run` method of a thread should look like
 
 ```text
@@ -236,6 +239,6 @@ public class ControlSubThread implements Runnable {
 
 - [Java Thread Primitive Deprecation](https://docs.oracle.com/javase/8/docs/technotes/guides/concurrency/threadPrimitiveDeprecation.html)
 - [How to Kill a Java Thread](https://www.baeldung.com/java-thread-stop)
-- [java多线程之Two-Phase Termination模式](https://blog.csdn.net/m0_37941483/article/details/103150023)
+- [java 多线程之 Two-Phase Termination 模式](https://blog.csdn.net/m0_37941483/article/details/103150023)
 - [Design Pattern: Two-Phase termination Mode](https://topic.alibabacloud.com/a/design-pattern-two-phase-termination-mode_8_8_32320845.html)
-- [第三部分-并发设计模式35:两阶段终止模式](https://www.cnblogs.com/PythonOrg/p/14885679.html)
+- [第三部分 - 并发设计模式 35:两阶段终止模式](https://www.cnblogs.com/PythonOrg/p/14885679.html)

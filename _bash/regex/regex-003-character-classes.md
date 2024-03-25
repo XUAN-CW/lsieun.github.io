@@ -3,6 +3,9 @@ title: "Character Classes"
 sequence: "103"
 ---
 
+[UP](/bash.html)
+
+
 Also called character sets, these are groups of characters from wich only one is matched in the given string.
 
 `/gr[ae]y/` where `[ae]` is the character set, will match both grey and gray.

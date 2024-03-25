@@ -3,6 +3,9 @@ title: "gzip"
 sequence: "gzip"
 ---
 
+[UP](/linux.html)
+
+
 The `gzip` command is a common way of compressing files within Linux and
 therefore it is worth knowing how to compress files using this tool.
 

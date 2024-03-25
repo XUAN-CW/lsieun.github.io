@@ -3,6 +3,9 @@ title: "Tricks"
 sequence: "109"
 ---
 
+[UP](/bash.html)
+
+
 ## 查看可用 Shell
 
 To list available valid login shells for use at time, type following command:
@@ -42,4 +45,3 @@ cd /root || {
     pwd
 }
 ```
-

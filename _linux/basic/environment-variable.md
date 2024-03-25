@@ -3,6 +3,9 @@ title: "Environment Variable"
 sequence: "105"
 ---
 
+[UP](/linux.html)
+
+
 ## 查看所有环境变量
 
 ```text

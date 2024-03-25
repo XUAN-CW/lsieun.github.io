@@ -3,6 +3,9 @@ title: "Introduction to Plexus"
 sequence: "103"
 ---
 
+[UP](/maven.html)
+
+
 The most important feature of an IoC container implemented in Java is
 a mechanism called **dependency injection**.
 
@@ -63,6 +66,3 @@ Using Field injection, an IoC container populates a component's dependencies by 
 For example, if you were working with a `Person` object that had two fields `name` and `job`,
 your IoC container would populate these dependencies by setting these fields directly
 (i.e. `person.name = "Thomas"; person.job = job;`)
-
-
-

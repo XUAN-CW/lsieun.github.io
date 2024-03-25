@@ -3,9 +3,12 @@ title: "keytool Intro"
 sequence: "101"
 ---
 
+[UP](/pki.html)
+
+
 ## What Is keytool?
 
-keytool 位于 `${JDK_HOME}/bin`目录。
+keytool 位于 `${JDK_HOME}/bin` 目录。
 
 keytool 的主要作用是 **manage keys and certificates** and **store them in a keystore**
 

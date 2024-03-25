@@ -3,6 +3,9 @@ title: "String"
 sequence: "102"
 ---
 
+[UP](/bash.html)
+
+
 ## String Operations(bash builtin)
 
 在 `man bash` 的"Parameter Expansion"部分可以查看到相关内容

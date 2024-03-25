@@ -3,6 +3,9 @@ title: "expect"
 sequence: "103"
 ---
 
+[UP](/bash.html)
+
+
 ## 安装 expect
 
 ```text
@@ -143,7 +146,7 @@ $ chmod u+x login_remote_server.sh
 $ ./login_remote_server.sh
 ```
 
-### Shell 脚本和expect
+### Shell 脚本和 expect
 
 ```text
 $ cat ip.txt 
@@ -226,7 +229,7 @@ $ vim ssh-001-simple.exp
 
 ```text
 :set ff
-#或
+# 或
 :set fileformat
 ```
 
@@ -236,7 +239,7 @@ $ vim ssh-001-simple.exp
 
 ```text
 :set ff=unix
-#或
+# 或
 :set fileformat=unix
 
 # 存盘退出

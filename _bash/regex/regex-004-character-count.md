@@ -3,6 +3,9 @@ title: "Character Count"
 sequence: "104"
 ---
 
+[UP](/bash.html)
+
+
 ## The asterisk or star (`*`)
 
 This is a repetition symbol, stating that the instruction to the left of it might exist `0` or **multiple times**.
@@ -48,4 +51,3 @@ They are similar to the **dot** and **plus symbols**, in that they specify how m
 `/a{1,}/` means that a repeats one or more times. It is equivalent to `+`
 
 `/a{0,}/` means that a repeats zero or more times. It is equivalent to `*`
-

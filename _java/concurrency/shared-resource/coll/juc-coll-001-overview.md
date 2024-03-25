@@ -1,7 +1,10 @@
 ---
-title: "线程安全-集合类-概述"
+title: "线程安全 - 集合类 - 概述"
 sequence: "101"
 ---
+
+[UP](/java-concurrency.html)
+
 
 {:refdef: style="text-align: center;"}
 ![](/assets/images/java/concurrency/juc/coll/juc-coll-overview.png)
@@ -11,8 +14,8 @@ sequence: "101"
 
 线程安全集合类可以分为三大类：
 
-- 遗留的线程安全集合如 `Hashtable`， `Vector`。线程安全的实现无非直接加synchronized
-- 使用 `Collections` 装饰的线程安全集合，如：使用装饰器模式，把所装饰的类的所有方法，套了一个synchronized
+- 遗留的线程安全集合如 `Hashtable`， `Vector`。线程安全的实现无非直接加 synchronized
+- 使用 `Collections` 装饰的线程安全集合，如：使用装饰器模式，把所装饰的类的所有方法，套了一个 synchronized
     - Collections.synchronizedCollection
     - Collections.synchronizedList
     - Collections.synchronizedMap
@@ -37,4 +40,3 @@ sequence: "101"
     - 遍历时弱一致性，例如，当利用迭代器遍历时，如果容器发生修改，迭代器仍然可以继续进行遍历，这时内容是旧的
     - 求大小弱一致性，size 操作未必是 100% 准确
     - 读取弱一致性
-

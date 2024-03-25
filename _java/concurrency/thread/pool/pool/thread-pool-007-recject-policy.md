@@ -3,6 +3,9 @@ title: "线程池的拒绝策略"
 sequence: "107"
 ---
 
+[UP](/java-concurrency.html)
+
+
 ## 线程池与拒绝策略的关系
 
 线程池的拒绝策略是通过 `ThreadPoolExecutor` 的构造方法中的 `RejectedExecutionHandler handler` 参数设置的。

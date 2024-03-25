@@ -3,6 +3,9 @@ title: "maven-plugin-plugin"
 sequence: "301"
 ---
 
+[UP](/maven.html)
+
+
 ```xml
 <build>
     <plugins>

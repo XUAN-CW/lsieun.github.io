@@ -3,6 +3,9 @@ title: "避免死锁"
 sequence: "104"
 ---
 
+[UP](/java-concurrency.html)
+
+
 产生死锁的四大因素：
 
 - 互斥：共享资源只能被一个线程占用 —— 互斥锁

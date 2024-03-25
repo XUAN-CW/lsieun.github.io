@@ -3,6 +3,9 @@ title: "Gnome"
 sequence: "gnome"
 ---
 
+[UP](/linux.html)
+
+
 **Unix** lead to the development of the **GNU Project**
 which needed a kernel that was supplied by **Linux** to produce the **GNU/Linux Operating System**.
 `GNU/Linux` and `Unix` are generally criticised for being hard to use for the common user--all those command line tools
@@ -11,10 +14,10 @@ similar to those pioneered by the Macintosh back in 1984.
 
 这段理解：
 
-- （1） Unix，可能是由于”版权“的限制性，促进了GNU Project的发展。
-- （2） GNU Project，刚开始只有GNU Software， 而`GNU/HURD`作为kernel一直没有发展起来。
-- （3） 后来，Linux作为kernel，与GNU Software一起，共同组成了GNU/Linux Operating System。换句话说，GNU software + Linux Kernel = GNU/Linux Operating System
-- （4） 但是，GNU/Linux和Unix共同面临的问题是，对于common user来说，hard to use。
+- （1） Unix，可能是由于”版权“的限制性，促进了 GNU Project 的发展。
+- （2） GNU Project，刚开始只有 GNU Software， 而 `GNU/HURD` 作为 kernel 一直没有发展起来。
+- （3） 后来，Linux 作为 kernel，与 GNU Software 一起，共同组成了 GNU/Linux Operating System。换句话说，GNU software + Linux Kernel = GNU/Linux Operating System
+- （4） 但是，GNU/Linux 和 Unix 共同面临的问题是，对于 common user 来说，hard to use。
 
 **Unix has had graphical user interfaces for a long time.
 However, Unix vendors had difficulty agreeing on a common way of doing things like a graphical user interface**.
@@ -32,10 +35,10 @@ This meant that once the user had learnt the nuances of the interface they were 
 
 这段的理解：
 
-- （1） Unix对于GUI的功能早已经存在很长时间了，但是不同的Unix版本之间缺乏一个统一的标准。
+- （1） Unix 对于 GUI 的功能早已经存在很长时间了，但是不同的 Unix 版本之间缺乏一个统一的标准。
 - （2） 原因：自由和灵活性，增加了多样性，但同时，也带来了“选择的困惑”。
-- （3） Apple公司的Macintosh引导了the “right way”
-- （4） Microsoft的Windows也提出了standards
+- （3） Apple 公司的 Macintosh 引导了 the “right way”
+- （4） Microsoft 的 Windows 也提出了 standards
 
 - nuance
     - （意义、声音、颜色、感情等方面的）细微差别 a very slight difference in meaning, sound, colour or sb's feelings that is not usually very obvious
@@ -62,5 +65,3 @@ Either way, both are excellent products developing easier to use `GNU/Linux` sys
 
 - blemish
     - 斑点；疤痕；瑕疵 a mark on the skin or on an object that spoils it and makes it look less beautiful or perfect
-
-

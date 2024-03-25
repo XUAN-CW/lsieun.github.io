@@ -3,6 +3,9 @@ title: "任务调度线程池"
 sequence: "109"
 ---
 
+[UP](/java-concurrency.html)
+
+
 ## Timer
 
 在『任务调度线程池』功能加入之前，可以使用 `java.util.Timer` 来实现定时功能。
@@ -42,7 +45,7 @@ public class HelloWorld {
 
         log.debug("start...");
         // 使用 timer 添加两个任务，希望它们都在 1s 后执行
-        // 但由于 timer 内只有一个线程来顺序执行队列中的任务，因此『任务1』的延时，影响了『任务2』的执行
+        // 但由于 timer 内只有一个线程来顺序执行队列中的任务，因此『任务 1 』的延时，影响了『任务 2 』的执行
         timer.schedule(task1, 1000);
         timer.schedule(task2, 1000);
     }
@@ -88,12 +91,12 @@ public class HelloWorld {
 
         // 添加两个任务，希望它们都在 1s 后执行
         pool.schedule(() -> {
-            log.info("任务1");
+            log.info("任务 1");
             sleep(2);
         }, 1000, TimeUnit.MILLISECONDS);
 
         pool.schedule(() -> {
-            log.info("任务2");
+            log.info("任务 2");
         }, 1000, TimeUnit.MILLISECONDS);
 
         pool.shutdown();
@@ -103,7 +106,7 @@ public class HelloWorld {
 
 ### 运行多次（周期运行）
 
-要让任务隔一段时间就执行一次，可以调用scheduleAtFixedRate()、scheduleWithFixedDelay()
+要让任务隔一段时间就执行一次，可以调用 scheduleAtFixedRate()、scheduleWithFixedDelay()
 
 ```java
 import java.util.concurrent.Executors;
@@ -242,4 +245,3 @@ public class HelloWorld {
     }
 }
 ```
-

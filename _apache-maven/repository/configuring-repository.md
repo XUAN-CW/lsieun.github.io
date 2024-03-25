@@ -3,12 +3,15 @@ title: "Configuring Repositories"
 sequence: "102"
 ---
 
+[UP](/maven.html)
+
+
 In addition to the Maven central repository, we can also configure other repositories
 to be used for plugin and dependency downloads.
 We have to remark that there are separate configuration elements for **dependencies** and **plugin** repositories,
 the `<repositories>` and `<pluginRepositories>` elements.
 
-> 这里要注意，dependency repository和plugin repository要分别设置
+> 这里要注意，dependency repository 和 plugin repository 要分别设置
 
 For example, if we want to download both dependencies and plugins from the `Java.net` repository,
 we should declare the following:
@@ -100,4 +103,3 @@ we'll see that snapshots are disabled in the Maven central repository configurat
 
 In a multimodule project, the best choice is to declare an additional repository in the parent POM
 so that they will be available to all the modules of the project.
-

@@ -3,6 +3,9 @@ title: "Mojo: JavaDoc Annotation"
 sequence: "110"
 ---
 
+[UP](/maven.html)
+
+
 ## pom.xml
 
 ### packaging
@@ -44,7 +47,7 @@ sequence: "110"
 </dependencies>
 ```
 
-### 完整的pom.xml
+### 完整的 pom.xml
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -106,7 +109,7 @@ public class GreetingMojo extends AbstractMojo {
 
 ## 测试
 
-在`hello-world`项目的`pom.xml`文件中引入：
+在 `hello-world` 项目的 `pom.xml` 文件中引入：
 
 ### 默认值
 

@@ -3,6 +3,9 @@ title: "Shell And Kernel"
 sequence: "shell-and-kernel"
 ---
 
+[UP](/linux.html)
+
+
 URL：
 
 - https://cvw.cac.cornell.edu/linux/howwork
@@ -20,9 +23,9 @@ display a prompt, read a command, process the given command, then execute the co
 After which it starts the process all over again.
 
 > 这段理解的几个意思：  
-> （1）Linux由kernal和shell两个主要部分组成。  
-> （2）kernel主要负责与“非人”的事物打交道，例如：抽象概念（进程、文件）和硬件（CPU、内存、IO设备）。  
-> （3）shell是“人”与kernel之间桥梁，接收用户的输入，然后交给kernel处理；kernel处理完成后，把结果返回给shell，由shell呈现给用户。
+> （1）Linux 由 kernal 和 shell 两个主要部分组成。  
+> （2）kernel 主要负责与“非人”的事物打交道，例如：抽象概念（进程、文件）和硬件（CPU、内存、IO 设备）。  
+> （3）shell 是“人”与 kernel 之间桥梁，接收用户的输入，然后交给 kernel 处理；kernel 处理完成后，把结果返回给 shell，由 shell 呈现给用户。
 
 **Shell** is basically Bridge between **kernel** and **the user**,
 **a Command Interpreter** where user can type command and the command is conveyed to the kernel and it will be executed.
@@ -37,9 +40,9 @@ After which it starts the process all over again.
 ![](/assets/images/linux/concept/shell-kernel-hardware.png)
 {:refdef}
 
-> 这个图展示了Shell、Kernel和Hardware三者之间的关系。
-> Hardware就像是一个人的身体。Kernel就像一个人的心脏，没有这个Kernel“心脏”的话，整个机器就无法运转起来。
-> 如果没有Shell，Kernel和Hardware一起也能运行起来；那么，Shell存在的意义就是提供了一个与外界进行交互的接口。
+> 这个图展示了 Shell、Kernel 和 Hardware 三者之间的关系。
+> Hardware 就像是一个人的身体。Kernel 就像一个人的心脏，没有这个 Kernel“心脏”的话，整个机器就无法运转起来。
+> 如果没有 Shell，Kernel 和 Hardware 一起也能运行起来；那么，Shell 存在的意义就是提供了一个与外界进行交互的接口。
 
 
 
@@ -72,7 +75,7 @@ it will search a list of predetermined directories (`$PATH`) and try to find a p
 Instead of typing commands over and over, you can also write them into a file (called a shell script),
 and the shell will treat them as new programs/commands.
 
-## 从数量角度，对比Shell和Kernel
+## 从数量角度，对比 Shell 和 Kernel
 
 In a running Linux system, there is always **exactly one running kernel**. But you can have zero, **one or more shells** running in parallel. There are many different shells, such as `bash`, `zsh`, `ksh` and so on, each with its own strengths and weaknesses. As far as I know, `bash` is the most popular. You can learn more about it if you type “man bash”.
 
@@ -80,4 +83,4 @@ In a running Linux system, there is always **exactly one running kernel**. But y
 ![](/assets/images/linux/concept/multi-shells-kernel.svg)
 {:refdef}
 
-> 这张图显示了在Kernel之上存在不同的shell类型，用户通过选择其中的某一种Shell来与Kernel进行交互。
+> 这张图显示了在 Kernel 之上存在不同的 shell 类型，用户通过选择其中的某一种 Shell 来与 Kernel 进行交互。

@@ -3,6 +3,9 @@ title: "The super and the effective POMs"
 sequence: "105"
 ---
 
+[UP](/maven.html)
+
+
 ## The Super POM
 
 Even when a Maven POM does not refer to a parent project,
@@ -173,4 +176,4 @@ mvn help:effective-pom
 As we can see, our project POM is merged with the super POM and with **the built-in lifecycle `default` bindings**.
 For example, we can see the bindings of the compiler plugin with the `compile` and `test-compile` phases,
 even if these bindings aren't declared in any of the module's POMs or the super POM.
-Notice that **transitive dependencies** are not merged—to see them, we have to invoke the `dependency:tree` goal.
+Notice that **transitive dependencies** are not merged — to see them, we have to invoke the `dependency:tree` goal.

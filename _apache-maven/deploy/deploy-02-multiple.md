@@ -3,6 +3,9 @@ title: "Deploy Advanced"
 sequence: "102"
 ---
 
+[UP](/maven.html)
+
+
 ## pom.xml
 
 ```xml
@@ -174,15 +177,14 @@ sequence: "102"
 
 ## deploy
 
-默认情况下，使用`dev`：
+默认情况下，使用 `dev`：
 
 ```text
 mvn clean deploy -DskipTests
 ```
 
-使用`prod`：
+使用 `prod`：
 
 ```text
 mvn clean deploy -DskipTests -Pprod
 ```
-

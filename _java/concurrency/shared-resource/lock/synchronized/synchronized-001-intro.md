@@ -3,6 +3,9 @@ title: "synchronized"
 sequence: "101"
 ---
 
+[UP](/java-concurrency.html)
+
+
 - 锁信息存放
 - 三种锁：偏向锁、轻量级锁、重量级锁
 
@@ -14,7 +17,7 @@ sequence: "101"
     - 对齐填充字符 (对齐 8 位)
 
 - 对象头
-    - Mark Word：对象的Hashcode、分代年龄、GC标记、锁的标记
+    - Mark Word：对象的 Hashcode、分代年龄、GC 标记、锁的标记
         - 如果是 32 位虚拟机，就是 32 bit
         - 如果是 64 位虚拟机，就是 64 bit
     - 指向类的指针
@@ -119,12 +122,12 @@ while(true) {
     <tr>
         <td>轻量级锁</td>
         <td>相互竞争的线程不会阻塞，提高程序的响应速度</td>
-        <td>使用自旋会额外消耗CPU</td>
+        <td>使用自旋会额外消耗 CPU</td>
         <td>追求响应时间<br/>同步块执行速度很快</td>
     </tr>
     <tr>
         <td>重量级锁</td>
-        <td>线程竞争不会自旋，不额外消耗CPU（但是消耗操作系统级别的资源）</td>
+        <td>线程竞争不会自旋，不额外消耗 CPU（但是消耗操作系统级别的资源）</td>
         <td>线程阻塞；线程调度和切换，会消耗额外资源</td>
         <td>追求吞吐量；同步块执行时间较长</td>
     </tr>
@@ -148,19 +151,19 @@ Java 与 Monitor，或者说，Java 对于 Monitor 的支持？
 
 在 Java 中，每一个对象都是“天生”的 Monitor，所以 Monitor 在 Java 中也被称为“内置锁”或 "Intrinsic Lock"或者"Monitor Lock"。。
 
-在Java语言中，内置锁是指通过关键字synchronized来实现的一种同步机制。内置锁可以用于确保多个线程对共享资源的安全访问，防止出现竞争条件和数据不一致性。
+在 Java 语言中，内置锁是指通过关键字 synchronized 来实现的一种同步机制。内置锁可以用于确保多个线程对共享资源的安全访问，防止出现竞争条件和数据不一致性。
 
-当一个线程进入一个使用synchronized关键字修饰的代码块或方法时，它就获得了对象级别的锁，也称为内置锁。其他线程在尝试访问同一对象上被synchronized修饰的代码块或方法时，需要等待该锁的释放才能继续执行。
+当一个线程进入一个使用 synchronized 关键字修饰的代码块或方法时，它就获得了对象级别的锁，也称为内置锁。其他线程在尝试访问同一对象上被 synchronized 修饰的代码块或方法时，需要等待该锁的释放才能继续执行。
 
 内置锁的特点包括：
 
 独占性：一次只能有一个线程持有内置锁，其他线程需要等待锁的释放才能获取锁。
 互斥性：当一个线程持有内置锁时，其他线程无法同时持有该锁，以确保对共享资源的互斥访问。
-释放性：当线程退出synchronized代码块或方法时，会自动释放内置锁，使得其他线程可以获取该锁。
-内置锁的使用方便简单，是Java语言中常用的同步机制之一。然而，需要注意的是，过多地使用内置锁可能会导致性能问题，因为所有对共享资源的访问都会串行化，降低了程序的并发性能。因此，在实际开发中，需要结合具体场景和需求，合理选择合适的同步机制来确保程序的正确性和性能。
+释放性：当线程退出 synchronized 代码块或方法时，会自动释放内置锁，使得其他线程可以获取该锁。
+内置锁的使用方便简单，是 Java 语言中常用的同步机制之一。然而，需要注意的是，过多地使用内置锁可能会导致性能问题，因为所有对共享资源的访问都会串行化，降低了程序的并发性能。因此，在实际开发中，需要结合具体场景和需求，合理选择合适的同步机制来确保程序的正确性和性能。
 
-在Java中，内置锁通常被称为"Intrinsic Lock"或者"Monitor Lock"。 "Intrinsic Lock"是指与对象关联的锁，也称为对象级别的锁。
-当一个线程进入了被synchronized修饰的代码块或方法时，它就获得了这个对象的"Intrinsic Lock"，其他线程需要等待这个锁的释放才能继续执行相关的代码块或方法。
+在 Java 中，内置锁通常被称为"Intrinsic Lock"或者"Monitor Lock"。 "Intrinsic Lock"是指与对象关联的锁，也称为对象级别的锁。
+当一个线程进入了被 synchronized 修饰的代码块或方法时，它就获得了这个对象的"Intrinsic Lock"，其他线程需要等待这个锁的释放才能继续执行相关的代码块或方法。
 
 synchronized 与 monitor 的关系？
 
@@ -266,7 +269,7 @@ class HelloWorld {
 
     public synchronized int genNum() {
         // 首先是计算 num + 1
-        // 把𣚮赋值给 num
+        // 把𣚮?赋值给 num
         System.out.println("current Thread: " + Thread.currentThread().getName());
         return num++;
     }
@@ -336,6 +339,5 @@ public class LockReentrantRun {
 - [偏向锁、轻量级锁、重量级锁、锁重入、锁自旋（二）](https://www.bilibili.com/video/BV14C4y187WP/)
 
 - [synchronized 锁机制、隐式锁、显式锁、互斥锁](https://www.bilibili.com/video/BV1bD4y127hk/)
-- [透彻理解AQS源码分析系列](https://www.bilibili.com/video/BV1HZ4y1N7NP/)
+- [透彻理解 AQS 源码分析系列](https://www.bilibili.com/video/BV1HZ4y1N7NP/)
 - []()
-

@@ -3,6 +3,9 @@ title: "NFS"
 sequence: "nfs"
 ---
 
+[UP](/linux.html)
+
+
 ## 安装服务
 
 ```text

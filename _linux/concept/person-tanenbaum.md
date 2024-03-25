@@ -3,6 +3,9 @@ title: "Andrew Stuart Tanenbaum"
 sequence: "person-Tanenbaum"
 ---
 
+[UP](/linux.html)
+
+
 Andrew Stuart Tanenbaum (born March 16, 1944), sometimes referred to by the handle `ast`,
 is a **Dutch / American** computer scientist and professor emeritus of computer science
 at the Vrije Universiteit Amsterdam in the Netherlands.
@@ -21,15 +24,15 @@ a website dedicated to analysis of polling data in federal elections in the Unit
 
 In 1944, Tanenbaum was born in New York City and grew up in suburban White Plains, New York. He is Jewish.
 
-> 1944年，出生，犹太人。
+> 1944 年，出生，犹太人。
 
 - Jewish
-    - 犹太人的；有关犹太人的；犹太教的；信犹太教的connected with Jews or Judaism; believing in and practising Judaism
+    - 犹太人的；有关犹太人的；犹太教的；信犹太教的 connected with Jews or Judaism; believing in and practising Judaism
 
 He received his bachelor of Science degree in Physics from MIT in 1965 and his Ph.D. degree in astrophysics
 from the University of California, Berkeley in 1971.
 
-> 1965年，21岁，获得学士学位。1971年，27岁，获得博士学位。
+> 1965 年，21 岁，获得学士学位。1971 年，27 岁，获得博士学位。
 
 In 1987, Tanenbaum wrote a clone of UNIX, called `MINIX` (MINi-unIX), for the IBM PC.
 It was targeted at students and others who wanted to learn how an operating system worked.
@@ -50,7 +53,7 @@ that spanned multiple universities.
 These schools were intended to bring professors and Ph.D. students from different Dutch (and later, foreign)
 universities together to help them cooperate and enhance their research.
 
-> 1990年，荷兰政府打算建立一批研究类型的学校。
+> 1990 年，荷兰政府打算建立一批研究类型的学校。
 
 Tanenbaum was one of the cofounders and first Dean of the Advanced School for Computing and Imaging (ASCI).
 This school initially consisted of nearly 200 faculty members and Ph.D. students from the Vrije Universiteit,
@@ -60,4 +63,3 @@ such as parallel computing and image analysis and processing.
 
 On October 5, 1991, **Torvalds** announced his own (`POSIX` like) kernel, called `Linux`,
 which originally used the `MINIX` file system but is not based on MINIX code.
-

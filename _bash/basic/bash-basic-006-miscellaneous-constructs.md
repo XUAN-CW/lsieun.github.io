@@ -3,6 +3,9 @@ title: "Miscellaneous Constructs"
 sequence: "106"
 ---
 
+[UP](/bash.html)
+
+
 ## Brackets
 
 - `if [ CONDITION ]`: Test construct

@@ -2,12 +2,15 @@
 title: "Bash Builtins"
 ---
 
+[UP](/linux.html)
+
+
 A **builtin** is a command contained within the Bash tool set, literally **built in**.
 This is either for **performance reasons** -- **builtins** execute faster than **external commands**,
 which usually require forking off a separate process -- or
 because **a particular builtin needs direct access to the shell internals**.
 
-这段理解，builtin command存在的原因有两个：
+这段理解，builtin command 存在的原因有两个：
 
 - （1） performance reasons -- builtins execute faster than external commands
 - （2） a particular builtin needs direct access to the shell internals
@@ -97,9 +100,8 @@ Similar to the `which` external command, `type cmd` identifies "cmd." Unlike `wh
 
 Gets a short usage summary of a shell builtin. This is the counterpart to `whatis`, but for builtins. The display of `help` information got a much-needed update in the **version 4 release of Bash**.
 
-可以通过`bash --version`来查看bash的版本信息。
+可以通过 `bash --version` 来查看 bash 的版本信息。
 
 ## Reference
 
 - [Internal Commands and Builtins](http://tldp.org/LDP/abs/html/internal.html)
-

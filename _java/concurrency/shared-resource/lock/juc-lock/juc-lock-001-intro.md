@@ -3,6 +3,9 @@ title: "JUC Lock"
 sequence: "101"
 ---
 
+[UP](/java-concurrency.html)
+
+
 Simply put, a lock is a more flexible and sophisticated **thread synchronization mechanism**
 than the standard `synchronized` block.
 

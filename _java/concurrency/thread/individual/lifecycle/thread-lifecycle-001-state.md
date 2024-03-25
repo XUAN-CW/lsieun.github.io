@@ -3,6 +3,8 @@ title: "线程的生命周期"
 sequence: "101"
 ---
 
+[UP](/java-concurrency.html)
+
 
 {:refdef: style="text-align: center;"}
 ![](/assets/images/java/thread/life-cycle-of-a-thread-in-java.jpg)
@@ -293,4 +295,3 @@ Assert.assertFalse(t1.isAlive());
 ## Reference
 
 - [Life Cycle of a Thread in Java](https://www.baeldung.com/java-thread-lifecycle)
-

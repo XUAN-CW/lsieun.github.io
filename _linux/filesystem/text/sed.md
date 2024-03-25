@@ -3,6 +3,9 @@ title: "sed"
 sequence: "sed"
 ---
 
+[UP](/linux.html)
+
+
 sed（Stream Editor）是一个流式文本编辑器，它可以在文本流中进行查找、替换、删除等操作。
 
 下面是一些常见的 sed 命令用法：
@@ -18,9 +21,9 @@ $ sed 's/old_text/new_text/g' filename
 2. 删除某一行或者多行：
 
 ```
-$ sed 'nd' filename        # 删除文件中的第n行
+$ sed 'nd' filename        # 删除文件中的第 n 行
 $ sed '1d' filename        # 删除文件中的第一行
-$ sed 'n1,n2d' filename    # 删除文件中n1到n2行
+$ sed 'n1,n2d' filename    # 删除文件中 n1 到 n2 行
 $ sed '/pattern/d' filename # 删除文件中匹配 pattern 的行
 ```
 
@@ -29,7 +32,7 @@ $ sed '/pattern/d' filename # 删除文件中匹配 pattern 的行
 3. 插入或追加一行：
 
 ```
-$ sed 'nd' filename        # 在第n行后插入一行
+$ sed 'nd' filename        # 在第 n 行后插入一行
 $ sed '1i text' filename   # 在第一行前插入一行 text
 $ sed '$a text' filename   # 在最后一行后追加一行 text
 ```
@@ -39,8 +42,8 @@ $ sed '$a text' filename   # 在最后一行后追加一行 text
 4. 输出指定行：
 
 ```
-$ sed -n 'nd' filename   # 输出文件中的第n行
-$ sed -n 'n1,n2p' filename  # 输出文件中n1到n2行
+$ sed -n 'nd' filename   # 输出文件中的第 n 行
+$ sed -n 'n1,n2p' filename  # 输出文件中 n1 到 n2 行
 ```
 
 上述命令将会输出指定的行。

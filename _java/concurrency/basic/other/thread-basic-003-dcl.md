@@ -3,6 +3,9 @@ title: "DCL 双重检查锁定"
 sequence: "103"
 ---
 
+[UP](/java-concurrency.html)
+
+
 ## 什么是 DCL 问题
 
 在 Java 中，DCL 通常指的是 Double-Checked Locking（双重检查锁定）。
@@ -87,7 +90,7 @@ public class Singleton {
                         // 为什么要做这个看似无用的操作，因为这一步是为了让虚拟机执行到这一步的时会才对 singleton 赋值，
                         // 虚拟机执行到这里的时候，必然已经完成类实例的初始化。
                         // 所以这种写法的 DCL 是安全的。
-                        // 由于 try 的存在，虚拟机无法优化temp是否为null  
+                        // 由于 try 的存在，虚拟机无法优化 temp 是否为 null  
                         singleton = temp;
                     }
                 }

@@ -3,6 +3,9 @@ title: "配置 Layout: Pattern Color"
 sequence: "105"
 ---
 
+[UP](/java-logging.html)
+
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
@@ -41,4 +44,3 @@ public class Example {
 
 - [Logback Coloring](https://logback.qos.ch/manual/layouts.html#coloring)
 - [Colorful Logging In Spring](https://medium.com/@alaajawhar123/colorful-logging-in-spring-da2722bc08d1)
-

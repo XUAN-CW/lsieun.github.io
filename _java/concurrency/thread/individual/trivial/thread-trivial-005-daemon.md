@@ -3,6 +3,9 @@ title: "daemon"
 sequence: "105"
 ---
 
+[UP](/java-concurrency.html)
+
+
 ## 应用
 
 第 1 个，垃圾回收器线程就是一种守护线程

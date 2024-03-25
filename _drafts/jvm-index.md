@@ -285,6 +285,8 @@ sort: "sequence"
 
 尚硅谷宋红康 JVM 全套教程（详解 java 虚拟机）
 
+- [黑马程序员JVM完整教程](https://www.bilibili.com/video/BV1yE411Z7AP)
+- [黑马程序员JVM虚拟机入门到实战全套视频教程](https://www.bilibili.com/video/BV1r94y1b7eS)
 - [尚硅谷宋红康 JVM 全套教程（详解 java 虚拟机）](https://www.bilibili.com/video/BV1PJ411n7xZ?p=363)
 - [笔记：JVM](https://imlql.cn/categories/JVM/)
 - [学习 Java 虚拟机笔记](https://gitee.com/tcl192243051/studyJVM/tree/master)

@@ -1,7 +1,10 @@
 ---
-title: "Maven插件开发"
+title: "Maven 插件开发"
 sequence: "102"
 ---
+
+[UP](/maven.html)
+
 
 ## 主要内容
 
@@ -118,5 +121,3 @@ Baeldung
 Intellij IDEA
 
 - [Debug Maven goals](https://www.jetbrains.com/help/idea/work-with-maven-goals.html#debug_goal)
-
-

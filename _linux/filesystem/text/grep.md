@@ -3,6 +3,9 @@ title: "grep"
 sequence: "grep"
 ---
 
+[UP](/linux.html)
+
+
 ```text
 grep = global regular expression print
 ```
@@ -83,10 +86,10 @@ server03
 ## 搜索文件
 
 ```bash
-# 根目录下的bin和sbin
+# 根目录下的 bin 和 sbin
 $ ls /bin > dirlist-bin.txt
 $ ls /sbin > dirlist-sbin.txt
-# /usr目录下的bin和sbin
+# /usr 目录下的 bin 和 sbin
 $ ls /usr/bin > dirlist-usr-bin.txt
 $ ls /usr/sbin > dirlist-usr-sbin.txt
 # 显示生成的文件

@@ -3,13 +3,16 @@ title: "netstat"
 sequence: "102"
 ---
 
+[UP](/linux.html)
+
+
 ```text
 $ sudo netstat -tulpn
 ```
 
 - `-t`, `--tcp`: 指明显示 TCP 端口
 - `-u`, `--udp`: 指明显示 UDP 端口
-- `-a`, `--all`: 显示所有socket(套接字)，包括正在监听的（LISTEN）
+- `-a`, `--all`: 显示所有 socket(套接字)，包括正在监听的（LISTEN）
 
 - `--numeric`, `-n`: Show numerical addresses instead of trying to determine symbolic host, port or user names.
 - `-l`, `--listening`: Show only listening sockets.  (These are omitted by default.)

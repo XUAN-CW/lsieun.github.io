@@ -3,6 +3,9 @@ title: "原子整数"
 sequence: "101"
 ---
 
+[UP](/java-concurrency.html)
+
+
 JUC 并发包提供了：
 
 - AtomicBoolean

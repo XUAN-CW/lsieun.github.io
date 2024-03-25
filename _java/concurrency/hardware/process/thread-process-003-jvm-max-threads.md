@@ -3,6 +3,9 @@ title: "JVM 最大支持多少线程"
 sequence: "103"
 ---
 
+[UP](/java-concurrency.html)
+
+
 JVM 能够最大创建多少线程呢？
 它并不是一个具体的数值，而是取决于许多因素。
 

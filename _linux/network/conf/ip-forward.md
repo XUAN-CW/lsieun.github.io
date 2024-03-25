@@ -3,6 +3,9 @@ title: "ip forward"
 sequence: "ip-forward"
 ---
 
+[UP](/linux.html)
+
+
 **IP forwarding** is the ability for an operating system to accept incoming network packets on one interface,
 recognize that it is not meant for the system itself,
 but that it should be passed on to another network, and then forwards it accordingly.
@@ -74,4 +77,4 @@ sysctl -p <filename> (default /etc/sysctl.conf)
 
 视频
 
-- [IP(路由)转发ip_forward](https://www.bilibili.com/video/BV1A3411P7Eu/)
+- [IP(路由)转发 ip_forward](https://www.bilibili.com/video/BV1A3411P7Eu/)
