@@ -56,6 +56,8 @@ sort: "sequence"
 
 ## Component
 
+只有 `ChannelHandler` 是需要我们自己去编写的。
+
 <table>
     <thead>
     <tr>
@@ -147,43 +149,13 @@ sort: "sequence"
     </tbody>
 </table>
 
-## Advanced
+## Handler
 
 <table>
     <thead>
     <tr>
-        <th>Data</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>
-{%
-assign filtered_posts = site.netty |
-where_exp: "item", "item.url contains '/netty/data/'" |
-sort: "sequence"
-%}
-<ol>
-    {% for post in filtered_posts %}
-    {% assign num = post.sequence | abs %}
-    <li>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
-    {% endfor %}
-</ol>
-        </td>
-    </tr>
-    </tbody>
-</table>
-
-## Codec
-
-<table>
-    <thead>
-    <tr>
-        <th>Basic</th>
-        <th>Decoder</th>
-        <th>Encoder</th>
+        <th>Connection</th>
+        <th>Frame</th>
         <th>Codec</th>
     </tr>
     </thead>
@@ -192,7 +164,7 @@ sort: "sequence"
         <td>
 {%
 assign filtered_posts = site.netty |
-where_exp: "item", "item.url contains '/netty/codec/basic/'" |
+where_exp: "item", "item.url contains '/netty/handler/connection/'" |
 sort: "sequence"
 %}
 <ol>
@@ -207,7 +179,7 @@ sort: "sequence"
         <td>
 {%
 assign filtered_posts = site.netty |
-where_exp: "item", "item.url contains '/netty/codec/decoder/'" |
+where_exp: "item", "item.url contains '/netty/handler/frame/'" |
 sort: "sequence"
 %}
 <ol>
@@ -222,22 +194,7 @@ sort: "sequence"
         <td>
 {%
 assign filtered_posts = site.netty |
-where_exp: "item", "item.url contains '/netty/codec/encoder/'" |
-sort: "sequence"
-%}
-<ol>
-    {% for post in filtered_posts %}
-    {% assign num = post.sequence | abs %}
-    <li>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
-    {% endfor %}
-</ol>
-        </td>
-        <td>
-{%
-assign filtered_posts = site.netty |
-where_exp: "item", "item.url contains '/netty/codec/basic/'" |
+where_exp: "item", "item.url contains '/netty/handler/codec/'" |
 sort: "sequence"
 %}
 <ol>
@@ -359,35 +316,6 @@ sort: "sequence"
     </tbody>
 </table>
 
-## Connection
-
-<table>
-    <thead>
-    <tr>
-        <th>连接</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>
-{%
-assign filtered_posts = site.netty |
-where_exp: "item", "item.url contains '/netty/connection/'" |
-sort: "sequence"
-%}
-<ol>
-    {% for post in filtered_posts %}
-    {% assign num = post.sequence | abs %}
-    <li>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
-    {% endfor %}
-</ol>
-        </td>
-    </tr>
-    </tbody>
-</table>
-
 ## Extra
 
 <table>
@@ -464,5 +392,4 @@ sort: "sequence"
     - [文档](https://nyimac.gitee.io/2021/04/25/Netty%E5%9F%BA%E7%A1%80/)
 
 - [GitHub: beardlessCat/im](https://github.com/beardlessCat/im)
-
 

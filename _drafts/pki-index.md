@@ -13,11 +13,7 @@ needed to manage digital certificates in a public key cryptography scheme.
 - Key size （使用的 key 有多少 bit，例如 2048、4086）
 - Passphrase （是否使用密码保护）
 
-密码测试：
 
-- private key: privateKeyPass
-- PKCS12 KeyStore: pkcs12StorePass
-- JKS KeyStore: jksStorePass
 
 ## Basic
 
@@ -40,22 +36,6 @@ sort: "sequence"
 {%
 assign filtered_posts = site.pki |
 where_exp: "item", "item.url contains '/pki/openssl/'" |
-sort: "sequence"
-%}
-<ol>
-    {% for post in filtered_posts %}
-    {% assign num = post.sequence | abs %}
-    <li>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
-    {% endfor %}
-</ol>
-
-## keytool
-
-{%
-assign filtered_posts = site.pki |
-where_exp: "item", "item.url contains '/pki/keytool/'" |
 sort: "sequence"
 %}
 <ol>
@@ -94,6 +74,4 @@ sort: "sequence"
 - [Converting a Java Keystore Into PEM Format](https://www.baeldung.com/java-keystore-convert-to-pem-format)
 - [alvarow/openssl-cheat.sh](https://gist.github.com/alvarow/1a42e608d74474ac39aa)
 - [Difference between OpenSSL and keytool](https://security.stackexchange.com/questions/98282/difference-between-openssl-and-keytool)
-- [Introduction to SSL in Java](https://www.baeldung.com/java-ssl)
-- [KeyStore 加载 PublicKey/PrivateKey（公/私钥）证书](https://blog.csdn.net/xuri24/article/details/84302017)
-- [Cheat Sheet - Java Keystores](https://megamorf.gitlab.io/cheat-sheets/java-keystores/)
+- [Cheat Sheet - OpenSSL](https://megamorf.gitlab.io/cheat-sheets/openssl/)

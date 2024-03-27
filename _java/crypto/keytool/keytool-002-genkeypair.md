@@ -3,8 +3,7 @@ title: "keytool -genkeypair"
 sequence: "102"
 ---
 
-[UP](/pki.html)
-
+[UP](/java-crypto.html)
 
 ## 查看帮助
 
@@ -67,7 +66,7 @@ The following examples show the defaults for various option values:
 
 -destkeystore <the file named .keystore in the user's home directory>
    
- -storetype <the value of the "keystore.type" property in the
+-storetype <the value of the "keystore.type" property in the
     security properties file, which is returned by the static
     getDefaultType method in java.security.KeyStore>
  
@@ -87,7 +86,8 @@ The following examples show the defaults for various option values:
 
 - `DSA`：用于生成基于 DSA（Digital Signature Algorithm）算法的密钥对。请注意，DSA 在某些国家已经不再推荐使用。
 
-- `EC`：用于生成基于椭圆曲线密码学（Elliptic Curve Cryptography）算法的密钥对。具体的椭圆曲线参数取决于所选择的曲线类型（如 prime256v1、secp384r1 等）。
+- `EC`：用于生成基于椭圆曲线密码学（Elliptic Curve Cryptography）算法的密钥对。具体的椭圆曲线参数取决于所选择的曲线类型（如
+  prime256v1、secp384r1 等）。
 
 - `DiffieHellman`：用于生成 Diffie-Hellman 密钥对，用于密钥交换协议。
 
@@ -101,59 +101,60 @@ the default signature algorithm (`-sigalg` option)
 is derived from the algorithm of the underlying private key
 to provide an appropriate level of security strength as follows:
 
-
 <table>
-  <thead>
-  <tr>
-    <th>keyalg</th>
-    <th>keysize</th>
-    <th>default sigalg</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      <p>DSA</p>
-    </td>
-    <td>
-      <p>any size</p>
-    </td>
-    <td>
-      <p>SHA256withDSA &nbsp;&nbsp;</p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <p>RSA</p> &nbsp;&nbsp;&nbsp;
-    </td>
-    <td>
-      <p>&lt;= 3072</p>
-      <p>&lt;= 7680</p>
-      <p>&gt; 7680</p>
-    </td>
-    <td>
-      <p>SHA256withRSA </p>
-      <p>SHA384withRSA </p>
-      <p>SHA512withRSA</p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <p>EC</p>
-    </td>
-    <td>
-      <p>&lt;384</p>
-      <p>&lt;512</p>
-      <p>= 512</p>
-    </td>
-    <td>
-      <p>SHA256withECDSA</p>
-      <p>SHA384withECDSA</p>
-      <p>SHA512withECDSA</p>
-    </td>
-  </tr>
-  </tbody>
+    <thead>
+        <tr>
+            <th>keyalg</th>
+            <th>keysize</th>
+            <th>default sigalg</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <p>DSA</p>
+            </td>
+            <td>
+                <p>any size</p>
+            </td>
+            <td>
+                <p>SHA256withDSA</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>RSA</p>
+            </td>
+            <td>
+                <p>&lt;= 3072</p>
+                <p>&lt;= 7680</p>
+                <p>&gt; 7680</p>
+            </td>
+            <td>
+                <p>SHA256withRSA</p>
+                <p>SHA384withRSA</p>
+                <p>SHA512withRSA</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>EC</p>
+            </td>
+            <td>
+                <p>&lt;384</p>
+                <p>&lt;512</p>
+                <p>= 512</p>
+            </td>
+            <td>
+                <p>SHA256withECDSA</p>
+                <p>SHA384withECDSA</p>
+                <p>SHA512withECDSA</p>
+            </td>
+        </tr>
+    </tbody>
 </table>
+
+
 
 ### storetype
 

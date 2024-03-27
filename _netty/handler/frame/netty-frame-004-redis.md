@@ -1,6 +1,6 @@
 ---
 title: "Redis"
-sequence: "102"
+sequence: "104"
 ---
 
 [UP](/netty.html)

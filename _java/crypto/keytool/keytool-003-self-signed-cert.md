@@ -1,30 +1,9 @@
 ---
-title: "keytool Intro"
-sequence: "101"
+title: "生成自签名证书"
+sequence: "103"
 ---
 
-[UP](/pki.html)
-
-
-## What Is keytool?
-
-keytool 位于 `${JDK_HOME}/bin` 目录。
-
-keytool 的主要作用是 **manage keys and certificates** and **store them in a keystore**
-
-查看帮助：
-
-```text
-$ keytool --help
-$ keytool -genkeypair --help
-```
-
-默认情况下，keystore 存储在 `${HOME}/.keystore` 文件：
-
-```text
-$ ls -l ${HOME}/.keystore
--rw-rw-r--. 1 devops devops 2710 Jul  4 08:25 /home/devops/.keystore
-```
+[UP](/java-crypto.html)
 
 ## Creating a Self-Signed Certificate
 
@@ -40,11 +19,16 @@ $ keytool -genkeypair -keyalg RSA -keysize 2048 -alias <alias> -keypass <keypass
 - `storepass` – the password for the keystore. This will be the password of the keystore if the store doesn't exist
 
 ```text
-$ keytool -genkeypair -keyalg RSA -keysize 2048 -alias lsieun.com -keypass 123456 -validity 365 -storepass abcdef
+# JKS
+# OK: Java 8
+$ keytool -genkeypair -keyalg RSA -keysize 2048 -alias lsieun.com -keypass myKeyPass -validity 365 -storepass myStorePass -keystore myKeystore.jks
 ```
 
 ```text
-$ keytool -genkeypair -keyalg RSA -alias myalias -keystore keystore.p12 -storetype PKCS12 -keypass mykeypassword -storepass mystorepassword
+# PKCS12
+# OK: Java 8
+# 在 PKCS12 中，不支持 -keypass 参数
+$ keytool -genkeypair -keyalg RSA -keysize 2048 -alias lsieun.com -validity 365 -storepass myStorePass -keystore myKeystore.p12 -storetype PKCS12
 ```
 
 ```text
@@ -70,25 +54,51 @@ Generating 2,048 bit RSA key pair and self-signed certificate (SHA256withRSA) wi
 	for: CN=Sen Liu, OU=IT, O=Fruit Ltd, L=BaoDing, ST=HeBei, C=CN
 ```
 
-```text
-$ keytool -list -v 
-Enter keystore password:  
-Keystore type: PKCS12
-Keystore provider: SUN
+## 查看证书列表
 
-Your keystore contains 1 entry
-```
-
-## Listing Certificates in the Keystore
+查看 KeyStore 中的证书列表：
 
 ```text
-$ keytool -list -storepass <storepass>
+$ keytool -list -v -keystore /path/to/keystore
+
+# 指定 KeyStore 的密码
+$ keytool -list -v -keystore /path/to/keystore -storepass <storepass>
 ```
+
+示例：
 
 ```text
-$ keytool -list -v -storepass <storepass>
+# JKS
+# OK: Java 8
+$ keytool -list -v -keystore myKeystore.jks -storepass myStorePass
+
+# PKCS12
+# OK: Java 8
+$ keytool -list -v -keystore myKeystore.p12 -storepass myStorePass
 ```
 
-## Reference
+## 导出和导入
 
-- [Introduction to keytool](https://www.baeldung.com/keytool-intro)
+导出：
+
+```text
+# JKS
+# OK: Java 8
+$ keytool -export -alias "lsieun.com" -keystore myKeystore.jks -rfc -file "lsieun.com".cer
+
+# PKCS12
+# OK: Java 8
+$ keytool -export -alias "lsieun.com" -keystore myKeystore.p12 -rfc -file "lsieun.com".cer
+```
+
+导入：
+
+```text
+# JKS
+# OK: Java 8
+$ keytool -import -alias "lsieun.com" -file "lsieun.com".cer -keystore myTruststore.jks
+
+# PKCS12
+# OK: Java 8
+$ keytool -import -alias "lsieun.com" -file "lsieun.com".cer -keystore myTruststore.p12
+```

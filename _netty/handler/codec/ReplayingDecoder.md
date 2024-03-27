@@ -1,6 +1,6 @@
 ---
 title: "ReplayingDecoder"
-sequence: "102"
+sequence: "106"
 ---
 
 [UP](/netty.html)

@@ -1,6 +1,6 @@
 ---
 title: "ByteToMessageDecoder"
-sequence: "101"
+sequence: "105"
 ---
 
 [UP](/netty.html)

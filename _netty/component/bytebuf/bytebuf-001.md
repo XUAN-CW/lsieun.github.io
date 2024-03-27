@@ -5,6 +5,12 @@ sequence: "101"
 
 [UP](/netty.html)
 
+```text
+channel.alloc().buffer();
+ByteBufAllocator.DEFAULT.buffer();
+Unpooled.copiedBuffer("Hello World", CharsetUtil.UTF_8);
+Unpooled.EMPTY_BUFFER;
+```
 
 ```java
 import io.netty.buffer.ByteBuf;

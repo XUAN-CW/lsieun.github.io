@@ -3,7 +3,7 @@ title: "Converting a Java Keystore Into PEM Format"
 sequence: "111"
 ---
 
-[UP](/pki.html)
+[UP](/java-crypto.html)
 
 
 ## Converting an Entire JKS Into PEM Format

@@ -6,15 +6,6 @@ sequence: "102"
 [UP](/pki.html)
 
 
-## JKS
-
-**JKS is a Java-specific file format that was the default format for KeyStores until Java 8.**
-
-**Starting from Java 9, `PKCS#12` is the default KeyStore format.**
-
-Despite `JKS`, `PKCS#12` is a standardized and language-neutral format for storing encrypted data.
-The `PKCS#12` format is also known as `PKCS12` or `PFX`.
-
 ## PEM
 
 **PEM** (**Privacy Enhanced Mail**) is also a certificate container format.
