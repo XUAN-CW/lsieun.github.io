@@ -7,7 +7,7 @@ permalink: /maven.html
 Maven is a build automation tool used primarily for Java projects.
 
 - Maven 软件的配置
-  - Repository
+    - Repository
 - Project 层面的配置
 
 ## Content
@@ -222,6 +222,7 @@ sort: "sequence"
 </ol>
 
 ```xml
+
 <properties>
     <!-- Resource -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

@@ -228,3 +228,7 @@ public class MyServer {
     }
 }
 ```
+
+## Reference
+
+- [Event Loop Threading Visualized](https://blog.stackademic.com/event-loop-threading-visualized-3cba36449772)

@@ -7,4 +7,8 @@ sequence: "101"
 
 ```text
 serverBootstrap.option(ChannelOption.SO_RCVBUF, 10);
+
+bootstrap.option(ChannelOption.SO_REUSEADDR, true);
+
+.option(ChannelOption.SO_BACKLOG,1024)
 ```

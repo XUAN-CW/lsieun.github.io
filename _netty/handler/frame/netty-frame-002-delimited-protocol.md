@@ -96,8 +96,7 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import lsieun.netty.component.handler.initializer.idle.ChannelIdleShutdownInitializer;
-import lsieun.utils.LogUtils;
+
 
 public class MyServer {
 
@@ -144,9 +143,6 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.util.CharsetUtil;
-import lsieun.utils.ByteUtils;
-import lsieun.utils.ConsoleUtils;
-import lsieun.utils.LogUtils;
 
 
 public class MyClient {
@@ -264,9 +260,7 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import lsieun.netty.handler.initializer.DelimiterBasedHandlerInitializer;
-import lsieun.netty.handler.initializer.idle.ChannelIdleShutdownInitializer;
-import lsieun.utils.LogUtils;
+
 
 public class MyServer {
 
@@ -313,9 +307,6 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.util.CharsetUtil;
-import lsieun.utils.ByteUtils;
-import lsieun.utils.ConsoleUtils;
-import lsieun.utils.LogUtils;
 
 
 public class MyClient {
@@ -456,9 +447,7 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import lsieun.netty.component.handler.initializer.idle.ChannelIdleShutdownInitializer;
-import lsieun.netty.example.cmd.CmdHandlerInitializer;
-import lsieun.utils.LogUtils;
+
 
 public class MyServer {
 
@@ -505,9 +494,6 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.util.CharsetUtil;
-import lsieun.utils.ByteUtils;
-import lsieun.utils.ConsoleUtils;
-import lsieun.utils.LogUtils;
 
 
 public class MyClient {

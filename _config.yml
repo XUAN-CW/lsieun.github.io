@@ -183,6 +183,10 @@ collections:
     output: true
   pki:
     output: true
+  protobuf:
+    output: true
+  reactor:
+    output: true
   redis:
     output: true
   rime:
@@ -204,6 +208,8 @@ collections:
   trove4j:
     output: true
   ubuntu:
+    output: true
+  uml:
     output: true
   unicode:
     output: true
@@ -596,6 +602,16 @@ defaults:
       layout: "post"
   - scope:
       path: ""
+      type: "protobuf"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "reactor"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
       type: "redis"
     values:
       layout: "post"
@@ -647,6 +663,11 @@ defaults:
   - scope:
       path: ""
       type: "ubuntu"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "uml"
     values:
       layout: "post"
   - scope:

@@ -74,6 +74,10 @@ Magic：
 @SuppressWarnings("NullableProblems")
 ```
 
+```text
+@SuppressWarnings({ "FieldMayBeFinal", "unused" })
+```
+
 更多的内容，可以参考[@SuppressWarnings - IntelliJ modes](https://gist.github.com/vegaasen/157fbc6dce8545b7f12c)。
 
 ```text

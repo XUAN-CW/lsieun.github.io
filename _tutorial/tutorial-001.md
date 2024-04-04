@@ -12,4 +12,6 @@ sequence: "101"
 
 **First, make it work, then, make it fast.**
 
-
+我觉得还有些地方是可以更流畅些。因为你的讲解中大量的用到源代码 而非只是工具 我认同你的想法。 但不够平滑。
+如下 1: 整个ASM 的核心源码建立在访问者模式 。如果把访问者模式讲解和核心思想当做前置课 会更平滑。
+2: abstract class Symbol 类是非常重要的 我感觉呀 它是class file 常量池 中元素的抽象。

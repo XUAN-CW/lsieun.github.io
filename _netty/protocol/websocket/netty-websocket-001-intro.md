@@ -5,8 +5,31 @@ sequence: "101"
 
 [UP](/netty.html)
 
+- `BinaryWebSocketFrame` Contains binary data
+- `TextWebSocketFrame` Contains text data
+- `ContinuationWebSocketFrame` Contains text or binary data that belongs to a previous `BinaryWebSocketFrame` or `TextWebSocketFrame`
+- `CloseWebSocketFrame` Represents a CLOSE request and contains a close status code and a phrase
+- `PingWebSocketFrame` Requests the transmission of a `PongWebSocketFrame`
+- `PongWebSocketFrame` Sent as a response to a `PingWebSocketFrame`
+
+```text
+                                                    ┌─── BinaryWebSocketFrame
+                                     ┌─── first ────┤
+                  ┌─── data ─────────┤              └─── TextWebSocketFrame
+                  │                  │
+                  │                  └─── remain ───┼─── ContinuationWebSocketFrame
+WebSocketFrame ───┤
+                  │                                ┌─── PingWebSocketFrame
+                  │                  ┌─── alive ───┤
+                  └─── connection ───┤             └─── PongWebSocketFrame
+                                     │
+                                     └─── close ───┼─── CloseWebSocketFrame
+```
+
 ## Reference
 
+- [RFC6455: The WebSocket Protocol](https://www.rfc-editor.org/rfc/rfc6455)
+- [Protocol upgrade mechanism](https://developer.mozilla.org/en-US/docs/Web/HTTP/Protocol_upgrade_mechanism)
 - [NETTY WEBSOCKET SSL](https://nikoskatsanos.com/blog/2022/01/netty-websocket-ssl/)
 
 - [Netty (10)-WebSocket](https://blog.csdn.net/wangb_java/article/details/136468549)

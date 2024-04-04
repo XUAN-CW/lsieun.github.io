@@ -36,8 +36,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.FixedLengthFrameDecoder;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
-import lsieun.netty.handler.initializer.idle.ChannelIdleShutdownInitializer;
-import lsieun.utils.LogUtils;
+
 
 public class MyServer {
 
@@ -90,10 +89,6 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import lsieun.utils.ByteUtils;
-import lsieun.utils.CharGen;
-import lsieun.utils.ConsoleUtils;
-import lsieun.utils.LogUtils;
 
 
 public class MyClient {
@@ -233,7 +228,6 @@ import io.netty.buffer.ByteBufAllocator;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.embedded.EmbeddedChannel;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
-import lsieun.utils.ByteUtils;
 
 import java.util.Random;
 
@@ -303,9 +297,7 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import lsieun.netty.handler.initializer.LengthBasedHandlerInitializer;
-import lsieun.netty.handler.initializer.idle.ChannelIdleShutdownInitializer;
-import lsieun.utils.LogUtils;
+
 
 public class MyServer {
 
@@ -352,8 +344,7 @@ import io.netty.buffer.ByteBufAllocator;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import lsieun.utils.ByteUtils;
-import lsieun.utils.LogUtils;
+
 
 import java.util.Random;
 

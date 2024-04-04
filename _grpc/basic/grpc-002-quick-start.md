@@ -56,7 +56,7 @@ D:\lib\protoc-24.3-win64
 第 1 步，配置 `grpc.version` 属性：
 
 ```text
-<grpc.version>1.58.0</grpc.version>
+<grpc.version>1.62.2</grpc.version>
 ```
 
 第 2 步，添加信赖：

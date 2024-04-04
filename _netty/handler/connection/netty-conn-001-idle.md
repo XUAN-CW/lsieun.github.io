@@ -133,10 +133,6 @@ import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import lsieun.netty.component.handler.initializer.idle.ChannelIdleShutdownInitializer;
-import lsieun.netty.component.handler.raw.EchoClientHandler;
-import lsieun.utils.ConsoleUtils;
-import lsieun.utils.LogUtils;
 
 
 public class MyClient {

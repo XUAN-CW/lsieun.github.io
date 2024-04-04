@@ -5,6 +5,7 @@ sequence: "101"
 
 ## 屏幕画笔
 
+- [ ] [ZoomIt](https://learn.microsoft.com/en-us/sysinternals/downloads/zoomit)
 - [ ] [Snipaste](https://zh.snipaste.com/)
 - [ ] [Pointofix](https://www.pointofix.de/download.php)
   copy the desired translation file from the language pack into the Pointofix directory and

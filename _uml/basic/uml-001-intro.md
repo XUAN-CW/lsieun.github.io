@@ -3,6 +3,8 @@ title: "UML Intro"
 sequence: "101"
 ---
 
+[UP](/uml.html)
+
 ## Reference
 
 - [UML类图设计-竟如此简单-1小时快速掌握](https://www.bilibili.com/video/BV1H84y1j7HQ/)
