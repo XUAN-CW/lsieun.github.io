@@ -154,11 +154,13 @@ public class HelloWorldGenerateCore {
         cw.visit(V1_8, ACC_PUBLIC + ACC_ABSTRACT + ACC_INTERFACE, "sample/HelloWorld", null, "java/lang/Object", null);
 
         {
+            // 多个 ACC_XXX 之间用 | 或 + 的效果是一样的
             FieldVisitor fv1 = cw.visitField(ACC_PUBLIC | ACC_FINAL | ACC_STATIC, "intValue", "I", null, 100);
             fv1.visitEnd();
         }
 
         {
+            // 多个 ACC_XXX 之间用 | 或 + 的效果是一样的
             FieldVisitor fv2 = cw.visitField(ACC_PUBLIC + ACC_FINAL + ACC_STATIC, "strValue", "Ljava/lang/String;", null, "ABC");
             fv2.visitEnd();
         }

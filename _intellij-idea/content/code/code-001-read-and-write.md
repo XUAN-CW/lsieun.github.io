@@ -19,12 +19,12 @@ sequence: "101"
 
 ### 父子类
 
-- Go to Declaration: Ctrl + B
-- Go to Implementation: Ctrl + Alt + B
+- Go to Declaration: `Ctrl + B`
+- Go to Implementation: `Ctrl + Alt + B`
 
 ### 查找使用
 
-Find Usages: Alt + F7，可以用在类、字段、方法上。
+Find Usages: `Alt + F7`，可以用在类、字段、方法上。
 
 
 
@@ -33,7 +33,7 @@ Find Usages: Alt + F7，可以用在类、字段、方法上。
 
 ### import
 
-- `Ctrl + Alt + O`: Optimize imports （这里是大写的 `o`，而不是 `0`）
+- `Ctrl + Alt + O`: Optimize imports （这里是大写的字母 `O`，而不是数字 `0`）
 
 ### Edit Code
 

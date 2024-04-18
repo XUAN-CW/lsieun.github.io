@@ -23,14 +23,21 @@ sort: "sequence"
 
 ## Bit~Big
 
+### bit
+
 <table>
-<tbody>
-<tr>
-    <th>bit</th>
-    <td>
+    <thead>
+    <tr>
+        <th style="text-align: center;">Basic</th>
+        <th style="text-align: center;">Trick</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
 {%
 assign filtered_posts = site.java-core |
-where_exp: "item", "item.url contains '/java-core/number/bit/'" |
+where_exp: "item", "item.url contains '/java-core/number/bit/basic/'" |
 sort: "sequence"
 %}
 <ol>
@@ -41,11 +48,37 @@ sort: "sequence"
     </li>
     {% endfor %}
 </ol>
-    </td>
-</tr>
-<tr>
-    <th>byte</th>
-    <td>
+        </td>
+        <td>
+{%
+assign filtered_posts = site.java-core |
+where_exp: "item", "item.url contains '/java-core/number/bit/trick/'" |
+sort: "sequence"
+%}
+<ol>
+    {% for post in filtered_posts %}
+    {% assign num = post.sequence | abs %}
+    <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+</ol>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+### byte
+
+<table>
+    <thead>
+    <tr>
+        <th style="text-align: center;">Basic</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
 {%
 assign filtered_posts = site.java-core |
 where_exp: "item", "item.url contains '/java-core/number/byte/'" |
@@ -59,11 +92,22 @@ sort: "sequence"
     </li>
     {% endfor %}
 </ol>
-    </td>
-</tr>
-<tr>
-    <th>int</th>
-    <td>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+### int
+
+<table>
+    <thead>
+    <tr>
+        <th style="text-align: center;">Basic</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
 {%
 assign filtered_posts = site.java-core |
 where_exp: "item", "item.url contains '/java-core/number/int/'" |
@@ -77,11 +121,22 @@ sort: "sequence"
     </li>
     {% endfor %}
 </ol>
-    </td>
-</tr>
-<tr>
-    <th>float/double</th>
-    <td>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+### float/double
+
+<table>
+    <thead>
+    <tr>
+        <th style="text-align: center;"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
 {%
 assign filtered_posts = site.java-core |
 where_exp: "item", "item.url contains '/java-core/number/float/'" |
@@ -95,11 +150,22 @@ sort: "sequence"
     </li>
     {% endfor %}
 </ol>
-    </td>
-</tr>
-<tr>
-    <th>big</th>
-    <td>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+### Big
+
+<table>
+    <thead>
+    <tr>
+        <th style="text-align: center;"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
 {%
 assign filtered_posts = site.java-core |
 where_exp: "item", "item.url contains '/java-core/number/big/'" |
@@ -113,9 +179,9 @@ sort: "sequence"
     </li>
     {% endfor %}
 </ol>
-    </td>
-</tr>
-</tbody>
+        </td>
+    </tr>
+    </tbody>
 </table>
 
 ## Format

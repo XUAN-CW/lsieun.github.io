@@ -151,6 +151,7 @@ Tutorial
     - [dbooks](https://www.dbooks.org/)
     - [Libgen](http://libgen.rs/)
     - [PDF Drive](https://www.pdfdrive.com/)
+    - [NanChaos/book](https://github.com/NanChaos/book)
 - Github
     - [technical-books](https://github.com/doocs/technical-books)
 

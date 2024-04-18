@@ -117,6 +117,10 @@ sort: "sequence"
 
 - [lsieun/learn-java-nio](https://github.com/lsieun/learn-java-nio)
 
+
+- [Baeldung]()
+    - [Guide to Java FileChannel](https://www.baeldung.com/java-filechannel)
+
 - [Oracle: Java NIO](https://docs.oracle.com/en/java/javase/21/core/java-nio.html)
 - [Java NIO](https://www.educba.com/java-nio/)
 - [Understanding File Operations in Java: Working with Files using java.io and java.nio](https://clouddevs.com/java/file-operations/)
@@ -141,3 +145,4 @@ sort: "sequence"
     - [Afauria/IPMsg](https://github.com/Afauria/IPMsg)
     - [hyberbin/J-Feiq](https://github.com/hyberbin/J-Feiq)
     - [pankajsinghal/ip-messenger](https://github.com/pankajsinghal/ip-messenger)
+

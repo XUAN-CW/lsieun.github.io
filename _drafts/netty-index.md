@@ -13,7 +13,7 @@ Netty is a non-blocking I/O client-server framework.
 
 ## Netty 基础
 
-### 初始 Netty
+### 初识 Netty
 
 <table>
     <thead>
@@ -445,10 +445,14 @@ sort: "sequence"
 
 - [黑马 Netty 源码](https://www.bilibili.com/video/BV1py4y1E7oA?p=139)
 - [Netty源码深入剖析](https://www.bilibili.com/video/BV1rS4y1v7Zw/)
+    - [Java读源码之Netty深入剖析](https://coding.imooc.com/class/chapter/230.html)
 - [尚硅谷Netty视频教程（B站超火，好评如潮）](https://www.bilibili.com/video/BV1DJ411m7NR/)
 - [Netty开发实战 - 1](https://www.bilibili.com/video/BV1Fb4y137LD/)
 - [Netty开发实战 - 2](https://www.bilibili.com/video/BV1Xk4y157XG/)
 
+- [YT: netty源码剖析与实战](https://www.youtube.com/playlist?list=PLRLw3X3wZOXsP2Xw-InzKHkPX7Z4Qfo55)
+- [YT: 韩顺平】尚硅谷Netty视频教程](https://www.youtube.com/playlist?list=PLmOn9nNkQxJH02M10mFnBW0yPRnLmRSMo)
+- [YT: Netty核心技术及源码剖析](https://www.youtube.com/playlist?list=PLmVUaUOGNoKWYks8m16gESmH8w5HkMb-4)
 
 - [Netty4源码分析](https://www.zhihu.com/column/c_1715435263956979712)
 - [Netty 核心原理剖析与 RPC 实践](https://www.bilibili.com/video/BV1e24y1z7eJ/)
@@ -459,11 +463,12 @@ sort: "sequence"
 - [Netty全套教程](https://www.bilibili.com/video/BV1xq4y1q7Jj/)
 - [深入理解netty](https://www.bilibili.com/video/BV1c4411J7Ty/)
 
+### 源码编译
+
 <table>
     <thead>
     <tr>
         <th style="text-align: center;">Basic</th>
-        <th style="text-align: center;">Bootstrap</th>
     </tr>
     </thead>
     <tbody>
@@ -471,7 +476,7 @@ sort: "sequence"
         <td>
 {%
 assign filtered_posts = site.netty |
-where_exp: "item", "item.url contains '/netty/src/basic/'" |
+where_exp: "item", "item.url contains '/netty/src/code/'" |
 sort: "sequence"
 %}
 <ol>
@@ -483,6 +488,20 @@ sort: "sequence"
     {% endfor %}
 </ol>
         </td>
+    </tr>
+    </tbody>
+</table>
+
+### Bootstrap
+
+<table>
+    <thead>
+    <tr>
+        <th style="text-align: center;">Bootstrap</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
         <td>
 {%
 assign filtered_posts = site.netty |
@@ -508,6 +527,7 @@ sort: "sequence"
     <thead>
     <tr>
         <th style="text-align: center;">Basic</th>
+        <th style="text-align: center;">Group</th>
         <th style="text-align: center;">Selector</th>
         <th style="text-align: center;">Thread</th>
         <th style="text-align: center;">Task & TaskQueue</th>
@@ -519,6 +539,21 @@ sort: "sequence"
 {%
 assign filtered_posts = site.netty |
 where_exp: "item", "item.url contains '/netty/src/eventloop/basic/'" |
+sort: "sequence"
+%}
+<ol>
+    {% for post in filtered_posts %}
+    {% assign num = post.sequence | abs %}
+    <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+</ol>
+        </td>
+        <td>
+{%
+assign filtered_posts = site.netty |
+where_exp: "item", "item.url contains '/netty/src/eventloop/group/'" |
 sort: "sequence"
 %}
 <ol>
@@ -579,6 +614,128 @@ sort: "sequence"
     </tbody>
 </table>
 
+### Channel
+
+<table>
+    <thead>
+    <tr>
+        <th style="text-align: center;">Basic</th>
+        <th style="text-align: center;">NIO</th>
+        <th style="text-align: center;">Pipeline</th>
+        <th style="text-align: center;">Unsafe</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+{%
+assign filtered_posts = site.netty |
+where_exp: "item", "item.url contains '/netty/src/channel/basic/'" |
+sort: "sequence"
+%}
+<ol>
+    {% for post in filtered_posts %}
+    {% assign num = post.sequence | abs %}
+    <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+</ol>
+        </td>
+        <td>
+{%
+assign filtered_posts = site.netty |
+where_exp: "item", "item.url contains '/netty/src/channel/nio/'" |
+sort: "sequence"
+%}
+<ol>
+    {% for post in filtered_posts %}
+    {% assign num = post.sequence | abs %}
+    <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+</ol>
+        </td>
+        <td>
+{%
+assign filtered_posts = site.netty |
+where_exp: "item", "item.url contains '/netty/src/channel/pipeline/'" |
+sort: "sequence"
+%}
+<ol>
+    {% for post in filtered_posts %}
+    {% assign num = post.sequence | abs %}
+    <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+</ol>
+        </td>
+        <td>
+{%
+assign filtered_posts = site.netty |
+where_exp: "item", "item.url contains '/netty/src/channel/unsafe/'" |
+sort: "sequence"
+%}
+<ol>
+    {% for post in filtered_posts %}
+    {% assign num = post.sequence | abs %}
+    <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+</ol>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+### ByteBuf
+
+<table>
+    <thead>
+    <tr>
+        <th style="text-align: center;">ByteBuf</th>
+        <th style="text-align: center;">ByteBufAllocator</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+{%
+assign filtered_posts = site.netty |
+where_exp: "item", "item.url contains '/netty/src/buf/basic/'" |
+sort: "sequence"
+%}
+<ol>
+    {% for post in filtered_posts %}
+    {% assign num = post.sequence | abs %}
+    <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+</ol>
+        </td>
+        <td>
+{%
+assign filtered_posts = site.netty |
+where_exp: "item", "item.url contains '/netty/src/buf/allocator/'" |
+sort: "sequence"
+%}
+<ol>
+    {% for post in filtered_posts %}
+    {% assign num = post.sequence | abs %}
+    <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+</ol>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
 ### 参考图
 
 <table>
@@ -593,13 +750,17 @@ sort: "sequence"
     <tr>
         <td>
             <ul>
-                <li><a href="/assets/images/netty/bootstrap/netty-invoke-java-nio-1.svg">Netty 调用 Java NIO（第一版）</a></li>
-                <li><a href="/assets/images/netty/bootstrap/netty-invoke-java-nio-2.svg">Netty 调用 Java NIO（第二版）</a></li>
+                <li><a href="/assets/images/netty/bootstrap/netty-bootstrap-invoke-java-nio-1.svg">Netty 调用 Java NIO（第一版）</a></li>
+                <li><a href="/assets/images/netty/bootstrap/netty-bootstrap-invoke-java-nio-2.svg">Netty 调用 Java NIO（第二版）</a></li>
+                <li><a href="/assets/images/netty/bootstrap/netty-bootstrap-invoke-java-nio-3.svg">Netty 调用 Java NIO（第三版）</a></li>
             </ul>
         </td>
         <td>
             <ul>
-                <li><a href="/assets/images/netty/channel/netty-channel-classes-hierarchy.svg">Channel 类继承关系图</a></li>
+                <li><a href="/assets/images/netty/channel/java-nio-channel-class-hierarchy.svg">Java NIO Channel 类继承关系图</a></li>
+                <li><a href="/assets/images/netty/channel/netty-channel-class-hierarchy.svg">Netty Channel 类继承关系图</a></li>
+                <li><a href="/assets/images/netty/channel/netty-channel-class-hierarchy-merged.svg">合并之后的类继承关系图</a></li>
+                <li><a href="/assets/images/netty/channel/netty-channel-concept-relation.svg">Channel 相关概念</a></li>
             </ul>
         </td>
         <td>
@@ -641,6 +802,7 @@ sort: "sequence"
 - [Netty实战: HTTP文件列表服务器](https://developer.aliyun.com/article/1469464)
 - [netty 详解（四）netty 开发 WebSocket 长连接程序](https://www.cnblogs.com/xy-ouyang/p/12825111.html)
 - [Netty 轻松实现文件上传功能](https://m.jb51.net/article/216822.htm)
+- [Netty入门之WebSocket初体验](https://www.imooc.com/learn/941)
 - Zero Copy
     - [Is Netty's Zero Copy different from OS level Zero Copy?](https://stackoverflow.com/questions/20727615/is-nettys-zero-copy-different-from-os-level-zero-copy)
 - 上传下载
@@ -716,3 +878,11 @@ sort: "sequence"
     - [来自于尚硅谷Netty精讲](https://bright-boy.gitee.io/technical-notes/#/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E5%B0%9A%E7%A1%85%E8%B0%B7Netty)
     - [来自于黑马Netty精讲](https://bright-boy.gitee.io/technical-notes/#/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/netty)
     - [Socket基础](https://bright-boy.gitee.io/technical-notes/#/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/socket)
+
+- [Visiting Reactor Netty](https://medium.com/geekculture/visiting-reactor-netty-c8c0449ee0)
+- [How Is Netty Used to Write a High-Performance Distributed Service Framework?](https://www.alibabacloud.com/blog/598081)
+
+
+- [Understanding Reactor Pattern for Highly Scalable I/O Bound Web Server](https://guigu.io/blog/2015-01-13-understanding-reactor-pattern-for-highly-scalable-i-o-bound-web-server)
+- [Reactor pattern](https://en.wikipedia.org/wiki/Reactor_pattern)
+- [Learn Java & Netty Performance Tuning with the HTTP/2 Protocol Case: Tools, Tips, and Methodology](https://www.alibabacloud.com/blog/learn-java-%26-netty-performance-tuning-with-the-http2-protocol-case-tools-tips-and-methodology_600312)

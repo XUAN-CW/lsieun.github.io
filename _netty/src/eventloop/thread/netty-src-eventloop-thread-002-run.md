@@ -175,6 +175,42 @@ public abstract class SingleThreadEventExecutor extends AbstractScheduledEventEx
 
 ## IORatio
 
+`ioRatio` 的作用是为了控制 『Channel 进行 IO 的时间』与『普通任务的时间』的比例。
+
+
+
+### 初始值
+
+`ioRatio` 的初始值为 `50`
+
+```java
+public final class NioEventLoop extends SingleThreadEventLoop {
+    private volatile int ioRatio = 50;
+}
+```
+
+### 取值范围
+
+`ioRatio` 的取值范围为 `(0, 100]`
+
+```java
+public final class NioEventLoop extends SingleThreadEventLoop {
+    public void setIoRatio(int ioRatio) {
+        if (ioRatio <= 0 || ioRatio > 100) {
+            throw new IllegalArgumentException("ioRatio: " + ioRatio + " (expected: 0 < ioRatio <= 100)");
+        }
+        this.ioRatio = ioRatio;
+    }
+}
+```
+
+### 具体使用
+
+如果 `ioRatio` 的值为
+
+- `100` 时，表示功能禁用
+- `(1,99]` 时，表示功能启用
+
 ```java
 public final class NioEventLoop extends SingleThreadEventLoop {
     protected void run() {

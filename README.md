@@ -47,7 +47,7 @@ bundle exec jekyll serve --unpublished --drafts
 <table>
     <thead>
     <tr>
-        <th style="text-align: center;"></th>
+        <th style="text-align: center;">Basic</th>
     </tr>
     </thead>
     <tbody>
