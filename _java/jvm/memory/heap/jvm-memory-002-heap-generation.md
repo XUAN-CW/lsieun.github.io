@@ -12,7 +12,7 @@ sequence: "102"
 Java 7 及之前堆内存逻辑上分为三部分：新生区 + 老年区 + 永久区
 
 - Young Generation Space 新生区 Young/New
-  - 又被划分为 Eden 区和 Survivor 区
+    - 又被划分为 Eden 区和 Survivor 区
 - Tenure Generation Space 养老区 Old/Tenure
 - Permanent Space 永久区 Perm
 
@@ -154,13 +154,12 @@ Heap
 
 可以通过 `-XX:SurvivorRatio` 调整这个空间比例，比如 `-XX:SurvivorRatio=8`
 
-**几乎**所有的 Java 对象都是在 Eden 区被 new 出来的。例如，一个对象占用的空间非常大，在 Eden 区存放不下，它会直接进入老年代区域（Tenure Generation Space）。
+**几乎**所有的 Java 对象都是在 Eden 区被 new 出来的。例如，一个对象占用的空间非常大，在 Eden 区存放不下，它会直接进入老年代区域（Tenure
+Generation Space）。
 
 绝大部分的 Java 对象的销毁都在新生代（Young Generation Space）进行了
 
 - IBM 公司的专门研究表明，新生代中 80% 的对象都是“朝生夕死”
-
-
 
 我们去查看 Eden 与 Survivor 比例的时候发现是 6:1，这个时候需要关闭“自适应的内存分配策略”，但是并不起作用：
 

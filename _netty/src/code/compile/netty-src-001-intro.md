@@ -1,10 +1,24 @@
 ---
-title: "Netty 源码解析"
+title: "Netty 课程介绍"
 sequence: "101"
 ---
 
 [UP](/netty.html)
 
+## 课程介绍
+
+
+
+## 开发环境
+
+- Win10
+- IntelliJ IDEA Community
+- Netty 4.1.108
+
+### IDEA 设置
+
+- [ ] TODO 设置颜色
+- [ ] If/else 换行
 
 ## Reference
 

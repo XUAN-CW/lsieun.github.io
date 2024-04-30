@@ -312,3 +312,7 @@ TO Read
 Baeldung
 
 - [A Guide to Byte Buddy](https://www.baeldung.com/byte-buddy)
+
+- [GitHub: Rafael Winterhalter](https://github.com/raphw)
+- [The Java memory model explained, Rafael Winterhalter](https://www.youtube.com/watch?v=qADk_tj4wY8&ab_channel=BulgarianJavaUserGroup)
+- [Java Memory Management Garbage Collection, JVM Tuning, and Spotting Memory Leaks](https://www.youtube.com/watch?v=W4SvLYU9H1I&ab_channel=AlphaTutorials-Programming)

@@ -705,4 +705,12 @@ sort: "sequence"
 - [Alibaba Java Coding Guidelines](https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/)
 - [SEI CERT Oracle Coding Standard for Java](https://wiki.sei.cmu.edu/confluence/display/java/SEI+CERT+Oracle+Coding+Standard+for+Java)
 
+- [Java Multithreading for Senior Engineering Interviews](https://www.educative.io/courses/java-multithreading-for-senior-engineering-interviews) 付费内容
+  - [Annotations](https://www.educative.io/courses/java-multithreading-for-senior-engineering-interviews/annotations) @ThreadSafe
+- [Guide to Multithreading Annotations in Java](https://medium.com/double-pointer/guide-to-multithreading-annotations-in-java-a61b94e6bf23)
 
+- [Race Conditions and Critical Sections](https://jenkov.com/tutorials/java-concurrency/race-conditions-and-critical-sections.html)
+
+- [Java并发全解之并发理论概述](https://www.bilibili.com/video/BV15j411A78S/)
+
+- [全网最硬核 Java 新内存模型解析与实验单篇版（不断更新QA中）](https://juejin.cn/post/7080869319407566879)

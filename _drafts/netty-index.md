@@ -365,7 +365,7 @@ sort: "sequence"
     </tbody>
 </table>
 
-## Netty 优化
+## Netty 高级特性
 
 ### 选项参数
 
@@ -468,7 +468,8 @@ sort: "sequence"
 <table>
     <thead>
     <tr>
-        <th style="text-align: center;">Basic</th>
+        <th style="text-align: center;">源码环境</th>
+        <th style="text-align: center;">示例代码</th>
     </tr>
     </thead>
     <tbody>
@@ -476,7 +477,22 @@ sort: "sequence"
         <td>
 {%
 assign filtered_posts = site.netty |
-where_exp: "item", "item.url contains '/netty/src/code/'" |
+where_exp: "item", "item.url contains '/netty/src/code/compile/'" |
+sort: "sequence"
+%}
+<ol>
+    {% for post in filtered_posts %}
+    {% assign num = post.sequence | abs %}
+    <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+</ol>
+        </td>
+        <td>
+{%
+assign filtered_posts = site.netty |
+where_exp: "item", "item.url contains '/netty/src/code/example/'" |
 sort: "sequence"
 %}
 <ol>
@@ -698,6 +714,7 @@ sort: "sequence"
     <tr>
         <th style="text-align: center;">ByteBuf</th>
         <th style="text-align: center;">ByteBufAllocator</th>
+        <th style="text-align: center;">Pool（内存池）</th>
     </tr>
     </thead>
     <tbody>
@@ -732,9 +749,89 @@ sort: "sequence"
     {% endfor %}
 </ol>
         </td>
+        <td>
+{%
+assign filtered_posts = site.netty |
+where_exp: "item", "item.url contains '/netty/src/buf/pool/'" |
+sort: "sequence"
+%}
+<ol>
+    {% for post in filtered_posts %}
+    {% assign num = post.sequence | abs %}
+    <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+</ol>
+        </td>
     </tr>
     </tbody>
 </table>
+
+### Common
+
+<table>
+    <thead>
+    <tr>
+        <th style="text-align: center;">并发类</th>
+        <th style="text-align: center;">工具类</th>
+        <th style="text-align: center;">技巧类</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+{%
+assign filtered_posts = site.netty |
+where_exp: "item", "item.url contains '/netty/src/common/concurrent/'" |
+sort: "sequence"
+%}
+<ol>
+    {% for post in filtered_posts %}
+    {% assign num = post.sequence | abs %}
+    <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+</ol>
+        </td>
+        <td>
+{%
+assign filtered_posts = site.netty |
+where_exp: "item", "item.url contains '/netty/src/common/util/'" |
+sort: "sequence"
+%}
+<ol>
+    {% for post in filtered_posts %}
+    {% assign num = post.sequence | abs %}
+    <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+</ol>
+        </td>
+        <td>
+{%
+assign filtered_posts = site.netty |
+where_exp: "item", "item.url contains '/netty/src/common/trick/'" |
+sort: "sequence"
+%}
+<ol>
+    {% for post in filtered_posts %}
+    {% assign num = post.sequence | abs %}
+    <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+</ol>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+### 设计模式、算法和技巧
+
+
 
 ### 参考图
 
@@ -780,6 +877,7 @@ sort: "sequence"
 
 - [Netty](https://netty.io/)
     - [User guide for 4.x](https://netty.io/wiki/user-guide-for-4.x.html)
+    - [Netty API Reference (4.1.109.Final)](https://netty.io/4.1/api/index.html)
 
 - [GitHub: netty/netty](https://github.com/netty/netty)
     - [4.1.x 示例](https://github.com/netty/netty/tree/4.1/example/src/main/java/io/netty/example)
@@ -886,3 +984,34 @@ sort: "sequence"
 - [Understanding Reactor Pattern for Highly Scalable I/O Bound Web Server](https://guigu.io/blog/2015-01-13-understanding-reactor-pattern-for-highly-scalable-i-o-bound-web-server)
 - [Reactor pattern](https://en.wikipedia.org/wiki/Reactor_pattern)
 - [Learn Java & Netty Performance Tuning with the HTTP/2 Protocol Case: Tools, Tips, and Methodology](https://www.alibabacloud.com/blog/learn-java-%26-netty-performance-tuning-with-the-http2-protocol-case-tools-tips-and-methodology_600312)
+
+- [看完这篇还不清楚Netty的内存管理，那我就哭了](https://www.163.com/dy/article/EMFRSQJG05319WXB.html)
+- [Netty源码解析](https://www.cnblogs.com/binecy/category/1873931.html)
+  - [Netty源码解析 -- 内存池与PoolArena](https://www.cnblogs.com/binecy/p/14057712.html)
+- [Netty源码解析 -- PoolChunk实现原理 ](https://www.cnblogs.com/binecy/p/14092637.html)
+- [Netty内存池之PoolChunk](https://www.sohu.com/a/232460587_467784)
+- [Netty源码解析 -- PoolChunk实现原理(jemalloc 3的算法)](https://cloud.tencent.com/developer/news/726668)
+- []()
+- [内存管理--PoolChunk&PoolSubPage](https://blog.csdn.net/weilaizhixing007/article/details/130449068)
+- [Netty内存管理--内存池PoolArena](https://blog.csdn.net/weilaizhixing007/article/details/130449291)
+- [Netty内存管理--内存分配器PooledByteBufAllocator](https://blog.csdn.net/weilaizhixing007/article/details/130449352)
+- [Netty ObjectPool](https://blog.csdn.net/weilaizhixing007/article/details/130666344)
+- [肝了一月的Netty知识点](https://blog.csdn.net/qq_35190492/article/details/113174359)
+- [Netty之FastThreadLocal源码分析](https://www.bilibili.com/video/BV1t5411B734/)
+
+- [Netty 学习和进阶策略](https://www.infoq.cn/article/xt9*7K4fJktiuWTLYrZS)
+- [深入解读 Netty 底层核心源码，全面分析 Netty 特新](https://xie.infoq.cn/article/4f8f4da801bb41c2b595a7162)
+- [探索 Netty：源码解析与应用案例分享](https://juejin.cn/column/7227343808752451645)
+- [Netty+SpringBoot 开发即时通讯系统](https://coding.imooc.com/class/626.html)
+
+- [Netty为什么传输这么快](https://www.bilibili.com/video/BV1s64y1x7wV/)
+- [（2021首发）最新Netty视频教程](https://www.bilibili.com/video/BV1DX4y1G7Ri/)
+- [孙帅sunsNetty学习笔记](https://blog.csdn.net/qq_52231740/article/details/133902317)
+- [做最好的 Netty 源码分析教程](https://segmentfault.com/a/1190000007282628)
+- [Netty 源码分析之 五 奔腾的血液: ByteBuf](https://segmentfault.com/a/1190000023255799)
+- [孙哥Netty视频笔记总结](https://blog.csdn.net/weixin_43996338/article/details/133771693)
+- [Netty 源码解析系列](https://www.javadoop.com/post/netty-part-1)
+- [Netty 源码深度解析(九) - 编码（下）](https://developer.aliyun.com/article/816558)
+- [Netty源码之通用协议](https://juejin.cn/post/7261890415732801592)
+- [孙哥分布式VIP课程](https://blog.csdn.net/weixin_43996338/article/details/133744234)
+- [Netty笔记 上----学习孙哥&不良人课程，整理学习笔记文章](https://juejin.cn/post/7297565621914075162)
