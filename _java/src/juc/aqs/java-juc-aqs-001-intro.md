@@ -79,7 +79,7 @@ public abstract class AbstractQueuedSynchronizer extends AbstractOwnableSynchron
     protected boolean tryAcquire(int arg) {
         throw new UnsupportedOperationException();
     }
-    
+
     protected boolean tryRelease(int arg) {
         throw new UnsupportedOperationException();
     }

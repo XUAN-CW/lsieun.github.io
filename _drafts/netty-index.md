@@ -775,7 +775,6 @@ sort: "sequence"
     <tr>
         <th style="text-align: center;">并发类</th>
         <th style="text-align: center;">工具类</th>
-        <th style="text-align: center;">技巧类</th>
     </tr>
     </thead>
     <tbody>
@@ -810,10 +809,72 @@ sort: "sequence"
     {% endfor %}
 </ol>
         </td>
+    </tr>
+    </tbody>
+</table>
+
+### 设计模式、算法和技巧
+
+<table>
+    <thead>
+    <tr>
+        <th style="text-align: center;">设计模式</th>
+        <th style="text-align: center;">算法</th>
+        <th style="text-align: center;">技巧</th>
+        <th style="text-align: center;">优化</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
         <td>
 {%
 assign filtered_posts = site.netty |
-where_exp: "item", "item.url contains '/netty/src/common/trick/'" |
+where_exp: "item", "item.url contains '/netty/src/design-pattern/'" |
+sort: "sequence"
+%}
+<ol>
+    {% for post in filtered_posts %}
+    {% assign num = post.sequence | abs %}
+    <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+</ol>
+        </td>
+        <td>
+{%
+assign filtered_posts = site.netty |
+where_exp: "item", "item.url contains '/netty/src/algorithm/'" |
+sort: "sequence"
+%}
+<ol>
+    {% for post in filtered_posts %}
+    {% assign num = post.sequence | abs %}
+    <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+</ol>
+        </td>
+        <td>
+{%
+assign filtered_posts = site.netty |
+where_exp: "item", "item.url contains '/netty/src/trick/'" |
+sort: "sequence"
+%}
+<ol>
+    {% for post in filtered_posts %}
+    {% assign num = post.sequence | abs %}
+    <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+</ol>
+        </td>
+        <td>
+{%
+assign filtered_posts = site.netty |
+where_exp: "item", "item.url contains '/netty/src/optimization/'" |
 sort: "sequence"
 %}
 <ol>
@@ -828,10 +889,6 @@ sort: "sequence"
     </tr>
     </tbody>
 </table>
-
-### 设计模式、算法和技巧
-
-
 
 ### 参考图
 

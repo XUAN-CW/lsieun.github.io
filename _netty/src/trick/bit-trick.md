@@ -13,14 +13,13 @@ Bit Map 位图，位 映射 X -> Y
 
 是否空间占用
 
+## Chunk - Handle
+
 ## Other
 
-### int替换Integer
+### int替换 Integer
 
 LongLongHashMap
 
 ### FastThreadLocal
 
-### 设计模式
-
-有哪些？

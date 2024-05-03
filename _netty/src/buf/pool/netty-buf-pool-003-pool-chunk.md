@@ -5,33 +5,91 @@ sequence: "103"
 
 [UP](/netty.html)
 
-## 基本
+## PoolChunk 介绍
 
-- PageSize: 8192
-- ChunkSize: 4 * 1024 * 1024
+### 基本概念
 
 | Concept | Netty Class |
 |---------|-------------|
-| Page    |             |
 | Chunk   | PoolChunk   |
+| Page    |             |
+| PageRun |             |
+| Subpage | PoolSubpage |
 
-## Run
 
-## Handle
+{:refdef: style="text-align: center;"}
+![](/assets/images/netty/buf/netty-buffer-pool-chunk-concept-illustrated.svg)
+{:refdef}
 
-## 分配空间
+### Chunk 结构
 
-### 分配 Normal
+{:refdef: style="text-align: center;"}
+![](/assets/images/netty/buf/netty-buffer-pool-chunk-structure.svg)
+{:refdef}
 
-### 分配 Huge
+### Handle
 
-## 释放空间
+在 `PoolChunk` 当中，**handle** 是一个 `long` 类型的数值，它用来表示 PageRun 和 Subpage 的信息：
 
-## 算法
+```text
++------------------+---------------------+--------------+-----------------+--------------------------------+
+│             PageRun (30 bit)           │            Mark (2 bit)        │       Subpage   (32 bit)       │
++------------------+---------------------+--------------+-----------------+--------------------------------+
+│runOffset (15 bit)│num of pages (15 bit)│isUsed (1 bit)│isSubpage (1 bit)│       bitmapIdx (32 bit)       │
++------------------+---------------------+--------------+-----------------+--------------------------------+
+```
 
-- Buddy 伙伴算法：外部碎片
-- Slab 算法：内部碎片
+```text
+oooooooo ooooooos ssssssss ssssssue bbbbbbbb bbbbbbbb bbbbbbbb bbbbbbbb
+```
 
-单独一个文档来记录这两个算法
+- `o`: `runOffset` (page offset in the chunk), 15bit
+- `s`: `size` (number of pages) of this run, 15bit
+- `u`: `isUsed`?, 1bit
+- `e`: `isSubpage`?, 1bit
+- `b`: `bitmapIdx` of subpage, zero if it's not subpage, 32bit
 
+
+
+```text
+handle = 000000000000000 000001000000000 0000000000000000000000000000000000
+runOffset = 0
+size = 512
+isUsed = 0
+isSubpage = 0
+bitmapIdx = 0
+```
+
+## Chunk 创建和销毁
+
+### 创建
+
+```java
+abstract class PoolArena<T> implements PoolArenaMetric {
+    protected abstract PoolChunk<T> newChunk(int pageSize, int maxPageIdx, int pageShifts, int chunkSize);
+
+    protected abstract PoolChunk<T> newUnpooledChunk(int capacity);
+}
+```
+
+{:refdef: style="text-align: center;"}
+![](/assets/images/netty/buf/netty-buffer-pool-chunk-initial-state.svg)
+{:refdef}
+
+### 销毁
+
+```java
+abstract class PoolArena<T> implements PoolArenaMetric {
+    protected abstract void destroyChunk(PoolChunk<T> chunk);
+}
+```
+
+## Chunk 使用
+
+### 分配空间 Normal
+
+### 分配空间 Huge
+
+
+### 释放空间
 
