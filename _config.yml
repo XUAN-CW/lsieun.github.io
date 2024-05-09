@@ -36,6 +36,8 @@ max_width: 1280
 show_excerpts: true
 permalink: none
 collections:
+  algorithm:
+    output: true
   apache-commons:
     output: true
   apache-maven:
@@ -233,6 +235,11 @@ defaults:
   - scope:
       path: ""
       type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "algorithm"
     values:
       layout: "post"
   - scope:

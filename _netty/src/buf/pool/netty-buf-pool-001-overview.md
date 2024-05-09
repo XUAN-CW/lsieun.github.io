@@ -9,6 +9,9 @@ sequence: "101"
 reqCapacity --> normCapacity
 ```
 
+- 减少内存分配次数，提高性能
+
+
 {:refdef: style="text-align: center;"}
 ![](/assets/images/netty/buf/netty-buffer-pool-concept.svg)
 {:refdef}

@@ -45,6 +45,50 @@ sequence: "102"
 ![](/assets/images/netty/buf/netty-buffer-pool-size-class-capacity.svg)
 {:refdef}
 
+### 标准化
+
+```text
+┌─────────────┬───────────────┐
+│    User     │     Netty     │
+├─────────────┼───────────────┤
+│ reqCapacity │ normCapacity  │
+└─────────────┴───────────────┘
+```
+
+```java
+import io.netty.buffer.SizeClasses;
+import lsieun.cst.MyConst;
+import lsieun.drawing.theme.table.TableType;
+import lsieun.drawing.utils.TableUtils;
+
+public class HelloWorld {
+    public static void main(String[] args) {
+        // SizeClasses
+        SizeClasses sizeClasses = new SizeClasses(
+                MyConst.pageSize, MyConst.pageShifts,
+                MyConst.chunkSize, MyConst.directMemoryCacheAlignment
+        );
+
+        // reqCapacity --> normalizedCapacity
+        int reqCapacity = 0;
+        int normCapacity = sizeClasses.normalizeSize(reqCapacity);
+
+        // print
+        String[][] matrix = {
+                {"reqCapacity", "normCapacity"},
+                {String.valueOf(reqCapacity), String.valueOf(normCapacity)}
+        };
+        TableUtils.printTable(matrix, TableType.MARKDOWN);
+    }
+}
+```
+
+```text
+| reqCapacity | normCapacity |
+|-------------|--------------|
+| 0           | 16           |
+````
+
 ## 快速参考
 
 ### 标准规格
