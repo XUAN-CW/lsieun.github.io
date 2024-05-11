@@ -174,6 +174,7 @@ sort: "sequence"
     <tr>
         <th>常用插件</th>
         <th>工具插件</th>
+        <th>AI</th>
     </tr>
     </thead>
     <tbody>
@@ -197,6 +198,21 @@ sort: "sequence"
 {%
 assign filtered_posts = site.intellij-idea |
 where_exp: "item", "item.url contains '/intellij-idea/plugins/tool/'" |
+sort: "sequence"
+%}
+<ol>
+    {% for post in filtered_posts %}
+    {% assign num = post.sequence | abs %}
+    <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+</ol>
+        </td>
+        <td>
+{%
+assign filtered_posts = site.intellij-idea |
+where_exp: "item", "item.url contains '/intellij-idea/plugins/ai/'" |
 sort: "sequence"
 %}
 <ol>

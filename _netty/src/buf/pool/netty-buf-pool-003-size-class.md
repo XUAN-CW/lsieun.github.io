@@ -1,6 +1,6 @@
 ---
 title: "内存规格（SizeClasses）"
-sequence: "102"
+sequence: "103"
 ---
 
 [UP](/netty.html)

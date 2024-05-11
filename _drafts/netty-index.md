@@ -1073,3 +1073,7 @@ sort: "sequence"
 - [孙哥分布式VIP课程](https://blog.csdn.net/weixin_43996338/article/details/133744234)
 - [Netty笔记 上----学习孙哥&不良人课程，整理学习笔记文章](https://juejin.cn/post/7297565621914075162)
 
+- [Lanna_w - Netty](https://blog.csdn.net/lanna_w/category_12232754.html)
+  - [《Netty》从零开始学netty源码（三十八）之PoolSubPage](https://blog.csdn.net/Lanna_w/article/details/130208980)
+- [Netty源码解析 -- PoolSubpage实现原理](https://zhuanlan.zhihu.com/p/279753082)
+- [Netty内存池之PoolSubpage详解](https://blog.csdn.net/m0_46125280/article/details/103855006)

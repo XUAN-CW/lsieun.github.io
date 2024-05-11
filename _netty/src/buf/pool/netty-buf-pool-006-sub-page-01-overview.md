@@ -1,34 +1,338 @@
 ---
-title: "Subpage"
-sequence: "105"
+title: "Subpage：（1）概览"
+sequence: "106-01"
 ---
 
 [UP](/netty.html)
 
-## 基础
+## 概念
 
-### 基本概念
+在 Netty 当中，PoolSubpage 的作用是对 Small 内存块的管理；Small 的空间范围是 `0~28KB`。
+
+{:refdef: style="text-align: center;"}
+![](/assets/images/netty/buf/netty-buffer-pool-size-class-capacity.svg)
+{:refdef}
 
 ```text
-reqCapacity --> normCapacity = elemSize --> runSize
+PoolSubpage helps manage a subset of a chunk of memory in Netty's arena-based memory allocation system.
+This helps in minimizing memory wastage and improving locality.
+```
+
+### 从 ByteBuf 到 Subpage
+
+```text
+reqCapacity --> normCapacity = elemSize --> runSize --> maxNumElems --> bitmapLength --> bitmap
 ```
 
 {:refdef: style="text-align: center;"}
 ![](/assets/images/netty/buf/netty-buffer-pool-subpage-concept.svg)
 {:refdef}
 
-
-### 空间范围
-
-在 Netty 当中，SubPage 可以表示的空间范围是 `0~28KB`。
+### 从 PoolArena 到 Subpage
 
 {:refdef: style="text-align: center;"}
-![](/assets/images/netty/buf/netty-buffer-pool-size-class-capacity.svg)
+![](/assets/images/netty/buf/netty-buffer-pool-subpage-relation-to-arena.svg)
 {:refdef}
 
-### 示例
+## 数据结构
 
-#### 示例一
+PoolSubpage的数据结构：
+
+- 解释PoolSubpage的数据结构，包括其字段的含义和作用。
+- 分析PoolSubpage是如何组织的，包括大小、状态、内存分配情况等信息。
+
+深入 PoolSubpage 的内部数据结构，包括：
+
+- 内存块大小：每个内存块的大小。
+- 内存块数组：存储可用内存块的数组。
+- 使用位图：记录哪些内存块已被分配。
+
+### Arena
+
+
+```java
+final class PoolSubpage<T> implements PoolSubpageMetric {
+    // region Field - Arena
+
+    // head index
+    final int headIndex;
+
+    // head lock - 只有 head 节点拥有『锁』
+    final ReentrantLock lock;
+
+    // doubly-linked list
+    PoolSubpage<T> prev;
+    PoolSubpage<T> next;
+
+    // endregion
+}
+```
+
+
+
+### Chunk
+
+```java
+final class PoolSubpage<T> implements PoolSubpageMetric {
+    // region Field - Chunk
+    final PoolChunk<T> chunk;
+    private final int pageShifts;
+    // endregion
+
+
+    // region Field - PageRun
+    private final int runOffset;
+    private final int runSize;
+    // endregion
+}
+```
+
+### Subpage
+
+```java
+final class PoolSubpage<T> implements PoolSubpageMetric {
+
+    // region Field - SubPage - structure 『基本结构』
+    final int elemSize;
+    private final int maxNumElems;
+    private final int bitmapLength;
+    private final long[] bitmap;
+    // endregion
+
+
+    // region Field - SubPage - avail 『可用空间』
+    private int nextAvail;
+    private int numAvail;
+    // endregion
+
+
+    // region Field - SubPage - destroy
+    boolean doNotDestroy;
+    // endregion
+}
+```
+
+
+## 算法
+
+### 位图算法
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+public class BitMapNum {
+    static final long BIT_00000000 = 0b00L;
+    static final long BIT_00000011 = 0b11L;
+    static final long BIT_00001100 = BIT_00000011 << 2;
+    static final long BIT_00110000 = BIT_00001100 << 2;
+    static final long BIT_11000000 = BIT_00110000 << 2;
+
+    static final long BIT_11000011 = BIT_11000000 | BIT_00000011;
+    static final long BIT_11111111 = BIT_11000000 | BIT_00110000 | BIT_00001100 | BIT_00000011;
+
+
+    private static boolean hasBit(long val, int indexFromLeft) {
+        int rightShift = 63 - indexFromLeft;
+        return ((val >> rightShift) & 1L) == 1L;
+    }
+
+    private static long getNum0() {
+        return getLong(
+                BIT_11111111,
+                BIT_11000011,
+                BIT_11000011,
+                BIT_11000011,
+                BIT_11000011,
+                BIT_11000011,
+                BIT_11111111,
+                BIT_00000000
+        );
+    }
+
+    private static long getNum1() {
+        return getLong(
+                BIT_00000011,
+                BIT_00000011,
+                BIT_00000011,
+                BIT_00000011,
+                BIT_00000011,
+                BIT_00000011,
+                BIT_00000011,
+                BIT_00000000
+        );
+    }
+
+    private static long getNum2() {
+        return getLong(
+                BIT_11111111,
+                BIT_00000011,
+                BIT_00000011,
+                BIT_11111111,
+                BIT_11000000,
+                BIT_11000000,
+                BIT_11111111,
+                BIT_00000000
+        );
+    }
+
+    private static long getNum3() {
+        return getLong(
+                BIT_11111111,
+                BIT_00000011,
+                BIT_00000011,
+                BIT_11111111,
+                BIT_00000011,
+                BIT_00000011,
+                BIT_11111111,
+                BIT_00000000
+        );
+    }
+
+    private static long getNum4() {
+        return getLong(
+                BIT_11000011,
+                BIT_11000011,
+                BIT_11000011,
+                BIT_11111111,
+                BIT_00000011,
+                BIT_00000011,
+                BIT_00000011,
+                BIT_00000000
+        );
+    }
+
+    private static long getNum5() {
+        return getLong(
+                BIT_11111111,
+                BIT_11000000,
+                BIT_11000000,
+                BIT_11111111,
+                BIT_00000011,
+                BIT_00000011,
+                BIT_11111111,
+                BIT_00000000
+        );
+    }
+
+    private static long getNum6() {
+        return getLong(
+                BIT_11111111,
+                BIT_11000000,
+                BIT_11000000,
+                BIT_11111111,
+                BIT_11000011,
+                BIT_11000011,
+                BIT_11111111,
+                BIT_00000000
+        );
+    }
+
+    private static long getNum7() {
+        return getLong(
+                BIT_11111111,
+                BIT_00000011,
+                BIT_00000011,
+                BIT_00000011,
+                BIT_00000011,
+                BIT_00000011,
+                BIT_00000011,
+                BIT_00000000
+        );
+    }
+
+    private static long getNum8() {
+        return getLong(
+                BIT_11111111,
+                BIT_11000011,
+                BIT_11000011,
+                BIT_11111111,
+                BIT_11000011,
+                BIT_11000011,
+                BIT_11111111,
+                BIT_00000000
+        );
+    }
+
+    private static long getNum9() {
+        return getLong(
+                BIT_11111111,
+                BIT_11000011,
+                BIT_11000011,
+                BIT_11111111,
+                BIT_00000011,
+                BIT_00000011,
+                BIT_11111111,
+                BIT_00000000
+        );
+    }
+
+    private static long getLong(long... array) {
+        if (array.length != 8) {
+            throw new RuntimeException("array.length != 8");
+        }
+
+        return array[0] << 56 |
+                array[1] << 48 |
+                array[2] << 40 |
+                array[3] << 32 |
+                array[4] << 24 |
+                array[5] << 16 |
+                array[6] << 8 |
+                array[7];
+    }
+
+    private static final Map<String, Long> NUM_MAP = new HashMap<>();
+
+    static {
+        NUM_MAP.put("0", getNum0());
+        NUM_MAP.put("1", getNum1());
+        NUM_MAP.put("2", getNum2());
+        NUM_MAP.put("3", getNum3());
+        NUM_MAP.put("4", getNum4());
+        NUM_MAP.put("5", getNum5());
+        NUM_MAP.put("6", getNum6());
+        NUM_MAP.put("7", getNum7());
+        NUM_MAP.put("8", getNum8());
+        NUM_MAP.put("9", getNum9());
+    }
+
+    public static void main(String[] args) {
+        String numStr = "0123456789";
+        System.out.println("numStr = " + numStr);
+
+        String[] array = numStr.split("");
+        for (int i = 0; i < 8; i++) {
+            StringBuilder sb = new StringBuilder();
+            for (String key : array) {
+                long val = NUM_MAP.get(key);
+
+                for (int j = 0; j < 8; j++) {
+                    int index = i * 8 + j;
+                    boolean hasBit = hasBit(val, index);
+                    sb.append(hasBit ? "■" : " ");
+                }
+                sb.append("  ");
+            }
+            System.out.println(sb);
+        }
+    }
+}
+```
+
+```text
+■■■■■■■■        ■■  ■■■■■■■■  ■■■■■■■■  ■■    ■■  ■■■■■■■■  ■■■■■■■■  ■■■■■■■■  ■■■■■■■■  ■■■■■■■■  
+■■    ■■        ■■        ■■        ■■  ■■    ■■  ■■        ■■              ■■  ■■    ■■  ■■    ■■  
+■■    ■■        ■■        ■■        ■■  ■■    ■■  ■■        ■■              ■■  ■■    ■■  ■■    ■■  
+■■    ■■        ■■  ■■■■■■■■  ■■■■■■■■  ■■■■■■■■  ■■■■■■■■  ■■■■■■■■        ■■  ■■■■■■■■  ■■■■■■■■  
+■■    ■■        ■■  ■■              ■■        ■■        ■■  ■■    ■■        ■■  ■■    ■■        ■■  
+■■    ■■        ■■  ■■              ■■        ■■        ■■  ■■    ■■        ■■  ■■    ■■        ■■  
+■■■■■■■■        ■■  ■■■■■■■■  ■■■■■■■■        ■■  ■■■■■■■■  ■■■■■■■■        ■■  ■■■■■■■■  ■■■■■■■■  
+```
+
+## 示例
+
+### 示例一：分配3000字节
 
 ```java
 import io.netty.buffer.ByteBuf;
@@ -87,7 +391,7 @@ Bitmap:
 └───────────┴───────────────────────────────────────────────────────────────────┘
 ```
 
-#### 示例二
+### 示例二：3次分配200字节
 
 ```java
 import io.netty.buffer.ByteBuf;
@@ -133,7 +437,7 @@ public class HelloWorld {
 }
 ```
 
-#### 示例三
+### 示例三：从配置文件读取
 
 ```text
 # name,operation,bytes,show
@@ -164,8 +468,7 @@ public class HelloWorld {
 }
 ```
 
-#### 示例四
-
+### 示例四：PageRun 和 Subpage
 
 ```java
 import io.netty.buffer.ByteBuf;
@@ -293,386 +596,3 @@ public class HelloWorld {
 └───────────┴─────────┴───────┴─────────────┘
 ```
 
-
-
-## 进阶
-
-### Arena 和 Chunk
-
-
-{:refdef: style="text-align: center;"}
-![](/assets/images/netty/buf/netty-buffer-pool-subpage-relation.svg)
-{:refdef}
-
-### 分配过程
-
-{:refdef: style="text-align: center;"}
-![](/assets/images/netty/buf/netty-buffer-pool-subpage-allocation.svg)
-{:refdef}
-
-## 相关类
-
-### PoolArena
-
-```java
-abstract class PoolArena<T> implements PoolArenaMetric {
-    final PoolSubpage<T>[] smallSubpagePools;
-
-    protected PoolArena(PooledByteBufAllocator parent, SizeClasses sizeClass) {
-        this.sizeClass = sizeClass;
-
-        smallSubpagePools = newSubpagePoolArray(sizeClass.nSubpages);
-        for (int i = 0; i < smallSubpagePools.length; i++) {
-            smallSubpagePools[i] = newSubpagePoolHead(i);
-        }
-    }
-
-    private PoolSubpage<T> newSubpagePoolHead(int index) {
-        PoolSubpage<T> head = new PoolSubpage<T>(index);
-        head.prev = head;
-        head.next = head;
-        return head;
-    }
-
-    private void allocate(PoolThreadCache cache, PooledByteBuf<T> buf, final int reqCapacity) {
-        final int sizeIdx = sizeClass.size2SizeIdx(reqCapacity);
-
-        if (sizeIdx <= sizeClass.smallMaxSizeIdx) {
-            tcacheAllocateSmall(cache, buf, reqCapacity, sizeIdx);
-        }
-        // 代码省略
-    }
-
-    private void tcacheAllocateSmall(PoolThreadCache cache, PooledByteBuf<T> buf, final int reqCapacity,
-                                     final int sizeIdx) {
-
-        if (cache.allocateSmall(this, buf, reqCapacity, sizeIdx)) {
-            // was able to allocate out of the cache so move on
-            return;
-        }
-
-        /*
-         * Synchronize on the head.
-         * This is needed as {@link PoolChunk#allocateSubpage(int)} and {@link PoolChunk#free(long)}
-         * may modify the doubly linked list as well.
-         */
-        final PoolSubpage<T> head = smallSubpagePools[sizeIdx];
-        final boolean needsNormalAllocation;
-        head.lock();
-        try {
-            final PoolSubpage<T> s = head.next;
-            needsNormalAllocation = s == head;
-            if (!needsNormalAllocation) {
-                assert s.doNotDestroy && s.elemSize == sizeClass.sizeIdx2size(sizeIdx) : "doNotDestroy=" +
-                        s.doNotDestroy + ", elemSize=" + s.elemSize + ", sizeIdx=" + sizeIdx;
-                long handle = s.allocate();
-                assert handle >= 0;
-                s.chunk.initBufWithSubpage(buf, null, handle, reqCapacity, cache);
-            }
-        }
-        finally {
-            head.unlock();
-        }
-
-        if (needsNormalAllocation) {
-            lock();
-            try {
-                allocateNormal(buf, reqCapacity, sizeIdx, cache);
-            }
-            finally {
-                unlock();
-            }
-        }
-
-        incSmallAllocation();
-    }
-
-    private void allocateNormal(PooledByteBuf<T> buf, int reqCapacity, int sizeIdx, PoolThreadCache threadCache) {
-        assert lock.isHeldByCurrentThread();
-        // NOTE: 第 1 步，从现有的 Chunk List 中分配『数据空间』
-        if (q050.allocate(buf, reqCapacity, sizeIdx, threadCache) ||
-                q025.allocate(buf, reqCapacity, sizeIdx, threadCache) ||
-                q000.allocate(buf, reqCapacity, sizeIdx, threadCache) ||
-                qInit.allocate(buf, reqCapacity, sizeIdx, threadCache) ||
-                q075.allocate(buf, reqCapacity, sizeIdx, threadCache)) {
-            return;
-        }
-
-        // NOTE: 第 2 步，创建一个新的 Chunk
-        // Add a new chunk.
-        PoolChunk<T> c = newChunk(sizeClass.pageSize, sizeClass.nPSizes, sizeClass.pageShifts, sizeClass.chunkSize);
-
-        // NOTE: 第 3 步，从新 Chunk 中分配一部分空间到 buf 上
-        boolean success = c.allocate(buf, reqCapacity, sizeIdx, threadCache);
-        assert success;
-
-        // NOTE: 第 4 步，将 chunk 记录到 qInit 中
-        qInit.add(c);
-    }
-
-    @Override
-    protected final void finalize() throws Throwable {
-        try {
-            super.finalize();
-        }
-        finally {
-            destroyPoolSubPages(smallSubpagePools);
-            destroyPoolChunkLists(qInit, q000, q025, q050, q075, q100);
-        }
-    }
-
-    private static void destroyPoolSubPages(PoolSubpage<?>[] pages) {
-        for (PoolSubpage<?> page : pages) {
-            page.destroy();
-        }
-    }
-}
-```
-
-### PoolChunk
-
-```java
-final class PoolChunk<T> implements PoolChunkMetric {
-    private final PoolSubpage<T>[] subpages;
-
-    PoolChunk(PoolArena<T> arena, Object base, T memory, int pageSize, int pageShifts, int chunkSize, int maxPageIdx) {
-        subpages = new PoolSubpage[chunkSize >> pageShifts];
-    }
-    
-    boolean allocate(PooledByteBuf<T> buf, int reqCapacity, int sizeIdx, PoolThreadCache cache) {
-        // NOTE: 第 1 步，获取『可用空间』（handle）
-        final long handle;
-        if (sizeIdx <= arena.sizeClass.smallMaxSizeIdx) {
-            final PoolSubpage<T> nextSub;
-            // small
-            // Obtain the head of the PoolSubPage pool that is owned by the PoolArena and synchronize on it.
-            // This is need as we may add it back and so alter the linked-list structure.
-            PoolSubpage<T> head = arena.smallSubpagePools[sizeIdx];
-            head.lock();
-            try {
-                nextSub = head.next;
-                if (nextSub != head) {
-                    assert nextSub.doNotDestroy && nextSub.elemSize == arena.sizeClass.sizeIdx2size(sizeIdx) :
-                            "doNotDestroy=" + nextSub.doNotDestroy + ", elemSize=" + nextSub.elemSize + ", sizeIdx=" +
-                                    sizeIdx;
-                    // NOTE: 第 1.1.1 步，分配空间
-                    handle = nextSub.allocate();
-                    assert handle >= 0;
-                    assert isSubpage(handle);
-
-                    // NOTE: 第 1.1.2 步，将 handle 与 buf 绑定
-                    nextSub.chunk.initBufWithSubpage(buf, null, handle, reqCapacity, cache);
-                    return true;
-                }
-
-                // NOTE: 第 1.2 步，分配空间
-                handle = allocateSubpage(sizeIdx, head);
-                if (handle < 0) {
-                    return false;
-                }
-                assert isSubpage(handle);
-            }
-            finally {
-                head.unlock();
-            }
-        }
-        // 代码省略
-
-        ByteBuffer nioBuffer = cachedNioBuffers != null ? cachedNioBuffers.pollLast() : null;
-
-        // NOTE: 第 2 步，将『可用空间』（handle） 与 buf 进行绑定
-        initBuf(buf, nioBuffer, handle, reqCapacity, cache);
-        return true;
-    }
-
-    void initBufWithSubpage(PooledByteBuf<T> buf, ByteBuffer nioBuffer, long handle, int reqCapacity,
-                            PoolThreadCache threadCache) {
-        int runOffset = runOffset(handle);
-        int bitmapIdx = bitmapIdx(handle);
-
-        PoolSubpage<T> s = subpages[runOffset];
-        assert s.isDoNotDestroy();
-        assert reqCapacity <= s.elemSize : reqCapacity + "<=" + s.elemSize;
-
-        int offset = (runOffset << pageShifts) + bitmapIdx * s.elemSize;
-
-        // TRACE:
-        buf.init(this, nioBuffer, handle, offset, reqCapacity, s.elemSize, threadCache);
-    }
-
-    private long allocateSubpage(int sizeIdx, PoolSubpage<T> head) {
-        // allocate a new run
-        int runSize = calculateRunSize(sizeIdx);
-        // runSize must be multiples of pageSize
-        long runHandle = allocateRun(runSize);
-        if (runHandle < 0) {
-            return -1;
-        }
-
-        int runOffset = runOffset(runHandle);
-        assert subpages[runOffset] == null;
-        int elemSize = arena.sizeClass.sizeIdx2size(sizeIdx);
-
-        PoolSubpage<T> subpage = new PoolSubpage<T>(head, this, pageShifts, runOffset,
-                runSize(pageShifts, runHandle), elemSize);
-
-        subpages[runOffset] = subpage;
-        return subpage.allocate();
-    }
-
-    private int calculateRunSize(int sizeIdx) {
-        int maxElements = 1 << pageShifts - SizeClasses.LOG2_QUANTUM;
-        int runSize = 0;
-        int nElements;
-
-        final int elemSize = arena.sizeClass.sizeIdx2size(sizeIdx);
-
-        // find the lowest common multiple of pageSize and elemSize
-        do {
-            runSize += pageSize;
-            nElements = runSize / elemSize;
-        } while (nElements < maxElements && runSize != nElements * elemSize);
-
-        while (nElements > maxElements) {
-            runSize -= pageSize;
-            nElements = runSize / elemSize;
-        }
-
-        assert nElements > 0;
-        assert runSize <= chunkSize;
-        assert runSize >= elemSize;
-
-        return runSize;
-    }
-
-    void free(long handle, int normCapacity, ByteBuffer nioBuffer) {
-        if (isSubpage(handle)) {
-            int sIdx = runOffset(handle);
-            PoolSubpage<T> subpage = subpages[sIdx];
-            assert subpage != null;
-            PoolSubpage<T> head = subpage.chunk.arena.smallSubpagePools[subpage.headIndex];
-            // Obtain the head of the PoolSubPage pool that is owned by the PoolArena and synchronize on it.
-            // This is need as we may add it back and so alter the linked-list structure.
-            head.lock();
-            try {
-                assert subpage.doNotDestroy;
-                if (subpage.free(head, bitmapIdx(handle))) {
-                    //the subpage is still used, do not free it
-                    return;
-                }
-                assert !subpage.doNotDestroy;
-                // Null out slot in the array as it was freed and we should not use it anymore.
-                subpages[sIdx] = null;
-            }
-            finally {
-                head.unlock();
-            }
-        }
-
-        int runSize = runSize(pageShifts, handle);
-        // start free run
-        runsAvailLock.lock();
-        try {
-            // collapse continuous runs, successfully collapsed runs
-            // will be removed from runsAvail and runsAvailMap
-            long finalRun = collapseRuns(handle);
-
-            //set run as not used
-            finalRun &= ~(1L << IS_USED_SHIFT);
-            //if it is a subpage, set it to run
-            finalRun &= ~(1L << IS_SUBPAGE_SHIFT);
-
-            insertAvailRun(runOffset(finalRun), runPages(finalRun), finalRun);
-            freeBytes += runSize;
-        }
-        finally {
-            runsAvailLock.unlock();
-        }
-
-        if (nioBuffer != null && cachedNioBuffers != null &&
-                cachedNioBuffers.size() < PooledByteBufAllocator.DEFAULT_MAX_CACHED_BYTEBUFFERS_PER_CHUNK) {
-            cachedNioBuffers.offer(nioBuffer);
-        }
-    }
-}
-```
-
-### PoolSubpage
-
-```java
-final class PoolSubpage<T> implements PoolSubpageMetric {
-    long allocate() {
-        // NOTE: 第 1 步，参数校验
-        if (numAvail == 0 || !doNotDestroy) {
-            return -1;
-        }
-
-        // NOTE: 第 2 步，查找『可用空间』 - bitmapIdx
-        final int bitmapIdx = getNextAvail();
-        if (bitmapIdx < 0) {
-            removeFromPool(); // Subpage appear to be in an invalid state. Remove to prevent repeated errors.
-            throw new AssertionError("No next available bitmap index found (bitmapIdx = " + bitmapIdx + "), " +
-                    "even though there are supposed to be (numAvail = " + numAvail + ") " +
-                    "out of (maxNumElems = " + maxNumElems + ") available indexes.");
-        }
-
-        // NOTE: 第 3 步，bitmap 更新：将 bitmapIdx 代表的『可用空间』标记为『已经占用』
-        int q = bitmapIdx >>> 6;
-        int r = bitmapIdx & 63;
-        assert (bitmap[q] >>> r & 1) == 0;
-        bitmap[q] |= 1L << r;
-
-        // NOTE: 第 4 步，更新 Arena 中的 smallSubpagePools
-        if (--numAvail == 0) {
-            removeFromPool();
-        }
-
-        // NOTE: 将 5 步，将 bitmapIdx 转换为 handle
-        return toHandle(bitmapIdx);
-    }
-
-    boolean free(PoolSubpage<T> head, int bitmapIdx) {
-        // NOTE: 第 1 步，回收『已占用空间』：根据 bitmapIdx 更新 bitmap
-        int q = bitmapIdx >>> 6;
-        int r = bitmapIdx & 63;
-        assert (bitmap[q] >>> r & 1) != 0;
-        bitmap[q] ^= 1L << r;
-
-        // NOTE: 第 2步，将『已占用空间』转换为『可用空间』
-        setNextAvail(bitmapIdx);
-
-        // NOTE: 第 3 步，更新 Arena 中的 smallSubpagePools
-        if (numAvail++ == 0) {
-            // NOTE: 如果 numAvail == 0，则表示原来没有『剩余空间』，现在释放了一份『空间』，就将 SubPage 添加回 Arena
-            addToPool(head);
-            /* When maxNumElems == 1, the maximum numAvail is also 1.
-             * Each of these PoolSubpages will go in here when they do free operation.
-             * If they return true directly from here, then the rest of the code will be unreachable,
-             * and they will not actually be recycled. So return true only on maxNumElems > 1.
-             * */
-            if (maxNumElems > 1) {
-                return true;
-            }
-        }
-
-        // NOTE: 第 4 步，更新 Arena 中的 smallSubpagePools
-        if (numAvail != maxNumElems) {
-            return true;
-        }
-        else {
-            // Subpage not in use (numAvail == maxNumElems)
-            // NOTE: 如果只剩下一个 SubPage，需要保留它
-            if (prev == next) {
-                // Do not remove if this subpage is the only one left in the pool.
-                return true;
-            }
-
-            // NOTE: 如果剩下多个 SubPage，则进行移除操作
-            // Remove this subpage from the pool if there are other subpages left in the pool.
-            doNotDestroy = false;
-            removeFromPool();
-            return false;
-        }
-    }
-}
-```
